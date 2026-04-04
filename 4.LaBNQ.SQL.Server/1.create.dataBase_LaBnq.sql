@@ -1,18 +1,21 @@
 -- This project uses the following licenses:
 -- MIT License
--- Copyright (c) 2024 Ricardo Alfredo Mendoza Cortes 
+-- Copyright (c) 2026 Ricardo Alfredo Mendoza Cortes 
 -- Montréal Québec Canada
 
--- Repository : MVC_winapp_NationalBank_SqlServer > https://github.com/RicardoAMendoza/MVC_winapp_NationalBank_SqlServer.git
--- Project : prjWeb_MVC_LaBanquenationale_Rm
+-- Repository : app-Bancaire-POO-SQL-Server > https://github.com/RicardoAMendoza/app-Bancaire-POO-SQL-Server/tree/master
+-- Project : 3.LaBanqueNationaleduQuebec
 -- Instruction :
--- Copy and paste on SqlServer script and run it. That will create de data base
+-- Copy and paste on SqlServer New Query and run it. That will create de data base
+
+-- Ricardo Mendoza (c) 2026
 
 use master
 go
 -- -----------------------------------------------------
 -- Data base 
 -- -----------------------------------------------------
+
 create database [bdLaBanqueNationaleduQuebec]
 go
 

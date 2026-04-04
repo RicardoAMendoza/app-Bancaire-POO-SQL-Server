@@ -1,12 +1,14 @@
 -- This project uses the following licenses:
 -- MIT License
--- Copyright (c) 2024 Ricardo Alfredo Mendoza Cortes 
+-- Copyright (c) 2026 Ricardo Alfredo Mendoza Cortes 
 -- Montréal Québec Canada
 
--- Repository : MVC_winapp_NationalBank_SqlServer > https://github.com/RicardoAMendoza/MVC_winapp_NationalBank_SqlServer.git
--- Project : prjWeb_MVC_LaBanquenationale_Rm
+-- Repository : app-Bancaire-POO-SQL-Server > https://github.com/RicardoAMendoza/app-Bancaire-POO-SQL-Server/tree/master
+-- Project : 3.LaBanqueNationaleduQuebec
 -- Instruction :
--- Copy AND paste on SqlServer script AND run it. That will create de data base
+-- Copy and paste on SqlServer New Query and run it. That will create Stored Procedure
+
+-- Ricardo Mendoza (c) 2026
 
 
 
@@ -427,7 +429,7 @@ GO
 -- =====================================================
 USE [bdLaBanqueNationaleduQuebec]
 GO
-
+--DROP PROCEDURE sp_save_tclient
 CREATE PROCEDURE sp_save_tclient
 	@aidclient int =null,
 	@anumber tv100 = null,
@@ -436,7 +438,7 @@ CREATE PROCEDURE sp_save_tclient
 	@acourriel tv100 = null,
 	@aimg tv100 = null,
 	@aadresse tv100 = null,
-	@anumerodeCarte tv100 = null,
+	--@anumerodeCarte tv100 = null,
 	@anip tv100 = null,
 	@asexe tv1 = null,
 	@aage int = null,
@@ -444,6 +446,12 @@ CREATE PROCEDURE sp_save_tclient
 	@aidagences int = null,
 	@aidemploye int = null
 AS BEGIN
+    DECLARE @n_aleatorio int;
+	DECLARE @n_mayor int;
+	DECLARE @n_menor int;
+	SET @n_mayor = 550000;
+	SET @n_menor = 100000;
+	SET @n_aleatorio = round(((@n_mayor-@n_menor-1)*rand()+@n_menor),0);
 	IF @aidclient = 0
 		INSERT INTO tclient
 		(number,nomdeFamille,nom,courriel,img,
@@ -451,14 +459,14 @@ AS BEGIN
 		idagences,idemploye)
 		VALUES
 		(@anumber,@anomdeFamille,@anom,@acourriel,@aimg,
-		@aadresse,@anumerodeCarte,@anip,@asexe,@aage,
+		@aadresse,@n_aleatorio,@anip,@asexe,@aage,
 		@aactive,@aidagences,@aidemploye)
 	ELSE
 		UPDATE tclient
 		SET
 		number=@anumber,nomdeFamille=@anomdeFamille,
 		nom=@anom,courriel=@acourriel,img=@aimg,
-		adresse=@aadresse,numerodeCarte=@anumerodeCarte,
+		adresse=@aadresse,numerodeCarte=@n_aleatorio,
 		nip=@anip,sexe=@asexe,age=@aage,
 		active=@aactive,idagences=@aidagences,
 		idemploye=@aidemploye

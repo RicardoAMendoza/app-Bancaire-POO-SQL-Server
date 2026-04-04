@@ -1,3 +1,19 @@
+-- This project uses the following licenses:
+-- MIT License
+-- Copyright (c) 2026 Ricardo Alfredo Mendoza Cortes 
+-- Montréal Québec Canada
+
+-- Repository : app-Bancaire-POO-SQL-Server > https://github.com/RicardoAMendoza/app-Bancaire-POO-SQL-Server/tree/master
+-- Project : 3.LaBanqueNationaleduQuebec
+-- Instruction :
+-- Copy and paste on SqlServer New Query and run it. That will create the functions
+
+-- Ricardo Mendoza (c) 2026
+
+
+
+
+
 -- Les comptes sont de nature différente selon qu'ils soient rémunérés ou
 -- non (comptes courants):
 

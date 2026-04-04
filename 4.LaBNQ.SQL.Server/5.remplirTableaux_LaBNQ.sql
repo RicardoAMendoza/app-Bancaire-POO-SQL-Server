@@ -1,12 +1,14 @@
 -- This project uses the following licenses:
 -- MIT License
--- Copyright (c) 2024 Ricardo Alfredo Mendoza Cortes 
+-- Copyright (c) 2026 Ricardo Alfredo Mendoza Cortes 
 -- Montréal Québec Canada
 
--- Repository : MVC_winapp_NationalBank_SqlServer > https://github.com/RicardoAMendoza/MVC_winapp_NationalBank_SqlServer.git
--- Project : prjWeb_MVC_LaBanquenationale_Rm
+-- Repository : app-Bancaire-POO-SQL-Server > https://github.com/RicardoAMendoza/app-Bancaire-POO-SQL-Server/tree/master
+-- Project : 3.LaBanqueNationaleduQuebec
 -- Instruction :
--- Copy and paste on SqlServer script and run it. That will create de data base
+-- Copy and paste on SqlServer New Query and run it. That will fill the tables up
+
+-- Ricardo Mendoza (c) 2026
 
 
 -- -----------------------------------------------------
@@ -537,7 +539,7 @@ EXEC sp_save_tclient
 @acourriel  = 'gates@microsoft.com',
 @aimg  = 'gates.png',
 @aadresse  = '3540 Masson',
-@anumerodeCarte = '123456',
+--@anumerodeCarte = '123456',
 @anip  = 'windows',
 @asexe = 'M',
 @aage  = 56,
@@ -554,7 +556,7 @@ EXEC sp_save_tclient
 @acourriel  = 'jobs@apple.com',
 @aimg  = 'jobs.png',
 @aadresse  = '148 Cousineau',
-@anumerodeCarte = '123457',
+--@anumerodeCarte = '123457',
 @anip  = 'iphone',
 @asexe = 'M',
 @aage  = 63,
@@ -570,7 +572,7 @@ EXEC sp_save_tclient
 @acourriel  = 'oprah@google.com',
 @aimg  = 'winfreh.png',
 @aadresse  = '3030 Hochelaga',
-@anumerodeCarte = '123458',
+--@anumerodeCarte = '123458',
 @anip  = 'own',
 @asexe = 'F',
 @aage  = 49,
@@ -586,7 +588,7 @@ EXEC sp_save_tclient
 @acourriel  = 'huerta@google.com',
 @aimg  = 'huerta.png',
 @aadresse  = '227 Belanger',
-@anumerodeCarte = '123469',
+--@anumerodeCarte = '123469',
 @anip  = 'hidrogeno',
 @asexe = 'F',
 @aage  = 55,
@@ -602,7 +604,7 @@ EXEC sp_save_tclient
 @acourriel  = 'dali@google.com',
 @aimg  = 'dali.png',
 @aadresse  = '1545 La Jounnesse',
-@anumerodeCarte = '123459',
+--@anumerodeCarte = '123459',
 @anip  = 'pintor',
 @asexe = 'M',
 @aage  = 65,
@@ -618,7 +620,7 @@ EXEC sp_save_tclient
 @acourriel  = 'savala@google.com',
 @aimg  = 'savala.png',
 @aadresse  = '3030 Hochelaga',
-@anumerodeCarte = '123479',
+--@anumerodeCarte = '123479',
 @anip  = 'cpp',
 @asexe = 'F',
 @aage  = 34,
@@ -634,7 +636,7 @@ EXEC sp_save_tclient
 @acourriel  = 'mark@facebook.com',
 @aimg  = 'zurembek.png',
 @aadresse  = '616 Place Brazeau',
-@anumerodeCarte = '123489',
+--@anumerodeCarte = '123489',
 @anip  = 'facebook',
 @asexe = 'F',
 @aage  = 35,
@@ -650,7 +652,7 @@ EXEC sp_save_tclient
 @acourriel  = 'maya@facebook.com',
 @aimg  = 'maya.png',
 @aadresse  = '316 Chilpa',
-@anumerodeCarte = '123499',
+--@anumerodeCarte = '123499',
 @anip  = 'alfonso13',
 @asexe = 'M',
 @aage  = 44,
@@ -666,7 +668,7 @@ EXEC sp_save_tclient
 @acourriel  = 'itzel@facebook.com',
 @aimg  = 'alvaro.png',
 @aadresse  = '527 Alexander',
-@anumerodeCarte = '123599',
+--@anumerodeCarte = '123599',
 @anip  = 'quimica',
 @asexe = 'M',
 @aage  = 24,
@@ -682,7 +684,7 @@ EXEC sp_save_tclient
 @acourriel  = 'santos@facebook.com',
 @aimg  = 'santos.png',
 @aadresse  = '333 Saint-Croax',
-@anumerodeCarte = '123699',
+--@anumerodeCarte = '123699',
 @anip  = 'pasteles',
 @asexe = 'F',
 @aage  = 54,
@@ -698,7 +700,7 @@ EXEC sp_save_tclient
 @acourriel  = 'brizuela@facebook.com',
 @aimg  = 'brizuela.png',
 @aadresse  = '148 Cousineau',
-@anumerodeCarte = '123799',
+--@anumerodeCarte = '123799',
 @anip  = 'construccion',
 @asexe = 'M',
 @aage  = 55,
@@ -714,7 +716,7 @@ EXEC sp_save_tclient
 @acourriel  = 'espana@facebook.com',
 @aimg  = 'espana.png',
 @aadresse  = '555 Tacherau',
-@anumerodeCarte = '123899',
+--@anumerodeCarte = '123899',
 @anip  = 'soldadura',
 @asexe = 'M',
 @aage  = 34,
