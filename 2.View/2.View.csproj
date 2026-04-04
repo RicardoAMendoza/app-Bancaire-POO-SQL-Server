@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1048E5A0-4F3E-4FBE-83CE-3CF8EB71DA48}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>_2.View</RootNamespace>
+    <AssemblyName>2.View</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="agenceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="agenceForm.Designer.cs">
+      <DependentUpon>agenceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateandEditClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateandEditClient.Designer.cs">
+      <DependentUpon>CreateandEditClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateandEditEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateandEditEmployee.Designer.cs">
+      <DependentUpon>CreateandEditEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="employeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="employeeForm.Designer.cs">
+      <DependentUpon>employeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IView.cs" />
+    <Compile Include="clientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="clientForm.Designer.cs">
+      <DependentUpon>clientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mainForm.Designer.cs">
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="agenceForm.resx">
+      <DependentUpon>agenceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateandEditClient.resx">
+      <DependentUpon>CreateandEditClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="clientForm.resx">
+      <DependentUpon>clientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateandEditEmployee.resx">
+      <DependentUpon>CreateandEditEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="employeeForm.resx">
+      <DependentUpon>employeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainForm.resx">
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\1.Model\1.Model.csproj">
+      <Project>{D5FE8AB8-B1F1-4BD2-AAC0-CD4B7314DBB9}</Project>
+      <Name>1.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\3.Control\3.Control.csproj">
+      <Project>{50336d0a-721a-44f8-8281-810677b9faf4}</Project>
+      <Name>3.Control</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

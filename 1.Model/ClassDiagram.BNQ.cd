@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="_1.Model.Model.Director">
+    <Position X="5" Y="6.5" Width="1.5" />
+    <InheritanceLine Type="_1.Model.Abstract_Class.Human" ManuallyRouted="true">
+      <Path>
+        <Point X="10.75" Y="18.25" />
+        <Point X="10.75" Y="17.83" />
+        <Point X="5.75" Y="17.83" />
+        <Point X="5.75" Y="9.598" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAiAAgAABAAAAAAAAAAQAAAAAAAAAAACAAAAAAAQ=</HashCode>
+      <FileName>Model\Director.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_1.Model.Model.Employee">
+    <Position X="10" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQiAAgIABAAAACAAQAAAAAAAAAgwCAAAAAAAIAAQ=</HashCode>
+      <FileName>Model\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_1.Model.Model.Date">
+    <Position X="18" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AICAAAAAJgAAAAAAAAAAAAAAAAAAAAAEAAABAQAAAgA=</HashCode>
+      <FileName>Model\Date.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_1.Model.Abstract_Class.Human">
+    <Position X="10" Y="18.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAABACIAAGBAABQAACICAAAgAAAAgAAAAAw=</HashCode>
+      <FileName>Abstract_Class\Human.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_1.Model.Collections.ListClients">
+    <Position X="12.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAQAAAAAAAAAAACAAQACAAAAEIAAAAABAAgAFAAAA=</HashCode>
+      <FileName>Collections\ListClients.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="_1.Model.Collections.ListEmployees">
+    <Position X="10" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAcAAgAAAAAAAAAAAAAQACAAAAEAAAAAAABAgAFAAAA=</HashCode>
+      <FileName>Collections\ListEmployees.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="_1.Model.Collections.ListDirectors">
+    <Position X="5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQcAAAAAAAAAAAAAAAAQACBAAAEAAAAAAAAAgAFAAAA=</HashCode>
+      <FileName>Collections\ListDirectors.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="_1.Model.Model.Agency">
+    <Position X="7.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAgAAwAACAEAECAAAAAAAAAgAAABAAEBAgQIAAAA=</HashCode>
+      <FileName>Model\Agency.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_1.Model.Collections.ListPaidAccounts">
+    <Position X="15" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAcABAAAAAAAAAAAAAAQACAAAAEAAAAAAAABgAFAAAA=</HashCode>
+      <FileName>Collections\ListPaidAccounts.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="_1.Model.Collections.ListUnPaidAccounts">
+    <Position X="15" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAcAAAAAQAAAAAAAAAAQACAAAAEAAAAAAAAAgAFAAAA=</HashCode>
+      <FileName>Collections\ListUnPaidAccounts.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="_1.Model.Model.PaidAccount">
+    <Position X="17.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAEAAEAAAAQQAAAAAEQAAo=</HashCode>
+      <FileName>Model\PaidAccount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_1.Model.Model.UnPaidAccount">
+    <Position X="17.25" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAABAAAAAABAAAAAAAAAAAAEAAAAAAAAQAAEAAEQBAo=</HashCode>
+      <FileName>Model\UnPaidAccount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_1.Model.Abstract_Class.Account">
+    <Position X="19.75" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAGAAAAAAAAAEggAAAEAAIAAAAAQRgAAAEQAAo=</HashCode>
+      <FileName>Abstract_Class\Account.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_1.Model.Model.BanqueNationaleduQuebec">
+    <Position X="11" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAggCAkAAAAQIBAABAEAAAkAiAAAAAIAAAACg=</HashCode>
+      <FileName>Model\BanqueNationaleduQuebec.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_1.Model.Collections.ListAgencies">
+    <Position X="7.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAcBAAAAAAAAAAAAAAAQACAAgAEAAAAAAAAAgAFAAAA=</HashCode>
+      <FileName>Collections\ListAgencies.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="_1.Model.Model.Client">
+    <Position X="12.25" Y="12" Width="1.5" />
+    <InheritanceLine Type="_1.Model.Abstract_Class.Human" ManuallyRouted="true">
+      <Path>
+        <Point X="10.75" Y="18.25" />
+        <Point X="10.75" Y="17.807" />
+        <Point X="13" Y="17.807" />
+        <Point X="13" Y="18.367" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAABAAEkAgBAgAggEABAAAACAAAAkkCAAQACABAAAQ=</HashCode>
+      <FileName>Model\Client.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="_1.Model.Model.IModel.IModelLists">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAAAAACAAAAEIAAAAAAAAAAFAAAA=</HashCode>
+      <FileName>Model\IModel\IModelLists.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
