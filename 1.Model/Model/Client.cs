@@ -15,7 +15,7 @@ namespace _1.Model.Model
         private string Address;
         private string Nip;
         private int Age;
-        private string NumerodeCarte;
+        private int NumerodeCarte;
         private Employee Employee;
         private int IdAgences;
         private int IdEmploye;
@@ -35,7 +35,7 @@ namespace _1.Model.Model
             clientIdCounter = ++staticNbcounter;
         }
         public Client(int vId, string vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, 
-            string vNumerodeCarte,  string vNip, string vSexe, int vAge, string vActive,   ListUnPaidAccounts vListUnPaidAccounts, ListPaidAccounts vListPaidAccounts)
+            int vNumerodeCarte,  string vNip, string vSexe, int vAge, string vActive,   ListUnPaidAccounts vListUnPaidAccounts, ListPaidAccounts vListPaidAccounts)
            : base(vId,vNumber, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
         {
             Client.staticNbcounter++;
@@ -49,7 +49,7 @@ namespace _1.Model.Model
         }
 
         public Client(int vId, string vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, 
-            string vNumerodeCarte, string vNip, string vSexe, int vAge, string vActive, int vIdAgences, int vIdEmploye)
+            int vNumerodeCarte, string vNip, string vSexe, int vAge, string vActive, int vIdAgences, int vIdEmploye)
             /// Inherit from Human
             : base(vId,vNumber, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
         {
@@ -64,7 +64,7 @@ namespace _1.Model.Model
             clientIdCounter = ++staticNbcounter;
         }  
         /// Employee Details
-        public Client(int vId,string vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, string vNumerodeCarte, string vNip, string vSexe, int vAge, string vActive,
+        public Client(int vId,string vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, int vNumerodeCarte, string vNip, string vSexe, int vAge, string vActive,
             int vEmpId, string vEmpNumber, string vEmpName, string vEmpLastName, string vEmpEMail, string vEmpPhoto, Date vEmpHearingDate, Decimal vEmpSalary, string vEmpSexe, string vEmpActive, int vDay, int vMonth, int vYear)
            /// Inherit from Human
            : base(vId,vNumber, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
@@ -128,7 +128,7 @@ namespace _1.Model.Model
             get { return Address; }
             set { Address = value; }
         }
-        public string vNumerodeCarte
+        public int vNumerodeCarte
         {
             get { return NumerodeCarte; }
             set { NumerodeCarte = value; }

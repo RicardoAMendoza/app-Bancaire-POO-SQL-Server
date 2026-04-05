@@ -105,13 +105,13 @@ namespace _2.View
             this.textBoxEMail.Text = client.vEMail;
             this.textBoxImagen.Text = client.vPhoto;
             this.textBoxAddresse.Text = client.vAddress;
-            this.textBoxCard.Text = client.vNumerodeCarte;
+            //this.textBoxCard.Text = client.vNumerodeCarte;
+            this.textBoxCard.Text = client.vNumerodeCarte.ToString();
             this.textBoxNIP.Text = client.vNip;
             this.textBoxSexe.Text = client.vSexe;
             this.textBoxAge.Text = client.vAge.ToString();
             this.textBoxActive.Text = client.vActive;
             //ID
-
             this.textBoxIdAgence.Text = client.vIdAgences.ToString();
             this.textBoxIdEmploye.Text = client.vIdEmploye.ToString();
 
@@ -180,7 +180,15 @@ namespace _2.View
                 this.DialogResult = DialogResult.Cancel;
                 return;
             }
-
+            // Parse IdAgence safely
+            int NumerodeCarteValue = 0;
+            string NumerodeCarteText = this.textBoxIdAgence.Text?.Trim() ?? string.Empty;
+            if (!string.IsNullOrEmpty(NumerodeCarteText) && !int.TryParse(NumerodeCarteText, out NumerodeCarteValue))
+            {
+                MessageBox.Show("Please enter a valid integer for Age.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.DialogResult = DialogResult.Cancel;
+                return;
+            }
             // Create and populate client
             var client = new Client()
             {
@@ -191,7 +199,7 @@ namespace _2.View
                 vEMail = this.textBoxEMail.Text?.Trim() ?? string.Empty,
                 vPhoto = this.textBoxImagen.Text?.Trim() ?? string.Empty,
                 vAddress = this.textBoxAddresse.Text?.Trim() ?? string.Empty,
-                vNumerodeCarte = this.textBoxCard.Text?.Trim() ?? string.Empty,
+                vNumerodeCarte = NumerodeCarteValue,
                 vNip = this.textBoxNIP.Text?.Trim() ?? string.Empty,
                 vSexe = this.textBoxSexe.Text?.Trim() ?? string.Empty,
                 vAge = ageValue,

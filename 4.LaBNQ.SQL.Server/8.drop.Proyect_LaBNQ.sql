@@ -143,7 +143,7 @@ GO
 -- 1.
 drop view [dbo].[viewClient]
 -- 2.
-drop view [dbo].[viewClientComptes]
+drop view [dbo].[viewClentComptes]
 -- 3.
 drop view [dbo].[viewAgences]
 -- 4.

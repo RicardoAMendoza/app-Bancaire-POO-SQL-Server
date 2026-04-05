@@ -339,7 +339,9 @@ namespace _3.Control
                                 string vEmail = reader["eMAIL"] as string ?? string.Empty;
                                 string vPhoto = reader["PHOTO"] as string ?? string.Empty;
                                 string vAddress = reader["ADDRESS"] as string ?? string.Empty;
-                                string vNumerodeCarte = reader["CARD"] as string ?? string.Empty;
+                                // vNumerodeCarte
+                                int vNumerodeCarte = reader["CARD"] != DBNull.Value ? Convert.ToInt32(reader["CARD"]) : 0;
+                                // string vNumerodeCarte = reader["CARD"] as string ?? string.Empty;
                                 string vNip = reader["NIP"] as string ?? string.Empty;
                                 string vSexe = reader["SEXE"] as string ?? string.Empty;
                                 int vAge = reader["AGE"] != DBNull.Value ? Convert.ToInt32(reader["AGE"]) : 0;
