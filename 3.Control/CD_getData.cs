@@ -333,7 +333,8 @@ namespace _3.Control
                             {
                                 // Client fields (null-safe)
                                 int vId = reader["IDCLIENT"] != DBNull.Value ? Convert.ToInt32(reader["IDCLIENT"]) : 0;
-                                string vNumber = reader["NUMBER"] as string ?? string.Empty;
+                                int vNumber = reader["NUMBER"] != DBNull.Value ? Convert.ToInt32(reader["NUMBER"]) : 0;
+                         //   string vNumber = reader["NUMBER"] as string ?? string.Empty;
                                 string vName = reader["NAME"] as string ?? string.Empty;
                                 string vLastName = reader["lastName"] as string ?? string.Empty;
                                 string vEmail = reader["eMAIL"] as string ?? string.Empty;
@@ -555,7 +556,8 @@ namespace _3.Control
                             int ordActive = reader.GetOrdinal("ACTIVE");
 
                             int vIdEmployee = !reader.IsDBNull(ordId) ? reader.GetInt32(ordId) : 0;
-                            string vNumber = !reader.IsDBNull(ordNumber) ? reader.GetString(ordNumber) : string.Empty;
+                            int vNumber = !reader.IsDBNull(ordNumber) ? reader.GetInt32(ordNumber) : 0;
+                          //  string vNumber = !reader.IsDBNull(ordNumber) ? reader.GetString(ordNumber) : string.Empty;
                             string vName = !reader.IsDBNull(ordName) ? reader.GetString(ordName) : string.Empty;
                             string vLastName = !reader.IsDBNull(ordLast) ? reader.GetString(ordLast) : string.Empty;
                             string vEmail = !reader.IsDBNull(ordEmail) ? reader.GetString(ordEmail) : string.Empty;

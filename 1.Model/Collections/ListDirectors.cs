@@ -11,12 +11,12 @@ namespace _1.Model.Collections
 {
     public class ListDirectors : IModelLists
     {
-        private Dictionary<string, Director> listDirectors;
+        private Dictionary<int, Director> listDirectors;
         public ListDirectors()
         {
-            listDirectors = new Dictionary<string, Director>();
+            listDirectors = new Dictionary<int, Director>();
         }
-        public Dictionary<string, Director> vlistDirectors
+        public Dictionary<int, Director> vlistDirectors
         {
             get { return listDirectors; }
             set { listDirectors = value; }
@@ -25,17 +25,17 @@ namespace _1.Model.Collections
         {
             get { return listDirectors.Values.Count; }
         }
-        public Dictionary<string, Director>.ValueCollection Elements
+        public Dictionary<int, Director>.ValueCollection Elements
         {
             get { return listDirectors.Values; }
         }
 
-        public bool Exist(string directorNumber)
+        public bool Exist(int directorNumber)
         {
             return listDirectors.ContainsKey(directorNumber);
         }
   
-        object IModelLists.Find(string directorNumber)
+        object IModelLists.Find(int directorNumber)
         {
             if (Exist(directorNumber))
             {
@@ -54,7 +54,7 @@ namespace _1.Model.Collections
             }
             return false;
         }
-        public bool Update(string directorNumber, object obj)
+        public bool Update(int directorNumber, object obj)
         {
             Director director = (Director)obj;
             if (Exist(directorNumber))
@@ -64,7 +64,7 @@ namespace _1.Model.Collections
             }
             return false;
         }
-        public bool Delete(string number)
+        public bool Delete(int number)
         {
             return listDirectors.Remove(number);
         }

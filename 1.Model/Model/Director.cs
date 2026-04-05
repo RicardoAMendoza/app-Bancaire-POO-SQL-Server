@@ -23,7 +23,7 @@ namespace _1.Model.Model
         /// <param name="vLastName"></param>
         /// <param name="vPhoto"></param>
         /// <param name="vSalary"></param>
-        public Director(int vId,string vNumber, string vName, string vLastName, string vEMail, 
+        public Director(int vId,int vNumber, string vName, string vLastName, string vEMail, 
             string vPhoto,string vSexe, string vActive, decimal vSalary)
             : base(vId, vNumber, vName, vLastName, vEMail, vPhoto, vSexe,vActive)
         {
@@ -54,7 +54,7 @@ namespace _1.Model.Model
         /// specific to the derived class before delegating to the base class.</remarks>
         /// <param name="vName">The first name of the human to create. Cannot be null or empty.</param>
         /// <param name="vLastName">The last name of the human to create. Cannot be null or empty.</param>
-        public override void CreateHuman(string vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vSexe, string vActive)
+        public override void CreateHuman(int vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vSexe, string vActive)
         {
             directorIdCounter = vdirectorIdCounter;
             base.CreateHuman( vNumber,  vName, vLastName,  vEMail, vPhoto, vSexe, vActive);

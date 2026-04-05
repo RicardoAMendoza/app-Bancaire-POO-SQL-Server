@@ -10,31 +10,31 @@ namespace _1.Model.Collections
 {
     public class ListAgencies : IModelLists
     {
-        private Dictionary<string, Agency> listAgency;
+        private Dictionary<int, Agency> listAgency;
         public ListAgencies()
         {
-            listAgency = new Dictionary<string, Agency>();
+            listAgency = new Dictionary<int, Agency>();
         }
         public int Quantity
         {
             get { return listAgency.Values.Count; }
         }
-        public Dictionary<string, Agency>.ValueCollection Elements
+        public Dictionary<int, Agency>.ValueCollection Elements
         {
             get { return listAgency.Values; }
         }
-        public Dictionary<string, Agency> vlistAgency
+        public Dictionary<int, Agency> vlistAgency
         {
             get { return listAgency; }
             set { listAgency = value; }
 
         }
 
-        public bool Exist(string agencyNumber)
+        public bool Exist(int agencyNumber)
         {
             return listAgency.ContainsKey(agencyNumber);
         }
-        object IModelLists.Find(string agencyNumber)
+        object IModelLists.Find(int agencyNumber)
         {
             if (Exist(agencyNumber))
             {
@@ -69,7 +69,7 @@ namespace _1.Model.Collections
             listAgency.Add(agency.vAgencyNumber, agency);
             return true;
         }
-        public bool Update(string accountNumber, object obj)
+        public bool Update(int accountNumber, object obj)
         {
             Agency agency = (Agency)obj;
             if (Exist(accountNumber))
@@ -79,7 +79,7 @@ namespace _1.Model.Collections
             }
             return false;
         }
-        public bool Delete(string AgencyNumber)
+        public bool Delete(int AgencyNumber)
         {
             if (Exist(AgencyNumber))
             {

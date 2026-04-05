@@ -17,7 +17,7 @@ namespace _1.Model.Collections
         /// <summary>
         /// Internal dictionary storing paid accounts, keyed by account number.
         /// </summary>
-        private Dictionary<string, UnPaidAccount> listUnPaidAccounts;
+        private Dictionary<int, UnPaidAccount> listUnPaidAccounts;
         /// <summary>
         /// Initializes a new instance of the <see cref="ListUnPaidAccounts"/> class with the specified collection of paid
         /// accounts.
@@ -26,9 +26,9 @@ namespace _1.Model.Collections
         /// is a <see cref="UnPaidAccount"/> object. Cannot be null.</param>
         public ListUnPaidAccounts()
         {
-            listUnPaidAccounts = new Dictionary<string, UnPaidAccount>();
+            listUnPaidAccounts = new Dictionary<int, UnPaidAccount>();
         }
-        public Dictionary<string, UnPaidAccount> vlistUnPaidAccounts
+        public Dictionary<int, UnPaidAccount> vlistUnPaidAccounts
         {
             get { return listUnPaidAccounts; }
             set { listUnPaidAccounts = value; }
@@ -43,20 +43,20 @@ namespace _1.Model.Collections
         /// <summary>
         /// Gets a collection containing the values of all paid accounts.
         /// </summary>
-        public Dictionary<string, UnPaidAccount>.ValueCollection Elements
+        public Dictionary<int, UnPaidAccount>.ValueCollection Elements
         {
             get { return listUnPaidAccounts.Values; }
         }
         /// <summary>
         /// Gets or sets the client associated with this collection of unpaid accounts.
         /// </summary>
-       
+
         /// <summary>
         /// Checks if a paid account exists in the collection by its account number.
         /// </summary>
         /// <param name="accountNumber">The account number of the paid account to check.</param>
         /// <returns>True if the account exists, false otherwise.</returns>
-        public bool Exist(string accountNumber)
+        public bool Exist(int accountNumber)
         {
             return listUnPaidAccounts.ContainsKey(accountNumber);
         }
@@ -67,7 +67,7 @@ namespace _1.Model.Collections
         /// <returns>
         /// The <see cref="UnPaidAccount"/> object if found; otherwise, <c>null</c>.
         /// </returns>
-        object IModelLists.Find(string AccountNumber)
+        object IModelLists.Find(int AccountNumber)
         {
             if (Exist(AccountNumber))
                 return listUnPaidAccounts[AccountNumber];
@@ -92,7 +92,7 @@ namespace _1.Model.Collections
             else
                 return false;
         }
-        public bool Update(string accountNumber, object obj)
+        public bool Update(int accountNumber, object obj)
         {
             UnPaidAccount account = (UnPaidAccount)obj;
             if (Exist(accountNumber))
@@ -107,7 +107,7 @@ namespace _1.Model.Collections
         /// </summary>
         /// <param name="number">The account number of the paid account to remove.</param>
         /// <returns>True if the account was removed successfully, false if the account was not found.</returns>
-        public bool Delete(string number)
+        public bool Delete(int number)
         {
             return listUnPaidAccounts.Remove(number);
         }
@@ -137,7 +137,7 @@ namespace _1.Model.Collections
         /// <param name="accountNumber">The account number of the paid account to update.</param>
         /// <param name="updatedAccount">A <see cref="UnPaidAccount"/> object containing the updated details.</param>
         /// <returns>True if the account was updated successfully, false otherwise.</returns>
-        public bool Update(string accountNumber, UnPaidAccount updatedAccount)
+        public bool Update(int accountNumber, UnPaidAccount updatedAccount)
         {
             if (Exist(accountNumber))
             {

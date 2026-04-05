@@ -54,7 +54,7 @@ namespace _1.Model.Model
         /// <param name="vLastName">The last name of the employee.</param>
         /// <param name="vPhoto">The file path or URL of the employee's photo.</param>
         /// <param name="vHiringDate">The date the employee was hired.</param>
-        public Employee(int vId, string vNumber, string vName, string vLastName, string vEMail,string vPhoto, Date vHiringDate,Decimal vSalary,
+        public Employee(int vId, int vNumber, string vName, string vLastName, string vEMail,string vPhoto, Date vHiringDate,Decimal vSalary,
                         string vSexe,string vActive, int vDay, int vMonth, int vYear)
                         : base(vId,vNumber, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
         {
@@ -74,7 +74,7 @@ namespace _1.Model.Model
             HiringDate = new Date();
             employeeIdCounter = ++staticNbcounter;
         }
-        public Employee(int vId, string vNumber, string vName, string vLastName, string vEMail, string vPhoto, Date vHiringDate,Decimal vSalary, string vSexe, string vActive, int vIdAgences)
+        public Employee(int vId, int vNumber, string vName, string vLastName, string vEMail, string vPhoto, Date vHiringDate,Decimal vSalary, string vSexe, string vActive, int vIdAgences)
            : base(vId, vNumber, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
         {
             Salary = vSalary;
@@ -126,7 +126,7 @@ namespace _1.Model.Model
             info += $"Employee ID: {employeeIdCounter}\n";
             return info;
         }
-        public override void CreateHuman(string vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vSexe, string vActive)
+        public override void CreateHuman(int vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vSexe, string vActive)
         {
             /// Assign a unique employee ID when creating a new human
             employeeIdCounter = ++staticNbcounter;

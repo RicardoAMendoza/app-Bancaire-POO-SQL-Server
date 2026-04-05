@@ -19,7 +19,7 @@ namespace _1.Model.Abstract_Class
     public abstract class Human
     {
         private int Id;
-        private string Number;
+        private int Number;
         private string Name;
         private string LastName;
         private string EMail;
@@ -27,7 +27,7 @@ namespace _1.Model.Abstract_Class
         private string Sexe;
         private string Active;
 
-        public Human(int vId, string vNumber, string vName, string vLastName, string vEMail,  string vPhoto, string vSexe, string vActive)
+        public Human(int vId, int vNumber, string vName, string vLastName, string vEMail,  string vPhoto, string vSexe, string vActive)
         {
             Id = vId;
             Number = vNumber;
@@ -41,7 +41,7 @@ namespace _1.Model.Abstract_Class
         public Human()
         {
             Id = 0;
-            Number = EmptyConstructor.stringEmptyConstructor();
+            Number = EmptyConstructor.intEmptyConstructor();
             Name = EmptyConstructor.stringEmptyConstructor();
             LastName = EmptyConstructor.stringEmptyConstructor();
             EMail = EmptyConstructor.stringEmptyConstructor();
@@ -59,7 +59,7 @@ namespace _1.Model.Abstract_Class
             set { Id = value; }
         }
 
-        public string vNumber
+        public int vNumber
         {
             get { return Number; }
             set { Number = value; }
@@ -97,7 +97,7 @@ namespace _1.Model.Abstract_Class
             set { Active = value; }
         }
 
-        public virtual void CreateHuman(string vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vSexe, string vActive)
+        public virtual void CreateHuman(int vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vSexe, string vActive)
         {
             Number = vNumber;
             Name = vName;

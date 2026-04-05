@@ -13,7 +13,7 @@ namespace _1.Model.Model
         private decimal Overdraft;
         private decimal Fees;
 
-        public UnPaidAccount(string vNumber, string vType, string vClientName, string vClientlastName, decimal vBalance, int vDay, int vMonth, int vYear, decimal vOverdraft, decimal vFees)
+        public UnPaidAccount(int vNumber, string vType, string vClientName, string vClientlastName, decimal vBalance, int vDay, int vMonth, int vYear, decimal vOverdraft, decimal vFees)
             : base(vNumber, vType, vClientName, vClientlastName, vBalance, vDay, vMonth, vYear)
         {
             Overdraft = vOverdraft;
@@ -35,15 +35,7 @@ namespace _1.Model.Model
             set { Fees = value; }
         }
 
-        public ListUnPaidAccounts ListUnPaidAccounts
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public override void OpenAccount(string vNumber, string vType, string vClientName, string vClientlastName, decimal vBalance, int vDay, int vMonth, int vYear)
+        public override void OpenAccount(int vNumber, string vType, string vClientName, string vClientlastName, decimal vBalance, int vDay, int vMonth, int vYear)
         {
             base.OpenAccount(vNumber, vType, vClientName, vClientlastName, vBalance, vDay, vMonth, vYear);
         }

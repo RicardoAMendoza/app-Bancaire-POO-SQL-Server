@@ -13,18 +13,18 @@ namespace _1.Model.Collections
         /// <summary>
         /// Manages a collection of Employee objects, providing methods to add, remove, find, and display employees.
         /// </summary>
-        private Dictionary<string, Employee> listEmployees;
+        private Dictionary<int, Employee> listEmployees;
         /// <summary>
         /// Initializes a new instance of the <see cref="ListEmployees"/> class with an empty collection of employees.
         /// </summary>
         public ListEmployees()
         {
-            listEmployees = new Dictionary<string, Employee>();
+            listEmployees = new Dictionary<int, Employee>();
         }
         /// <summary>
         /// Gets or sets the collection of employees, indexed by their unique identifiers.
         /// </summary>
-        public Dictionary<string, Employee> vlistEmployees
+        public Dictionary<int, Employee> vlistEmployees
         {
             get { return listEmployees; }
             set { listEmployees = value; }
@@ -39,7 +39,7 @@ namespace _1.Model.Collections
         /// <summary>
         /// Gets a collection containing the values of all employees in the dictionary.
         /// </summary>
-        public Dictionary<string, Employee>.ValueCollection Elements
+        public Dictionary<int, Employee>.ValueCollection Elements
         {
             get { return listEmployees.Values; }
         }
@@ -50,7 +50,7 @@ namespace _1.Model.Collections
         /// <param name="employeeNumber">The unique identifier of the employee to locate.</param>
         /// <returns><see langword="true"/> if an employee with the specified employee number exists; otherwise, <see
         /// langword="false"/>.</returns>
-        public bool Exist(string employeeNumber)
+        public bool Exist(int employeeNumber)
         {
             return listEmployees.ContainsKey(employeeNumber);
         }
@@ -60,7 +60,7 @@ namespace _1.Model.Collections
         /// <param name="employeeNumber">The unique identifier of the employee to find. Cannot be null or empty.</param>
         /// <returns>The <see cref="Employee"/> object associated with the specified employee number,  or <see langword="null"/>
         /// if no employee with the given number exists.</returns>
-        object IModelLists.Find(string employeeNumber)
+        object IModelLists.Find(int employeeNumber)
         {
             if (Exist(employeeNumber))
             {
@@ -89,7 +89,7 @@ namespace _1.Model.Collections
                 throw new Exception("Employee already exists");
             }
         }
-        public bool Update(string cemployeeNumber, object obj)
+        public bool Update(int cemployeeNumber, object obj)
         {
             Employee employee = (Employee)obj;
             if (Exist(cemployeeNumber))
@@ -99,7 +99,7 @@ namespace _1.Model.Collections
             }
             return false;
         }
-        public bool Delete(string employeeNumber)
+        public bool Delete(int employeeNumber)
         {
             /// Remove an employee from the collection by their employee number.
             if (Exist(employeeNumber))

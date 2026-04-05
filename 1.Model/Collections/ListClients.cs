@@ -11,12 +11,12 @@ namespace _1.Model.Collections
 {
     public class ListClients : IModelLists
     {
-        private Dictionary<string, Client> listClients;
+        private Dictionary<int, Client> listClients;
         public ListClients()
         {
-            listClients = new Dictionary<string, Client>();
+            listClients = new Dictionary<int, Client>();
         }
-        public Dictionary<string, Client> vlistClients
+        public Dictionary<int, Client> vlistClients
         {
             get { return listClients; }
             set { listClients = value; }
@@ -25,17 +25,17 @@ namespace _1.Model.Collections
         {
             get { return listClients.Values.Count; }
         }
-        public Dictionary<string, Client>.ValueCollection Elements
+        public Dictionary<int, Client>.ValueCollection Elements
         {
             get { return listClients.Values; }
         }
 
         
-        public bool Exist(string clientNumber)
+        public bool Exist(int clientNumber)
         {
             return listClients.ContainsKey(clientNumber);
         }
-        public object Find(string clientNumber)
+        public object Find(int clientNumber)
         {
             if (Exist(clientNumber))
             {
@@ -44,7 +44,7 @@ namespace _1.Model.Collections
             else
                 return null;
         }
-        public Client FindClient(string clientNumber)
+        public Client FindClient(int clientNumber)
         {
             if (Exist(clientNumber))
             {
@@ -79,7 +79,7 @@ namespace _1.Model.Collections
       /// <param name="clientNumber">The unique identifier of the client to update. Cannot be null.</param>
       /// <param name="obj">An object containing the updated client data. Must be of type <see cref="Client"/>.</param>
       /// <returns>true if the client was found and updated; otherwise, false.</returns>
-        public bool Update(string clientNumber, object obj)
+        public bool Update(int clientNumber, object obj)
         {
             Client client = (Client)obj;
             if (Exist(clientNumber))
@@ -90,7 +90,7 @@ namespace _1.Model.Collections
             return false;
         }
 
-        public bool Delete(string number)
+        public bool Delete(int number)
         {
             return listClients.Remove(number);
         }

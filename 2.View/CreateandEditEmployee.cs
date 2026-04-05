@@ -41,7 +41,7 @@ namespace _2.View
             this.labelEmployeeID.Text = "Edit employee";
             this.labeID.Text = " ID: " + employee.vId.ToString();
 
-            this.textBoxNumber.Text = employee.vNumber;
+            this.textBoxNumber.Text = employee.vNumber.ToString();
             this.textBoxName.Text = employee.vName;
             this.textBoxLastName.Text = employee.vLastName;
             this.textBoxEMail.Text = employee.vEMail;
@@ -79,22 +79,35 @@ namespace _2.View
             */
 
             // Safe reads
-            string number = this.textBoxNumber.Text?.Trim() ?? string.Empty;
+            //string number = this.textBoxNumber.Text?.Trim() ?? string.Empty;
             string name = this.textBoxName.Text?.Trim() ?? string.Empty;
             string lastName = this.textBoxLastName.Text?.Trim() ?? string.Empty;
 
-            // Basic validation
-            if (string.IsNullOrEmpty(number))
+            // Parse age safely
+            int numberValue = 0;
+            string numberText = this.textBoxNumber.Text?.Trim() ?? string.Empty;
+            if (!string.IsNullOrEmpty(numberText) && !int.TryParse(numberText, out numberValue))
             {
-                MessageBox.Show("Please enter a employee number.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter a valid integer for Age.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.DialogResult = DialogResult.Cancel;
                 return;
             }
 
+
+
+
+            // Basic validation
+            //if (string.IsNullOrEmpty(number))
+            //{
+            //    MessageBox.Show("Please enter a employee number.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    this.DialogResult = DialogResult.Cancel;
+            //    return;
+            //}
+
             // Duplicate check
-            if (agency.vListEmployees != null && agency.vListEmployees.Exist(number))
+            if (agency.vListEmployees != null && agency.vListEmployees.Exist(numberValue))
             {
-                MessageBox.Show($"A employee with number '{number}' already exists.", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"A employee with number '{numberValue}' already exists.", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.Cancel;
                 return;
             }
@@ -226,7 +239,7 @@ namespace _2.View
             var employee = new Employee()
             {
                 vId = this.employeeId,
-                vNumber = number,
+                vNumber = numberValue,
                 vName = name,
                 vLastName = lastName,
                 vEMail = this.textBoxEMail.Text?.Trim() ?? string.Empty,

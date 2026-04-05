@@ -34,7 +34,7 @@ namespace _1.Model.Model
             listUnPaidAccounts = vlistUnPaidAccounts;
             clientIdCounter = ++staticNbcounter;
         }
-        public Client(int vId, string vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, 
+        public Client(int vId, int vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, 
             int vNumerodeCarte,  string vNip, string vSexe, int vAge, string vActive,   ListUnPaidAccounts vListUnPaidAccounts, ListPaidAccounts vListPaidAccounts)
            : base(vId,vNumber, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
         {
@@ -48,7 +48,7 @@ namespace _1.Model.Model
             listPaidAccounts = vListPaidAccounts;
         }
 
-        public Client(int vId, string vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, 
+        public Client(int vId, int vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, 
             int vNumerodeCarte, string vNip, string vSexe, int vAge, string vActive, int vIdAgences, int vIdEmploye)
             /// Inherit from Human
             : base(vId,vNumber, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
@@ -64,8 +64,8 @@ namespace _1.Model.Model
             clientIdCounter = ++staticNbcounter;
         }  
         /// Employee Details
-        public Client(int vId,string vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, int vNumerodeCarte, string vNip, string vSexe, int vAge, string vActive,
-            int vEmpId, string vEmpNumber, string vEmpName, string vEmpLastName, string vEmpEMail, string vEmpPhoto, Date vEmpHearingDate, Decimal vEmpSalary, string vEmpSexe, string vEmpActive, int vDay, int vMonth, int vYear)
+        public Client(int vId,int vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, int vNumerodeCarte, string vNip, string vSexe, int vAge, string vActive,
+            int vEmpId, int vEmpNumber, string vEmpName, string vEmpLastName, string vEmpEMail, string vEmpPhoto, Date vEmpHearingDate, Decimal vEmpSalary, string vEmpSexe, string vEmpActive, int vDay, int vMonth, int vYear)
            /// Inherit from Human
            : base(vId,vNumber, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
         {
@@ -153,7 +153,7 @@ namespace _1.Model.Model
         /// logic. Ensure that the provided names meet any validation requirements defined in the base class.</remarks>
         /// <param name="vName">The first name of the human to create. Cannot be null or empty.</param>
         /// <param name="vLastName">The last name of the human to create. Cannot be null or empty.</param>
-        public override void CreateHuman(string vNumber, string vName, string vLastName, string vEMail, string vPhoto,  string vSexe,  string vActive)
+        public override void CreateHuman(int vNumber, string vName, string vLastName, string vEMail, string vPhoto,  string vSexe,  string vActive)
         {
             //if (string.IsNullOrWhiteSpace(vName))
             //    throw new ArgumentException("First name cannot be null or empty.", nameof(vName));

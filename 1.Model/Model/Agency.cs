@@ -11,7 +11,7 @@ namespace _1.Model.Model
     public class Agency
     {
         private int IdAgency;
-        private string AgencyNumber;
+        private int AgencyNumber;
         private string AgencyName;
         private string AgencyAddress;
         private int agencyIdCounter;
@@ -22,7 +22,7 @@ namespace _1.Model.Model
         private ListEmployees listEmployees = new ListEmployees();
         private ListClients listClients = new ListClients();
 
-        public Agency(int vIdAgency, string vNumber, string vName, string vAddress, int idBanque)
+        public Agency(int vIdAgency, int vNumber, string vName, string vAddress, int idBanque)
         {
             IdAgency = vIdAgency;
             AgencyNumber = vNumber;
@@ -41,7 +41,7 @@ namespace _1.Model.Model
         }
         public Agency()
         {
-            AgencyNumber = EmptyConstructor.stringEmptyConstructor();
+            AgencyNumber = EmptyConstructor.intEmptyConstructor();
             AgencyName = EmptyConstructor.stringEmptyConstructor();
             AgencyAddress = EmptyConstructor.stringEmptyConstructor();
             agencyIdCounter = 0;
@@ -67,7 +67,7 @@ namespace _1.Model.Model
             get { return idBanque; }
             set { idBanque = value; }
         }
-        public string vAgencyNumber
+        public int vAgencyNumber
         {
             get { return AgencyNumber; }
             set { AgencyNumber = value; }
@@ -103,7 +103,7 @@ namespace _1.Model.Model
             info += " Employees : " + listEmployees.ShowList() + "\n";
             return info;
         }
-        public void OpenAgence(string vNumber, string vName, string vAddress, ListClients vListClients, ListEmployees vListEmployee)
+        public void OpenAgence(int vNumber, string vName, string vAddress, ListClients vListClients, ListEmployees vListEmployee)
         {
             AgencyNumber = vNumber;
             AgencyName = vName;

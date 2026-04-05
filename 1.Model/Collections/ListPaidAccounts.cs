@@ -17,7 +17,7 @@ namespace _1.Model.Collections
         /// <summary>
         /// Internal dictionary storing paid accounts, keyed by account number.
         /// </summary>
-        private Dictionary<string, PaidAccount> listPaidAccounts;
+        private Dictionary<int, PaidAccount> listPaidAccounts;
         /// <summary>
         /// Initializes a new instance of the <see cref="ListPaidAccounts"/> class with the specified collection of paid
         /// accounts.
@@ -26,10 +26,10 @@ namespace _1.Model.Collections
         /// is a <see cref="PaidAccount"/> object. Cannot be null.</param>
         public ListPaidAccounts()
         {
-            listPaidAccounts = new Dictionary<string, PaidAccount>();
+            listPaidAccounts = new Dictionary<int, PaidAccount>();
         }
 
-        public Dictionary<string, PaidAccount> vlistPaidAccounts
+        public Dictionary<int, PaidAccount> vlistPaidAccounts
         {
             get { return listPaidAccounts; }
             set { listPaidAccounts = value; }
@@ -44,7 +44,7 @@ namespace _1.Model.Collections
         /// <summary>
         /// Gets a collection containing the values of all paid accounts.
         /// </summary>
-        public Dictionary<string, PaidAccount>.ValueCollection Elements
+        public Dictionary<int, PaidAccount>.ValueCollection Elements
         {
             get { return listPaidAccounts.Values; }
         }
@@ -54,7 +54,7 @@ namespace _1.Model.Collections
         /// </summary>
         /// <param name="accountNumber">The account number of the paid account to check.</param>
         /// <returns>True if the account exists, false otherwise.</returns>
-        public bool Exist(string accountNumber)
+        public bool Exist(int accountNumber)
         {
             return listPaidAccounts.ContainsKey(accountNumber);
         }
@@ -65,7 +65,7 @@ namespace _1.Model.Collections
         /// <returns>
         /// The <see cref="PaidAccount"/> object if found; otherwise, <c>null</c>.
         /// </returns>
-        object IModelLists.Find(string AccountNumber)
+        object IModelLists.Find(int AccountNumber)
         {
             if (Exist(AccountNumber))
                 return listPaidAccounts[AccountNumber];
@@ -97,7 +97,7 @@ namespace _1.Model.Collections
         /// <param name="accountNumber">The account number of the paid account to update.</param>
         /// <param name="updatedAccount">A <see cref="PaidAccount"/> object containing the updated details.</param>
         /// <returns>True if the account was updated successfully, false otherwise.</returns>
-        public bool Update(string accountNumber, object obj)
+        public bool Update(int accountNumber, object obj)
         {
             PaidAccount paidaccount = (PaidAccount)obj;
             if (Exist(accountNumber))
@@ -112,7 +112,7 @@ namespace _1.Model.Collections
         /// </summary>
         /// <param name="number">The account number of the paid account to remove.</param>
         /// <returns>True if the account was removed successfully, false if the account was not found.</returns>
-        public bool Delete(string number)
+        public bool Delete(int number)
         {
             return listPaidAccounts.Remove(number);
         }
@@ -135,7 +135,7 @@ namespace _1.Model.Collections
             return info.ToString();
         }
 
-      
+
 
         //public bool Update(string accountNumber, PaidAccount updatedAccount)
         //{

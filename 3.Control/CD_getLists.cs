@@ -65,7 +65,8 @@ namespace _3.Control
                     {
                         // Client fields (null-safe)
                         int vId = reader["IDCLIENT"] != DBNull.Value ? Convert.ToInt32(reader["IDCLIENT"]) : 0;
-                        string vNumber = reader["NUMBER"] as string ?? string.Empty;
+                        int vNumber = reader["NUMBER"] != DBNull.Value ? Convert.ToInt32(reader["NUMBER"]) : 0;
+                       // string vNumber = reader["NUMBER"] as string ?? string.Empty;
                         string vName = reader["NAME"] as string ?? string.Empty;
                         string vLastName = reader["lastName"] as string ?? string.Empty;
                         string vEmail = reader["eMAIL"] as string ?? string.Empty;
@@ -147,7 +148,8 @@ namespace _3.Control
                     {
                         // EMPLOYEE fields (null-safe)
                         int vId = reader["IDEMPLOYEE"] != DBNull.Value ? Convert.ToInt32(reader["IDEMPLOYEE"]) : 0;
-                        string vNumber = reader["NUMBER"] as string ?? string.Empty;
+                        int vNumber = reader["NUMBER"] != DBNull.Value ? Convert.ToInt32(reader["NUMBER"]) : 0;
+                        //string vNumber = reader["NUMBER"] as string ?? string.Empty;
                         string vName = reader["NAME"] as string ?? string.Empty;
                         string vLastName = reader["lastName"] as string ?? string.Empty;
                         string vEmail = reader["eMAIL"] as string ?? string.Empty;
@@ -218,7 +220,8 @@ namespace _3.Control
                     {
                         // Agency fields (null-safe)
                         int vId = reader["IDAGENCE"] != DBNull.Value ? Convert.ToInt32(reader["IDAGENCE"]) : 0;
-                        string vNumber = reader["NUMBER"] as string ?? string.Empty;
+                       // string vNumber = reader["NUMBER"] as string ?? string.Empty;
+                        int vNumber = reader["NUMBER"] != DBNull.Value ? Convert.ToInt32(reader["NUMBER"]) : 0;
                         string vName = reader["NAME"] as string ?? string.Empty;
                         string vAddress = reader["ADDRESS"] as string ?? string.Empty;
                         // [idbanque]

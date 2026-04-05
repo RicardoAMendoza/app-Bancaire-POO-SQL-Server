@@ -20,7 +20,7 @@ namespace _1.Model.Model
     public class PaidAccount : Account
     {
         private decimal InterestRate;
-        public PaidAccount(string vNumber, string vType, string vClientName, string vClientlastName, decimal vBalance, int vDay, int vMonth, int vYear, decimal vInterestRate)
+        public PaidAccount(int vNumber, string vType, string vClientName, string vClientlastName, decimal vBalance, int vDay, int vMonth, int vYear, decimal vInterestRate)
             : base(vNumber, vType, vClientName, vClientlastName, vBalance, vDay, vMonth, vYear)
         {
             InterestRate = vInterestRate;
@@ -36,16 +36,6 @@ namespace _1.Model.Model
             set { InterestRate = value; }
         }
 
-        public ListPaidAccounts ListPaidAccounts
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-
-
         /// <summary>
         /// Opens a new account with the specified details.
         /// </summary>
@@ -59,7 +49,7 @@ namespace _1.Model.Model
         /// <param name="vDay">The day of the account's opening date (1-31).</param>
         /// <param name="vMonth">The month of the account's opening date (1-12).</param>
         /// <param name="vYear">The year of the account's opening date.</param>
-        public override void OpenAccount(string vNumber, string vType, string vClientName, string vClientlastName, decimal vBalance, int vDay, int vMonth, int vYear)
+        public override void OpenAccount(int vNumber, string vType, string vClientName, string vClientlastName, decimal vBalance, int vDay, int vMonth, int vYear)
         {
             base.OpenAccount(vNumber, vType, vClientName, vClientlastName, vBalance, vDay, vMonth, vYear);
         }
