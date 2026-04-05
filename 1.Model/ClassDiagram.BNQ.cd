@@ -37,7 +37,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="_1.Model.Collections.ListClients">
-    <Position X="12.25" Y="7.75" Width="1.5" />
+    <Position X="12.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAYAQAAAAAAAAAAACAAQACAAAAEIAAAAABAAgAFAAAA=</HashCode>
       <FileName>Collections\ListClients.cs</FileName>
@@ -63,7 +63,7 @@
   <Class Name="_1.Model.Model.Agency">
     <Position X="7.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAgAAwAACAEAECAAAAAAAAAgAAABAAEBAgQIAAAA=</HashCode>
+      <HashCode>EAABAgAAwAACAEAECAAAAAAAAAiABABAAEBAgQIBAAA=</HashCode>
       <FileName>Model\Agency.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -86,14 +86,14 @@
   <Class Name="_1.Model.Model.PaidAccount">
     <Position X="17.25" Y="12" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAEAAEAAAAQQAAAAAEQAAo=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAEAAAAQQAAAAAEQAAo=</HashCode>
       <FileName>Model\PaidAccount.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="_1.Model.Model.UnPaidAccount">
     <Position X="17.25" Y="16.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAABAAAAAABAAAAAAAAAAAAEAAAAAAAAQAAEAAEQBAo=</HashCode>
+      <HashCode>gAABAAAAAABAAAAAAAAAAAAEAAAAAAAAQAAEAAEQAAo=</HashCode>
       <FileName>Model\UnPaidAccount.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -105,7 +105,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="_1.Model.Model.BanqueNationaleduQuebec">
-    <Position X="11" Y="0.75" Width="1.5" />
+    <Position X="10.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAggCAkAAAAQIBAABAEAAAkAiAAAAAIAAAACg=</HashCode>
       <FileName>Model\BanqueNationaleduQuebec.cs</FileName>
@@ -120,13 +120,13 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="_1.Model.Model.Client">
-    <Position X="12.25" Y="12" Width="1.5" />
+    <Position X="12.25" Y="11" Width="1.5" />
     <InheritanceLine Type="_1.Model.Abstract_Class.Human" ManuallyRouted="true">
       <Path>
         <Point X="10.75" Y="18.25" />
         <Point X="10.75" Y="17.807" />
         <Point X="13" Y="17.807" />
-        <Point X="13" Y="18.367" />
+        <Point X="13" Y="17.367" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>

@@ -11,15 +11,17 @@ namespace _1.Model.Model
     public class BanqueNationaleduQuebec
     {
         // Attributes
-        public int bancIdCounter;
-        private string bankNumber;
+        private int Idbanque;
+        private int bankNumber;
         private string bankName;
         private decimal Capital;
         private string bankAddress;
-        // lists
+        // Colections
         private ListAgencies listAgencies = new ListAgencies();
-        private ListDirectors listDirectors = new ListDirectors(); 
+        private ListDirectors listDirectors = new ListDirectors();
+
         private static int staticNbcounter;
+        public int bancIdCounter;
 
         // Constructors
         public BanqueNationaleduQuebec(ListAgencies vListAgencies, ListDirectors vListDirectors)
@@ -28,8 +30,9 @@ namespace _1.Model.Model
             listDirectors = vListDirectors;
             bancIdCounter = ++staticNbcounter;
         }
-        public BanqueNationaleduQuebec(string vBankNumber, string vBankName, decimal vCapital,string vBankAddress)
+        public BanqueNationaleduQuebec(int vIdbanque, int vBankNumber, string vBankName, decimal vCapital,string vBankAddress)
         {
+            Idbanque = vIdbanque;
             bankNumber = vBankNumber;
             bankName = vBankName;
             Capital = vCapital;
@@ -38,7 +41,8 @@ namespace _1.Model.Model
         }
         public BanqueNationaleduQuebec()
         {
-            bankNumber = EmptyConstructor.stringEmptyConstructor();
+            Idbanque = EmptyConstructor.intEmptyConstructor();
+            bankNumber = EmptyConstructor.intEmptyConstructor();
             bankName = EmptyConstructor.stringEmptyConstructor();
             bankAddress = EmptyConstructor.stringEmptyConstructor();
             Capital = EmptyConstructor.decimalEmptyConstructor();
@@ -47,12 +51,17 @@ namespace _1.Model.Model
             bancIdCounter = ++staticNbcounter;
         }
         // propierties
+        public int vIdbanque
+        {
+            get { return Idbanque; }
+            set { Idbanque = value; }
+        }
         public int vbancIdCounter
         {
             get { return bancIdCounter; }
             /// No set accessor: bancIdCounter is read-only and auto-incremented
         }
-        public string vBankNumber
+        public int vBankNumber
         {
             get { return bankNumber; }
             set { bankNumber = value; }
@@ -85,7 +94,7 @@ namespace _1.Model.Model
         }
 
         // Functions
-        public void OpenaBank(string vBankNumber, string vBankName, decimal vCapital, string vBankAddress,  ListAgencies vListAgencies, ListDirectors vListDirectors)
+        public void OpenaBank(int vBankNumber, string vBankName, decimal vCapital, string vBankAddress,  ListAgencies vListAgencies, ListDirectors vListDirectors)
         {
             //Console.WriteLine("Welcome to La Banque Nationale du Quebec!");
             //Console.WriteLine("We are committed to providing excellent financial services to our customers.");

@@ -51,7 +51,7 @@ GO
 create table tlabanqueduQuebec(
 idbanque int IDENTITY (10,10)
 )
-ALTER TABLE tlabanqueduQuebec ADD number tv100
+ALTER TABLE tlabanqueduQuebec ADD number int
 ALTER TABLE tlabanqueduQuebec ADD nom tv100
 ALTER Table tlabanqueduQuebec 
 ADD capital DECIMAL(22,6) NULL DEFAULT NULL

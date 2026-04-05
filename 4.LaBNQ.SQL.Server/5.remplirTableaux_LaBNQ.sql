@@ -19,7 +19,7 @@ GO
 
 EXEC sp_save_tlabanqueduQuebec
 @aidbanque =0,
-@anumber = "LaBanqueNationale",
+@anumber = 776655,
 @anom = "La Banque Nationale",
 @acapital = 100000000,
 @aadresse = "1000 rue Masson, Mntreal, Canada, H4N3N1"
