@@ -11,7 +11,7 @@ namespace _1.Model.Model
     public class Agency
     {
         private int IdAgency;
-        private int AgencyNumber;
+
         private string AgencyName;
         private string AgencyAddress;
         private int agencyIdCounter;
@@ -22,10 +22,10 @@ namespace _1.Model.Model
         private ListEmployees listEmployees = new ListEmployees();
         private ListClients listClients = new ListClients();
 
-        public Agency(int vIdAgency, int vNumber, string vName, string vAddress, int idBanque)
+        public Agency(int vIdAgency, string vName, string vAddress, int idBanque)
         {
             IdAgency = vIdAgency;
-            AgencyNumber = vNumber;
+  
             AgencyName = vName;
             AgencyAddress = vAddress;
             agencyIdCounter = 0;
@@ -41,7 +41,7 @@ namespace _1.Model.Model
         }
         public Agency()
         {
-            AgencyNumber = EmptyConstructor.intEmptyConstructor();
+            
             AgencyName = EmptyConstructor.stringEmptyConstructor();
             AgencyAddress = EmptyConstructor.stringEmptyConstructor();
             agencyIdCounter = 0;
@@ -67,11 +67,7 @@ namespace _1.Model.Model
             get { return idBanque; }
             set { idBanque = value; }
         }
-        public int vAgencyNumber
-        {
-            get { return AgencyNumber; }
-            set { AgencyNumber = value; }
-        }
+     
         public string vAgencyName
         {
             get { return AgencyName; }
@@ -96,7 +92,7 @@ namespace _1.Model.Model
         public string ShowAgencies()
         {
             string info = " ";
-            info += "Agence Number : " + AgencyNumber + "\n";
+    
             info += " Agence Name : " + AgencyName + "\n";
             info += " Agence Address : " + AgencyAddress + "\n";
             info += " Clients : " + listClients.ShowList() + "\n";
@@ -105,7 +101,7 @@ namespace _1.Model.Model
         }
         public void OpenAgence(int vNumber, string vName, string vAddress, ListClients vListClients, ListEmployees vListEmployee)
         {
-            AgencyNumber = vNumber;
+
             AgencyName = vName;
             AgencyAddress = vAddress;
             listClients = vListClients;

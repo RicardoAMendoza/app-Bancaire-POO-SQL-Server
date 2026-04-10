@@ -23,9 +23,9 @@ namespace _1.Model.Model
         /// <param name="vLastName"></param>
         /// <param name="vPhoto"></param>
         /// <param name="vSalary"></param>
-        public Director(int vId,int vNumber, string vName, string vLastName, string vEMail, 
+        public Director(int vId, string vName, string vLastName, string vEMail, 
             string vPhoto,string vSexe, string vActive, decimal vSalary)
-            : base(vId, vNumber, vName, vLastName, vEMail, vPhoto, vSexe,vActive)
+            : base(vId,  vName, vLastName, vEMail, vPhoto, vSexe,vActive)
         {
             directorIdCounter = ++staticNbcounter;
             Salary = vSalary;

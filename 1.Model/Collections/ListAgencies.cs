@@ -63,10 +63,10 @@ namespace _1.Model.Collections
         public bool Add(object obj)
         {
             Agency agency = (Agency)obj;
-            if (Exist(agency.vAgencyNumber))
+            if (Exist(agency.vIdAgency))
                 return false;
 
-            listAgency.Add(agency.vAgencyNumber, agency);
+            listAgency.Add(agency.vIdAgency, agency);
             return true;
         }
         public bool Update(int accountNumber, object obj)

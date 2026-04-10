@@ -39,7 +39,7 @@ namespace _2.View
             {
                 DataRow row = datatable.NewRow();
                 row["IDAGENCE"] = agency.vIdAgency;
-                row["NUMBER"] = agency.vAgencyNumber;
+             
                 row["NAME"] = agency.vAgencyName;
                 row["ADDRESS"] = agency.vAgencyAddress;
                 // ID

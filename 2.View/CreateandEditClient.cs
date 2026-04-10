@@ -99,7 +99,7 @@ namespace _2.View
             this.labelClientID.Text = "Edit Client";
             this.labeID.Text = " ID: " + client.vId.ToString();
 
-            this.textBoxNumber.Text = client.vNumber.ToString(); ;
+        
             this.textBoxName.Text = client.vName;
             this.textBoxLastName.Text = client.vLastName;
             this.textBoxEMail.Text = client.vEMail;
@@ -203,7 +203,7 @@ namespace _2.View
             var client = new Client()
             {
                 vId = this.clientId,
-                vNumber = numberValue,
+               
                 vName = name,
                 vLastName = lastName,
                 vEMail = this.textBoxEMail.Text?.Trim() ?? string.Empty,

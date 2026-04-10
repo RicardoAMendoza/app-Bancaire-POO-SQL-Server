@@ -86,7 +86,6 @@ GO
 -- ---------------------------- Patrick
 EXEC  sp_save_tdirecteur
 @aiddirecteur = 0,
-@anumber ="dir01",
 @anomdeFamille ="Patrick",
 @anom = "Dorre",
 @acourriel = "dorre@gmail.com",
@@ -98,7 +97,6 @@ EXEC  sp_save_tdirecteur
 -- ---------------------------- Tonye
 EXEC  sp_save_tdirecteur
 @aiddirecteur = 0,
-@anumber = "dir02",
 @anomdeFamille = "Fernand",
 @anom = "Bikatal-Bi-Tonye",
 @acourriel = "bikatal@gmail.com",
@@ -110,7 +108,6 @@ EXEC  sp_save_tdirecteur
 -- ---------------------------- Saint
 EXEC  sp_save_tdirecteur
 @aiddirecteur = 0,
-@anumber = "dir03",
 @anomdeFamille = "Richard",
 @anom = "Saint-Vingt-Cent",
 @acourriel = "bikatal@gmail.com",
@@ -122,7 +119,6 @@ EXEC  sp_save_tdirecteur
 -- ---------------------------- Andy
 EXEC  sp_save_tdirecteur
 @aiddirecteur = 0,
-@anumber = "dir04",
 @anomdeFamille = "Andy",
 @anom = "DelRisco",
 @acourriel = "DelRisco@gmail.com",
@@ -237,7 +233,6 @@ GO
 
 EXEC sp_save_temploye 
 @aidemploye  = 0,
-@anumber  = 'E1E1',
 @anomdeFamille  = 'Juan',
 @anom = 'Zamanego',
 @acourriel  = 'zamanego@gamil.com',
@@ -250,7 +245,6 @@ EXEC sp_save_temploye
 
 EXEC sp_save_temploye 
 @aidemploye  = 0,
-@anumber  = 'E3E3',
 @anomdeFamille  = 'Cesar',
 @anom = 'Silva',
 @acourriel  = 'cesar@gmail.com',
@@ -263,7 +257,6 @@ EXEC sp_save_temploye
 
 EXEC [dbo].[sp_save_temploye ] 
 @aidemploye  = 0,
-@anumber  = 'E4E4',
 @anomdeFamille  = 'Ana',
 @anom = 'Fernandez',
 @acourriel  = 'fernandez@gmail.com',
@@ -276,7 +269,6 @@ EXEC [dbo].[sp_save_temploye ]
 
 EXEC [dbo].[sp_save_temploye ]  
 @aidemploye  = 0,
-@anumber  = 'E2E2',
 @anomdeFamille  = 'Rauoul',
 @anom = 'Nguiya',
 @acourriel  = 'raoul@gmail.com',
@@ -289,7 +281,6 @@ EXEC [dbo].[sp_save_temploye ]
 
 EXEC [dbo].[sp_save_temploye ]  
 @aidemploye  = 0,
-@anumber  = 'E5E5',
 @anomdeFamille  = 'Maria',
 @anom = 'Houda',
 @acourriel  = 'maria@google.com',
@@ -302,7 +293,6 @@ EXEC [dbo].[sp_save_temploye ]
 
 EXEC [dbo].[sp_save_temploye ]  
 @aidemploye  = 0,
-@anumber  = 'E6E6',
 @anomdeFamille  = 'Maria',
 @anom = 'Arteaga',
 @acourriel  = 'arteaga@gmail.com',
@@ -315,7 +305,6 @@ EXEC [dbo].[sp_save_temploye ]
 
 EXEC [dbo].[sp_save_temploye ]  
 @aidemploye  = 0,
-@anumber  = 'E7E7',
 @anomdeFamille  = 'Maria',
 @anom = 'Madany',
 @acourriel  = 'madany@google.com',
@@ -328,7 +317,6 @@ EXEC [dbo].[sp_save_temploye ]
 
 EXEC [dbo].[sp_save_temploye ]  
 @aidemploye  = 0,
-@anumber  = 'E8E8',
 @anomdeFamille  = 'Roseely',
 @anom = 'Brand',
 @acourriel  = 'brand@gmail.com',
@@ -341,7 +329,6 @@ EXEC [dbo].[sp_save_temploye ]
 
 EXEC [dbo].[sp_save_temploye ]  
 @aidemploye  = 0,
-@anumber  = 'E10E10',
 @anomdeFamille  = 'Esmeralda',
 @anom = 'Mafogue',
 @acourriel  = 'esmeralda@gmail.com',
@@ -354,7 +341,6 @@ EXEC [dbo].[sp_save_temploye ]
 
 EXEC [dbo].[sp_save_temploye ] 
 @aidemploye  = 0,
-@anumber  = 'E9E9',
 @anomdeFamille  = 'Silvayn',
 @anom = 'Trudeau',
 @acourriel  = 'trudeau@gmail.com',
@@ -367,7 +353,6 @@ EXEC [dbo].[sp_save_temploye ]
 
 EXEC [dbo].[sp_save_temploye ]  
 @aidemploye  = 0,
-@anumber  = 'E11E11',
 @anomdeFamille  = 'Brack',
 @anom = 'Obama',
 @acourriel  = 'obama@gamil.com',
@@ -380,20 +365,9 @@ EXEC [dbo].[sp_save_temploye ]
 
 EXEC [dbo].[sp_save_temploye ] 
 @aidemploye  = 0,
-@anumber  = 'E12E12',
 @anomdeFamille  = 'Benoit',
 @anom = 'Fracoise',
-@acourriel  = 'benoit@gmail.com',
-@aimg  = 'francoise.png',
-@ahiringDate  = '1998-04-03',
-@asalary = 150000.99,
-@asexe = 'M',
-@aactive = 'A',
-@aidagences = 40
-
-EXEC [dbo].[sp_save_temploye ] 
-@aidemploye  = 0,
-@anumber  = 'E13E13',
+@acou
 @anomdeFamille  = 'Helena',
 @anom = 'Gonzalez',
 @acourriel  = 'gonzalez@google.com',
@@ -406,7 +380,6 @@ EXEC [dbo].[sp_save_temploye ]
 
 EXEC [dbo].[sp_save_temploye ] 
 @aidemploye  = 0,
-@anumber  = 'E14E14',
 @anomdeFamille  = 'Diana',
 @anom = 'Rosamonte',
 @acourriel  = 'rosamonte@google.com',
@@ -419,7 +392,6 @@ EXEC [dbo].[sp_save_temploye ]
 
 EXEC [dbo].[sp_save_temploye ] 
 @aidemploye  = 0,
-@anumber  = 'E15E15',
 @anomdeFamille  = 'Claudia',
 @anom = 'Sheinbown',
 @acourriel  = 'sheinbown@google.com',
@@ -432,7 +404,6 @@ EXEC [dbo].[sp_save_temploye ]
 
 EXEC [dbo].[sp_save_temploye ] 
 @aidemploye  = 0,
-@anumber  = 'E16E16',
 @anomdeFamille  = 'Andres',
 @anom = 'Lopez',
 @acourriel  = 'lopez@google.com',
@@ -533,7 +504,7 @@ GO
 
 EXEC sp_save_tclient
 @aidclient = 0,
-@anumber  = 'C1C1',
+--@anumber  = 'C1C1',
 @anomdeFamille  = 'Bill',
 @anom  = 'Gates',
 @acourriel  = 'gates@microsoft.com',
@@ -550,7 +521,7 @@ EXEC sp_save_tclient
 
 EXEC sp_save_tclient
 @aidclient = 0,
-@anumber  = 'C2C2',
+--@anumber  = 'C2C2',
 @anomdeFamille = 'Steve',
 @anom  = 'Jobs',
 @acourriel  = 'jobs@apple.com',
@@ -566,7 +537,7 @@ EXEC sp_save_tclient
 
 EXEC sp_save_tclient
 @aidclient = 0,
-@anumber  = 'C3C3',
+--@anumber  = 'C3C3',
 @anomdeFamille = 'Oprah',
 @anom  = 'Winfreh',
 @acourriel  = 'oprah@google.com',
@@ -582,7 +553,7 @@ EXEC sp_save_tclient
 
 EXEC sp_save_tclient
 @aidclient = 0,
-@anumber  = 'C4C4',
+--@anumber  = 'C4C4',
 @anomdeFamille = 'Rosa',
 @anom  = 'Huerta',
 @acourriel  = 'huerta@google.com',
@@ -598,7 +569,7 @@ EXEC sp_save_tclient
 
 EXEC sp_save_tclient
 @aidclient = 0,
-@anumber  = 'C5C5',
+--@anumber  = 'C5C5',
 @anomdeFamille = 'Salvador',
 @anom  = 'Dali',
 @acourriel  = 'dali@google.com',
@@ -614,7 +585,7 @@ EXEC sp_save_tclient
 
 EXEC sp_save_tclient
 @aidclient = 0,
-@anumber  = 'C6C6',
+--@anumber  = 'C6C6',
 @anomdeFamille = 'Wendy',
 @anom  = 'Savala',
 @acourriel  = 'savala@google.com',
@@ -630,7 +601,7 @@ EXEC sp_save_tclient
 
 EXEC sp_save_tclient
 @aidclient = 0,
-@anumber  = 'C7C7',
+--@anumber  = 'C7C7',
 @anomdeFamille = 'Mark',
 @anom  = 'Zurembek',
 @acourriel  = 'mark@facebook.com',
@@ -646,7 +617,7 @@ EXEC sp_save_tclient
 
 EXEC sp_save_tclient
 @aidclient = 0,
-@anumber  = 'C8C8',
+--@anumber  = 'C8C8',
 @anomdeFamille = 'Antonio',
 @anom  = 'Maya',
 @acourriel  = 'maya@facebook.com',
@@ -662,7 +633,7 @@ EXEC sp_save_tclient
 
 EXEC sp_save_tclient
 @aidclient = 0,
-@anumber  = 'C9C9',
+--@anumber  = 'C9C9',
 @anomdeFamille = 'Itzel',
 @anom  = 'Alvaro',
 @acourriel  = 'itzel@facebook.com',
@@ -678,7 +649,7 @@ EXEC sp_save_tclient
 
 EXEC sp_save_tclient
 @aidclient = 0,
-@anumber  = 'C10C10',
+--@anumber  = 'C10C10',
 @anomdeFamille = 'Fanny',
 @anom  = 'Santos',
 @acourriel  = 'santos@facebook.com',
@@ -694,7 +665,7 @@ EXEC sp_save_tclient
 
 EXEC sp_save_tclient
 @aidclient = 0,
-@anumber  = 'C11C11',
+--@anumber  = 'C11C11',
 @anomdeFamille = 'Manuel',
 @anom  = 'Brizuela',
 @acourriel  = 'brizuela@facebook.com',
@@ -710,7 +681,7 @@ EXEC sp_save_tclient
 
 EXEC sp_save_tclient
 @aidclient = 0,
-@anumber  = 'C12C12',
+-@anumber  = 'C12C12',
 @anomdeFamille = 'Pedro',
 @anom  = 'Espana',
 @acourriel  = 'espana@facebook.com',

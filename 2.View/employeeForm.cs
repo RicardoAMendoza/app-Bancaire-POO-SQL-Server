@@ -24,7 +24,6 @@ namespace _2.View
             // agregar int id.
             DataTable datatable = new DataTable();
             datatable.Columns.Add("ID");
-            datatable.Columns.Add("NUMBER");
             datatable.Columns.Add("NAME");
             datatable.Columns.Add("lastName");
             datatable.Columns.Add("eMAIL");
@@ -42,7 +41,6 @@ namespace _2.View
             {
                 DataRow row = datatable.NewRow();
                 row["ID"] = employee.vId;
-                row["NUMBER"] = employee.vNumber;
                 row["NAME"] = employee.vName;
                 row["lastName"] = employee.vLastName;
                 row["eMAIL"] = employee.vEMail;

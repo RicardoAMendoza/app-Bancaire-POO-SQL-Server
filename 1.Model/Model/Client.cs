@@ -34,9 +34,9 @@ namespace _1.Model.Model
             listUnPaidAccounts = vlistUnPaidAccounts;
             clientIdCounter = ++staticNbcounter;
         }
-        public Client(int vId, int vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, 
+        public Client(int vId, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, 
             int vNumerodeCarte,  string vNip, string vSexe, int vAge, string vActive,   ListUnPaidAccounts vListUnPaidAccounts, ListPaidAccounts vListPaidAccounts)
-           : base(vId,vNumber, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
+           : base(vId, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
         {
             Client.staticNbcounter++;
             clientIdCounter = staticNbcounter;
@@ -48,10 +48,10 @@ namespace _1.Model.Model
             listPaidAccounts = vListPaidAccounts;
         }
 
-        public Client(int vId, int vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, 
+        public Client(int vId, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, 
             int vNumerodeCarte, string vNip, string vSexe, int vAge, string vActive, int vIdAgences, int vIdEmploye)
             /// Inherit from Human
-            : base(vId,vNumber, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
+            : base(vId, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
         {
             Employee = new Employee();
             Address = vAddress;
@@ -64,10 +64,10 @@ namespace _1.Model.Model
             clientIdCounter = ++staticNbcounter;
         }  
         /// Employee Details
-        public Client(int vId,int vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, int vNumerodeCarte, string vNip, string vSexe, int vAge, string vActive,
+        public Client(int vId, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, int vNumerodeCarte, string vNip, string vSexe, int vAge, string vActive,
             int vEmpId, int vEmpNumber, string vEmpName, string vEmpLastName, string vEmpEMail, string vEmpPhoto, Date vEmpHearingDate, Decimal vEmpSalary, string vEmpSexe, string vEmpActive, int vDay, int vMonth, int vYear)
            /// Inherit from Human
-           : base(vId,vNumber, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
+           : base(vId, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
         {
             Employee = new Employee(vEmpId, vEmpNumber, vEmpName, vEmpLastName, vEmpEMail, vEmpPhoto, vEmpHearingDate, vEmpSalary,vEmpSexe, vEmpActive, vDay, vMonth, vYear);
             Address = vAddress;

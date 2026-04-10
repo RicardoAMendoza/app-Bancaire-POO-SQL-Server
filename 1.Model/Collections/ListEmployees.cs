@@ -80,9 +80,9 @@ namespace _1.Model.Collections
         public bool Add(object obj)
         {
             Employee employee = (Employee)obj;
-            if (!Exist(employee.vNumber))
+            if (!Exist(employee.vId))
             {
-                 listEmployees.Add(employee.vNumber, employee); return true;
+                 listEmployees.Add(employee.vId, employee); return true;
             }
             else
             {

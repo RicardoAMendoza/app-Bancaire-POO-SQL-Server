@@ -39,7 +39,7 @@ namespace _3.Control
             const string sql = @"
                 SELECT
                     c.idclient AS IDCLIENT,
-                    c.number AS NUMBER,
+
                     c.nomdeFamille NAME,
                     c.nom AS lastName,
                     c.courriel AS eMAIL,
@@ -65,7 +65,7 @@ namespace _3.Control
                     {
                         // Client fields (null-safe)
                         int vId = reader["IDCLIENT"] != DBNull.Value ? Convert.ToInt32(reader["IDCLIENT"]) : 0;
-                        int vNumber = reader["NUMBER"] != DBNull.Value ? Convert.ToInt32(reader["NUMBER"]) : 0;
+                       
                        // string vNumber = reader["NUMBER"] as string ?? string.Empty;
                         string vName = reader["NAME"] as string ?? string.Empty;
                         string vLastName = reader["lastName"] as string ?? string.Empty;
@@ -87,13 +87,12 @@ namespace _3.Control
                         Client client;
                         try
                         {
-                            client = new Client(vId, vNumber, vName, vLastName, vEmail, vPhoto, vAddress, vNumerodeCarte, vNip, vSexe, vAge, vActive, vIdAgences, vIdEmploye);
+                            client = new Client(vId, vName, vLastName, vEmail, vPhoto, vAddress, vNumerodeCarte, vNip, vSexe, vAge, vActive, vIdAgences, vIdEmploye);
                         }
                         catch
                         {
                             // Fallback: use default constructor and set public properties
-                            client = new Client();
-                            client.vNumber = vNumber;
+                            client = new Client();                     
                             client.vName = vName;
                             client.vLastName = vLastName;
                             client.vEMail = vEmail;
@@ -125,7 +124,7 @@ namespace _3.Control
             const string sql = @"
                 SELECT
                     c.idemploye AS IDEMPLOYEE,
-                    c.number AS NUMBER,
+
                     c.nomdeFamille NAME,
                     c.nom AS lastName,
                     c.courriel AS eMAIL,
@@ -148,7 +147,7 @@ namespace _3.Control
                     {
                         // EMPLOYEE fields (null-safe)
                         int vId = reader["IDEMPLOYEE"] != DBNull.Value ? Convert.ToInt32(reader["IDEMPLOYEE"]) : 0;
-                        int vNumber = reader["NUMBER"] != DBNull.Value ? Convert.ToInt32(reader["NUMBER"]) : 0;
+                        
                         //string vNumber = reader["NUMBER"] as string ?? string.Empty;
                         string vName = reader["NAME"] as string ?? string.Empty;
                         string vLastName = reader["lastName"] as string ?? string.Empty;
@@ -171,13 +170,12 @@ namespace _3.Control
                         Employee employee;
                         try
                         {
-                            employee = new Employee(vId, vNumber, vName, vLastName, vEmail, vPhoto, vHiringDate, vSalary, vSexe, vActive, vIdAgences);
+                            employee = new Employee(vId, vName, vLastName, vEmail, vPhoto, vHiringDate, vSalary, vSexe, vActive, vIdAgences);
                         }
                         catch
                         {
                             // Fallback: use default constructor and set public properties
                             employee = new Employee();
-                            employee.vNumber = vNumber;
                             employee.vName = vName;
                             employee.vLastName = vLastName;
                             employee.vEMail = vEmail;
@@ -203,7 +201,7 @@ namespace _3.Control
             const string sql = @"
                 SELECT
                     c.idagences AS IDAGENCE,
-                    c.number AS NUMBER,
+              
                     c.nom AS NAME,
                     c.adresse AS ADDRESS,
                     c.idbanque AS IDBANQUE
@@ -221,7 +219,7 @@ namespace _3.Control
                         // Agency fields (null-safe)
                         int vId = reader["IDAGENCE"] != DBNull.Value ? Convert.ToInt32(reader["IDAGENCE"]) : 0;
                        // string vNumber = reader["NUMBER"] as string ?? string.Empty;
-                        int vNumber = reader["NUMBER"] != DBNull.Value ? Convert.ToInt32(reader["NUMBER"]) : 0;
+                        
                         string vName = reader["NAME"] as string ?? string.Empty;
                         string vAddress = reader["ADDRESS"] as string ?? string.Empty;
                         // [idbanque]
@@ -229,14 +227,14 @@ namespace _3.Control
                         Agency agency;
                         try
                         {
-                            agency = new Agency(vId, vNumber, vName, vAddress, vIdBanque);
+                            agency = new Agency(vId, vName, vAddress, vIdBanque);
                         }
                         catch
                         {
                             // Fallback: use default constructor and set public properties
                             agency = new Agency();
                             agency.vIdAgency = vId;
-                            agency.vAgencyNumber = vNumber;
+                        
                             agency.vAgencyName = vName;
                             agency.vAgencyAddress = vAddress;
                             agency.vIdBanque = vIdBanque;

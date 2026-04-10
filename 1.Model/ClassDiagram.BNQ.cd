@@ -32,7 +32,7 @@
   <Class Name="_1.Model.Abstract_Class.Human">
     <Position X="10" Y="18.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAABACIAAGBAABQAACICAAAgAAAAgAAAAAw=</HashCode>
+      <HashCode>AAACAAAAAAABACIAACBAABQAACACAAAgAAAAgAAAAAw=</HashCode>
       <FileName>Abstract_Class\Human.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -107,7 +107,7 @@
   <Class Name="_1.Model.Model.BanqueNationaleduQuebec">
     <Position X="10.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAggCAkAAAAQIBAABAEAAAkAiAAAAAIAAAACg=</HashCode>
+      <HashCode>AAAAAAAAggCAkAAAAQIBAABAEAAAkAiAAAUAIAAAACg=</HashCode>
       <FileName>Model\BanqueNationaleduQuebec.cs</FileName>
     </TypeIdentifier>
   </Class>

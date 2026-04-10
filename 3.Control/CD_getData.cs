@@ -333,7 +333,7 @@ namespace _3.Control
                             {
                                 // Client fields (null-safe)
                                 int vId = reader["IDCLIENT"] != DBNull.Value ? Convert.ToInt32(reader["IDCLIENT"]) : 0;
-                                int vNumber = reader["NUMBER"] != DBNull.Value ? Convert.ToInt32(reader["NUMBER"]) : 0;
+                            //    int vNumber = reader["NUMBER"] != DBNull.Value ? Convert.ToInt32(reader["NUMBER"]) : 0;
                          //   string vNumber = reader["NUMBER"] as string ?? string.Empty;
                                 string vName = reader["NAME"] as string ?? string.Empty;
                                 string vLastName = reader["lastName"] as string ?? string.Empty;
@@ -355,13 +355,13 @@ namespace _3.Control
                             Client client;
                                 try
                                 {
-                                client = new Client(vId, vNumber, vName, vLastName, vEmail, vPhoto, vAddress, vNumerodeCarte, vNip, vSexe, vAge, vActive, vIdAgences, vIdEmploye);
+                                client = new Client(vId, vName, vLastName, vEmail, vPhoto, vAddress, vNumerodeCarte, vNip, vSexe, vAge, vActive, vIdAgences, vIdEmploye);
                             }
                                 catch
                                 {
                                     // Fallback: use default constructor and set public properties
                                     client = new Client();
-                                    client.vNumber = vNumber;
+                                   // client.vNumber = vNumber;
                                     client.vName = vName;
                                     client.vLastName = vLastName;
                                     client.vEMail = vEmail;
@@ -395,11 +395,10 @@ namespace _3.Control
             {
                     Command.Connection = Connection.OpenConnection();
                     string sql = @"
-                        INSERT INTO tclient (number, nomdeFamille, nom, courriel, img, adresse, numerodeCarte, nip, sexe, age, active, idagences, idemploye)
-                        VALUES (@Number, @Name, @LastName, @Email, @Photo, @Address, @CardNumber, @Nip, @Sexe, @Age, @Active,@IdAgences,@IdEmploye)";
+                        INSERT INTO tclient (nomdeFamille, nom, courriel, img, adresse, numerodeCarte, nip, sexe, age, active, idagences, idemploye)
+                        VALUES (@Name, @LastName, @Email, @Photo, @Address, @CardNumber, @Nip, @Sexe, @Age, @Active,@IdAgences,@IdEmploye)";
                     using (SqlCommand cmd = new SqlCommand(sql, Command.Connection))
                     {
-                        cmd.Parameters.AddWithValue("@Number", client.vNumber);
                         cmd.Parameters.AddWithValue("@Name", client.vName);
                         cmd.Parameters.AddWithValue("@LastName", client.vLastName);
                         cmd.Parameters.AddWithValue("@Email", client.vEMail);
@@ -429,7 +428,7 @@ namespace _3.Control
                     Command.Connection = Connection.OpenConnection();
                     string sql = @"
                         UPDATE tclient
-                        SET number = @Number,
+                        SET 
                             nomdeFamille = @Name,
                             nom = @LastName,
                             courriel = @Email,
@@ -444,7 +443,6 @@ namespace _3.Control
                     using (SqlCommand cmd = new SqlCommand(sql, Command.Connection))
                     {
                         cmd.Parameters.AddWithValue("@IdClient", client.vId);
-                        cmd.Parameters.AddWithValue("@Number", client.vNumber);
                         cmd.Parameters.AddWithValue("@Name", client.vName);
                         cmd.Parameters.AddWithValue("@LastName", client.vLastName);
                         cmd.Parameters.AddWithValue("@Email", client.vEMail);
@@ -525,7 +523,6 @@ namespace _3.Control
                 string sql = @"
                                 SELECT
                                     c.idemploye AS IDEMPLOYEE,
-                                    c.number AS NUMBER,
                                     c.nomdeFamille NAME,
                                     c.nom AS lastName,
                                     c.courriel AS eMAIL,
@@ -577,13 +574,13 @@ namespace _3.Control
                             Employee employee;
                             try
                             {
-                                employee = new Employee(vIdEmployee, vNumber, vName, vLastName, vEmail, vPhoto, vHiringDate, vSalary, vSexe,  vActive, vIdAgences);
+                                employee = new Employee(vIdEmployee, vName, vLastName, vEmail, vPhoto, vHiringDate, vSalary, vSexe,  vActive, vIdAgences);
                             }
                             catch
                             {
                                 // Fallback: use default constructor and set public properties
                                 employee = new Employee();
-                                employee.vNumber = vNumber;
+                               // employee.vNumber = vNumber;
                                 employee.vName = vName;
                                 employee.vLastName = vLastName;
                                 employee.vEMail = vEmail;
@@ -621,11 +618,10 @@ namespace _3.Control
             {
                 Command.Connection = Connection.OpenConnection();
                 string sql = @"
-                        INSERT INTO temploye (number, nomdeFamille, nom, courriel, img, hiringDate, salary, sexe, active)
+                        INSERT INTO temploye (nomdeFamille, nom, courriel, img, hiringDate, salary, sexe, active)
                         VALUES (@Number, @Name, @LastName, @Email, @Photo, @HiringDate, @Salary, @Sexe, @Active)";
                 using (SqlCommand cmd = new SqlCommand(sql, Command.Connection))
                 {
-                    cmd.Parameters.AddWithValue("@Number", employee.vNumber);
                     cmd.Parameters.AddWithValue("@Name", employee.vName);
                     cmd.Parameters.AddWithValue("@LastName", employee.vLastName);
                     cmd.Parameters.AddWithValue("@Email", employee.vEMail);
@@ -662,7 +658,6 @@ namespace _3.Control
                 using (SqlCommand cmd = new SqlCommand(sql, Command.Connection))
                 {
                     cmd.Parameters.AddWithValue("@IdClient", employee.vId);
-                    cmd.Parameters.AddWithValue("@Number", employee.vNumber);
                     cmd.Parameters.AddWithValue("@Name", employee.vName);
                     cmd.Parameters.AddWithValue("@LastName", employee.vLastName);
                     cmd.Parameters.AddWithValue("@Email", employee.vEMail);

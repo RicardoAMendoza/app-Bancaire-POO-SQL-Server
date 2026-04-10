@@ -40,8 +40,6 @@ namespace _2.View
             this.Text = "Edit employee";
             this.labelEmployeeID.Text = "Edit employee";
             this.labeID.Text = " ID: " + employee.vId.ToString();
-
-            this.textBoxNumber.Text = employee.vNumber.ToString();
             this.textBoxName.Text = employee.vName;
             this.textBoxLastName.Text = employee.vLastName;
             this.textBoxEMail.Text = employee.vEMail;
@@ -239,7 +237,6 @@ namespace _2.View
             var employee = new Employee()
             {
                 vId = this.employeeId,
-                vNumber = numberValue,
                 vName = name,
                 vLastName = lastName,
                 vEMail = this.textBoxEMail.Text?.Trim() ?? string.Empty,

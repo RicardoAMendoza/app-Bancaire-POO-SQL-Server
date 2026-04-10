@@ -64,9 +64,9 @@ namespace _1.Model.Collections
         public bool Add(object obj)
         {
             Client client = (Client)obj;
-            if (!Exist(client.vNumber))
+            if (!Exist(client.vId))
             {
-                listClients.Add(client.vNumber, client);
+                listClients.Add(client.vId, client);
                 return true;
             }
             return false;

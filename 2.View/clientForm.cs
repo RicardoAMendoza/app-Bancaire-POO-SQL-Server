@@ -44,7 +44,7 @@ namespace _2.View
             {
                 DataRow row = datatable.NewRow();
                 row["ID"] = client.vId;
-                row["NUMBER"] = client.vNumber;
+              
                 row["NAME"] = client.vName;
                 row["lastName"] = client.vLastName;
                 row["eMAIL"] = client.vEMail;

@@ -47,9 +47,9 @@ namespace _1.Model.Collections
         public bool Add(object obj)
         {
             Director director = (Director)obj;
-            if (!Exist(director.vNumber))
+            if (!Exist(director.vId))
             {
-                listDirectors.Add(director.vNumber, director);
+                listDirectors.Add(director.vId, director);
                 return true;
             }
             return false;

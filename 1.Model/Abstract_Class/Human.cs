@@ -19,7 +19,6 @@ namespace _1.Model.Abstract_Class
     public abstract class Human
     {
         private int Id;
-        private int Number;
         private string Name;
         private string LastName;
         private string EMail;
@@ -27,10 +26,9 @@ namespace _1.Model.Abstract_Class
         private string Sexe;
         private string Active;
 
-        public Human(int vId, int vNumber, string vName, string vLastName, string vEMail,  string vPhoto, string vSexe, string vActive)
+        public Human(int vId, string vName, string vLastName, string vEMail,  string vPhoto, string vSexe, string vActive)
         {
-            Id = vId;
-            Number = vNumber;
+            Id = vId;  
             Name = vName;
             LastName = vLastName;
             EMail = vEMail;
@@ -41,7 +39,6 @@ namespace _1.Model.Abstract_Class
         public Human()
         {
             Id = 0;
-            Number = EmptyConstructor.intEmptyConstructor();
             Name = EmptyConstructor.stringEmptyConstructor();
             LastName = EmptyConstructor.stringEmptyConstructor();
             EMail = EmptyConstructor.stringEmptyConstructor();
@@ -57,12 +54,6 @@ namespace _1.Model.Abstract_Class
         {
             get { return Id; }
             set { Id = value; }
-        }
-
-        public int vNumber
-        {
-            get { return Number; }
-            set { Number = value; }
         }
 
         public string vName
@@ -97,9 +88,9 @@ namespace _1.Model.Abstract_Class
             set { Active = value; }
         }
 
-        public virtual void CreateHuman(int vNumber, string vName, string vLastName, string vEMail, string vPhoto, string vSexe, string vActive)
+        public virtual void CreateHuman(int vId, string vName, string vLastName, string vEMail, string vPhoto, string vSexe, string vActive)
         {
-            Number = vNumber;
+            Id = vId;
             Name = vName;
             LastName = vLastName;
             EMail = vEMail;
@@ -110,7 +101,7 @@ namespace _1.Model.Abstract_Class
         public virtual string ShowHuman()
         {
             string info = "";
-            info += "\nClient Number : " + Number;
+            info += "\n Id : " + Id;
             info = info + "\nName : " + Name;
             info = info + "\nLast Name : " + LastName;
             info = info + "\nPhoto : " + Photo;

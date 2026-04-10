@@ -102,7 +102,6 @@ GO
 CREATE TABLE tdirecteur(
 iddirecteur int IDENTITY (10,10)
 )
-ALTER TABLE tdirecteur add number tv100
 ALTER TABLE tdirecteur add nomdeFamille tv100
 ALTER TABLE tdirecteur add nom tv100
 ALTER TABLE tdirecteur add courriel tv100
@@ -195,8 +194,6 @@ GO
 CREATE TABLE temploye(
 idemploye int IDENTITY(10,10)
 )
-
-ALTER TABLE temploye ADD number tv100
 ALTER TABLE temploye ADD nomdeFamille tv100
 ALTER TABLE temploye ADD nom tv100
 ALTER TABLE temploye ADD courriel tv100
@@ -245,7 +242,6 @@ REFERENCES tarea(codearea)
 CREATE TABLE tclient(
 idclient int IDENTITY(10,10)
 )
-ALTER TABLE tclient ADD number tv100
 ALTER TABLE tclient ADD nomdeFamille tv100
 ALTER TABLE tclient ADD nom tv100
 ALTER TABLE tclient ADD courriel tv100

@@ -18,10 +18,10 @@
 -- 3.- sp_save_tdirecteur
 -- 4.- sp_save_tagences
 -- 5.- sp_save_tdirecteur_agences
--- 6. sp_save_tarea
+-- 6.- sp_save_tarea
 -- 7.- sp_save_temploye
 -- 8.- sp_save_temploye_area
--- 9.- sp__save_client
+-- 9.- sp_save_client
 -- 10.- sp_save_tcompte
 -- 11.- sp_save_ttypeCompte
 -- 12.- sp_save_tclient_compte
@@ -136,7 +136,6 @@ GO
 -- -----------------------------------------------------
 CREATE PROCEDURE sp_save_tdirecteur
 	@aiddirecteur int = null,
-	@anumber tv100 =null,
 	@anomdeFamille tv100= null,
 	@anom tv100 = null,
 	@acourriel tv100 = null,
@@ -147,14 +146,14 @@ CREATE PROCEDURE sp_save_tdirecteur
 AS BEGIN
 	IF @aiddirecteur =0
 		INSERT INTO tdirecteur 
-		(number,nomdeFamille,nom,courriel,
+		(nomdeFamille,nom,courriel,
 		img,salary,sexe,active)
 		VALUES 
-		(@anumber,@anomdeFamille,@anom,@acourriel,
+		(@anomdeFamille,@anom,@acourriel,
 		@aimg,@asalary,@asexe,@aactive)
 	ELSE
 		UPDATE tdirecteur
-		SET number=@anumber,nomdeFamille=@anomdeFamille,nom=@anom,courriel=@acourriel,
+		SET nomdeFamille=@anomdeFamille,nom=@anom,courriel=@acourriel,
 		img=@aimg,salary=@asalary,sexe=@asexe,active=@aactive
 	WHERE iddirecteur=@aiddirecteur
 END
@@ -330,7 +329,6 @@ GO
 
 CREATE PROCEDURE sp_save_temploye
 	@aidemploye int = null,
-	@anumber tv100 = null,
 	@anomdeFamille tv100 = null,
 	@anom tv100 = null,
 	@acourriel varchar (45) = null,
@@ -343,14 +341,14 @@ CREATE PROCEDURE sp_save_temploye
 AS BEGIN
 	IF @aidemploye=0
 		INSERT INTO temploye 
-		(number,nomdeFamille,nom,courriel,
+		(nomdeFamille,nom,courriel,
 		img,hiringDate,salary,sexe,active,idagences)
 		VALUES
-		(@anumber,@anomdeFamille,@anom,@acourriel,
+		(@anomdeFamille,@anom,@acourriel,
 		@aimg,@ahiringDate,@asalary,@asexe,@aactive,@aidagences)
 	ELSE  
 		UPDATE temploye
-		SET number=@anumber,nomdeFamille=@anomdeFamille,nom=@anom,
+		SET nomdeFamille=@anomdeFamille,nom=@anom,
 		courriel=@acourriel,img=@aimg,hiringDate=@ahiringDate,
 		salary=@asalary,sexe=@asexe,active=@aactive,idagences=@aidagences
 	WHERE idemploye=@aidemploye
@@ -425,14 +423,14 @@ GO
 -- Author:		Ricardo Mendoza
 -- Create date: 2025-02-19
 -- Description:	sp__save_client
--- 9.- sp__save_client
+-- 9.- sp_save_client
 -- =====================================================
 USE [bdLaBanqueNationaleduQuebec]
 GO
 --DROP PROCEDURE sp_save_tclient
 CREATE PROCEDURE sp_save_tclient
 	@aidclient int =null,
-	@anumber tv100 = null,
+	--@anumber tv100 = null,
 	@anomdeFamille tv100 = null,
 	@anom tv100 =null,
 	@acourriel tv100 = null,
@@ -454,17 +452,17 @@ AS BEGIN
 	SET @n_aleatorio = round(((@n_mayor-@n_menor-1)*rand()+@n_menor),0);
 	IF @aidclient = 0
 		INSERT INTO tclient
-		(number,nomdeFamille,nom,courriel,img,
+		(nomdeFamille,nom,courriel,img,
 		adresse,numerodeCarte,nip,sexe,age,active,
 		idagences,idemploye)
 		VALUES
-		(@anumber,@anomdeFamille,@anom,@acourriel,@aimg,
+		(@anomdeFamille,@anom,@acourriel,@aimg,
 		@aadresse,@n_aleatorio,@anip,@asexe,@aage,
 		@aactive,@aidagences,@aidemploye)
 	ELSE
 		UPDATE tclient
 		SET
-		number=@anumber,nomdeFamille=@anomdeFamille,
+		nomdeFamille=@anomdeFamille,
 		nom=@anom,courriel=@acourriel,img=@aimg,
 		adresse=@aadresse,numerodeCarte=@n_aleatorio,
 		nip=@anip,sexe=@asexe,age=@aage,

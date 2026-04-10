@@ -56,7 +56,7 @@ namespace _1.Model.Model
         /// <param name="vHiringDate">The date the employee was hired.</param>
         public Employee(int vId, int vNumber, string vName, string vLastName, string vEMail,string vPhoto, Date vHiringDate,Decimal vSalary,
                         string vSexe,string vActive, int vDay, int vMonth, int vYear)
-                        : base(vId,vNumber, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
+                        : base(vId, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
         {
             Salary = vSalary;
             HiringDate = new Date(vDay, vMonth, vYear);
@@ -74,8 +74,8 @@ namespace _1.Model.Model
             HiringDate = new Date();
             employeeIdCounter = ++staticNbcounter;
         }
-        public Employee(int vId, int vNumber, string vName, string vLastName, string vEMail, string vPhoto, Date vHiringDate,Decimal vSalary, string vSexe, string vActive, int vIdAgences)
-           : base(vId, vNumber, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
+        public Employee(int vId, string vName, string vLastName, string vEMail, string vPhoto, Date vHiringDate,Decimal vSalary, string vSexe, string vActive, int vIdAgences)
+           : base(vId, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
         {
             Salary = vSalary;
             HiringDate = vHiringDate;
