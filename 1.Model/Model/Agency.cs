@@ -25,7 +25,6 @@ namespace _1.Model.Model
         public Agency(int vIdAgency, string vName, string vAddress, int idBanque)
         {
             IdAgency = vIdAgency;
-  
             AgencyName = vName;
             AgencyAddress = vAddress;
             agencyIdCounter = 0;
@@ -99,7 +98,7 @@ namespace _1.Model.Model
             info += " Employees : " + listEmployees.ShowList() + "\n";
             return info;
         }
-        public void OpenAgence(int vNumber, string vName, string vAddress, ListClients vListClients, ListEmployees vListEmployee)
+        public void OpenAgence(int IdAgency, string vName, string vAddress, ListClients vListClients, ListEmployees vListEmployee)
         {
 
             AgencyName = vName;

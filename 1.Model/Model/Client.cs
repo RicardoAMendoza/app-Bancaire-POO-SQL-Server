@@ -9,6 +9,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace _1.Model.Model
 {
+
     public class Client : Human
     {
        // Fields
@@ -36,6 +37,7 @@ namespace _1.Model.Model
         }
         public Client(int vId, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, 
             int vNumerodeCarte,  string vNip, string vSexe, int vAge, string vActive,   ListUnPaidAccounts vListUnPaidAccounts, ListPaidAccounts vListPaidAccounts)
+           /// Inherit from Human
            : base(vId, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
         {
             Client.staticNbcounter++;
@@ -66,10 +68,10 @@ namespace _1.Model.Model
         /// Employee Details
         public Client(int vId, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, int vNumerodeCarte, string vNip, string vSexe, int vAge, string vActive,
             int vEmpId, int vEmpNumber, string vEmpName, string vEmpLastName, string vEmpEMail, string vEmpPhoto, Date vEmpHearingDate, Decimal vEmpSalary, string vEmpSexe, string vEmpActive, int vDay, int vMonth, int vYear)
-           /// Inherit from Human
+           // Inherit from Human
            : base(vId, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
         {
-            Employee = new Employee(vEmpId, vEmpNumber, vEmpName, vEmpLastName, vEmpEMail, vEmpPhoto, vEmpHearingDate, vEmpSalary,vEmpSexe, vEmpActive, vDay, vMonth, vYear);
+            Employee = new Employee(vEmpId, vEmpName, vEmpLastName, vEmpEMail, vEmpPhoto, vEmpHearingDate, vEmpSalary,vEmpSexe, vEmpActive, vDay, vMonth, vYear);
             Address = vAddress;
             Nip = vNip;
             Age = vAge;
@@ -120,9 +122,9 @@ namespace _1.Model.Model
             get { return Employee.ShowHuman(); }
             // No set accessor: EmployeeDetails is derived from the Employee object
         }
-        //[DisplayName("Pet Name")]
-        //[Required(ErrorMessage = "Pet name is required")]
-        //[StringLength(50, MinimumLength = 3, ErrorMessage = "Pet name must be between 3 and 50 characters")]
+        [DisplayName("Pet Name")]
+        [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pet name is required")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Pet name must be between 3 and 50 characters")]
         public string vAddress
         {
             get { return Address; }
@@ -155,10 +157,10 @@ namespace _1.Model.Model
         /// <param name="vLastName">The last name of the human to create. Cannot be null or empty.</param>
         public override void CreateHuman(int vNumber, string vName, string vLastName, string vEMail, string vPhoto,  string vSexe,  string vActive)
         {
-            //if (string.IsNullOrWhiteSpace(vName))
-            //    throw new ArgumentException("First name cannot be null or empty.", nameof(vName));
-            //if (string.IsNullOrWhiteSpace(vLastName))
-            //    throw new ArgumentException("Last name cannot be null or empty.", nameof(vLastName));
+            if (string.IsNullOrWhiteSpace(vName))
+                throw new ArgumentException("First name cannot be null or empty.", nameof(vName));
+            if (string.IsNullOrWhiteSpace(vLastName))
+                throw new ArgumentException("Last name cannot be null or empty.", nameof(vLastName));
             clientIdCounter = ++staticNbcounter;
             base.CreateHuman(vNumber, vName, vLastName, vEMail, vPhoto, vSexe, vActive);
             //  Employee = new Employee();
@@ -190,12 +192,12 @@ namespace _1.Model.Model
         /// </summary>
         /// <param name="Nip">The Nip string to validate.</param>
         /// <returns>True if valid, otherwise false.</returns>
-        //public static bool ValidateNip(string Nip)
-        //{
-        //    // Example rule: Nip must be exactly 4 digits
-        //    if (string.IsNullOrWhiteSpace(Nip)) return false;
-        //    if (Nip.Length != 4) return false;
-        //    return Nip.All(char.IsDigit);
-        //}
+        public static bool ValidateNip(string Nip)
+        {
+            // Example rule: Nip must be exactly 4 digits
+            if (string.IsNullOrWhiteSpace(Nip)) return false;
+            if (Nip.Length != 4) return false;
+            return Nip.All(char.IsDigit);
+        }
     }
 }

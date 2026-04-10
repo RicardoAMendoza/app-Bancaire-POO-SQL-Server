@@ -8,8 +8,7 @@ using _1.Model.Model;
 
 namespace _1.Model.Abstract_Class
 {
-    /// <summary> it
-    /// 
+    /// <summary>
     /// Represents a financial account with details such as account number, type, client information, balance, and the
     /// date the account was opened.
     /// </summary>
@@ -48,35 +47,22 @@ namespace _1.Model.Abstract_Class
             OpenDate = new Date();
         }
         public int vNumber
-        {
-            get { return Number; }
-            set { vNumber = value; }
+        { get => Number; set => vNumber = value;
         }
         public string vType
-        {
-            get { return Type; }
-            set { vType = value; }
+        { get => Type; set => vType = value;
         }
         public string vClientName
-        {
-            get { return ClientName; }
-            set { vClientName = value; }
+        { get => ClientName; set => vClientName = value;
         }
         public string vClientLastName
-        {
-            get { return ClientLastname; }
-            set { vClientName = value; }
-
+        { get => ClientLastname; set => vClientName = value;
         }
         public decimal vBalance
-        {
-            get { return Balance; }
-            set { vBalance = value; }
+        { get => Balance; set => vBalance = value;
         }
         public Date vOpenDate
-        {
-            get { return OpenDate; }
-            set { vOpenDate = value; }
+        { get => OpenDate; set => vOpenDate = value;
         }
         /// <summary>
         /// Opens a new account with the specified details.

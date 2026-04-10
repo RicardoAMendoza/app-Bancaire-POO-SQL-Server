@@ -9,11 +9,13 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Reflection;
 using System.ComponentModel.DataAnnotations;
+using Xunit;
+using Xunit.Sdk;
+using RequiredAttribute = System.ComponentModel.DataAnnotations.RequiredAttribute;
 
 
 
-
-
+/// <summary>
 namespace _1.Model.Abstract_Class
 {
     public abstract class Human
@@ -47,9 +49,9 @@ namespace _1.Model.Abstract_Class
             Active = EmptyConstructor.stringEmptyConstructor();
         }
 
-        //[DisplayName("Pet Name")]
-        //[Required(ErrorMessage = "Pet name is requerid")]
-        //[StringLength(50, MinimumLength = 3, ErrorMessage = "Pet name must be between 3 and 50 characters")]
+        [DisplayName("Pet Name")]
+        [Required(ErrorMessage = "Pet name is requerid")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Pet name must be between 3 and 50 characters")]
         public int vId
         {
             get { return Id; }

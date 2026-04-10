@@ -49,12 +49,12 @@ namespace _1.Model.Model
         /// </summary>
         /// <remarks>This constructor assigns a unique employee ID and updates the total number of
         /// employees.</remarks>
-        /// <param name="vNumber">The unique identifier for the employee.</param>
+        /// <param name="vId">The unique identifier for the employee.</param>
         /// <param name="vName">The first name of the employee.</param>
         /// <param name="vLastName">The last name of the employee.</param>
         /// <param name="vPhoto">The file path or URL of the employee's photo.</param>
         /// <param name="vHiringDate">The date the employee was hired.</param>
-        public Employee(int vId, int vNumber, string vName, string vLastName, string vEMail,string vPhoto, Date vHiringDate,Decimal vSalary,
+        public Employee(int vId, string vName, string vLastName, string vEMail,string vPhoto, Date vHiringDate,Decimal vSalary,
                         string vSexe,string vActive, int vDay, int vMonth, int vYear)
                         : base(vId, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
         {

@@ -65,9 +65,6 @@ namespace _1.Model.Model
         {
             return base.Deposit(deposit);
         }
-
-
-
         protected override decimal PayInterest(decimal amount)
         {
             throw new NotImplementedException();
