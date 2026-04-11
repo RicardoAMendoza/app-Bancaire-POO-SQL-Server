@@ -60,9 +60,9 @@ ALTER Table tlabanqueduQuebec ADD adresse tv100
 ALTER Table tlabanqueduQuebec add 
 CONSTRAINT pk_idbanque PRIMARY KEY(idbanque)
 
---USE bdLaBanqueNationaleduQuebec
---GO
---SELECT * FROM [dbo].[tlabanqueduQuebec]
+USE bdLaBanqueNationaleduQuebec
+GO
+SELECT * FROM [dbo].[tlabanqueduQuebec]
 
 -- -----------------------------------------------------
 -- 2.- Table `bdLaBanqueNationaleduQuebec`.` tconseil`
@@ -71,10 +71,8 @@ USE bdLaBanqueNationaleduQuebec
 GO
 
 CREATE TABLE tconseil(
-idconseil int IDENTITY(10,10)
+idconseil int NOT NULL IDENTITY(10,10) 
 )
-ALTER TABLE tconseil add idbanque int NOT NULL
-ALTER TABLE tconseil add number tv100
 ALTER TABLE tconseil add nomdeFamille tv100
 ALTER TABLE tconseil add nom tv100
 ALTER TABLE tconseil add courriel tv100
@@ -82,6 +80,8 @@ ALTER TABLE tconseil add img tv100
 ALTER TABLE tconseil add salary tmoney
 ALTER TABLE tconseil add sexe tv1
 ALTER TABLE tconseil add active tv1
+ALTER TABLE tconseil add idbanque int NOT NULL
+
 -- CONSTRAINTS -- --------------------------------------
 ALTER TABLE tconseil add 
 CONSTRAINT pk_idbanque_idconseil primary key (idbanque,idconseil)
@@ -93,9 +93,14 @@ references tlabanqueduQuebec(idbanque)
 --GO
 -- SELECT * FROM [dbo].[tconseil]
 
--- -----------------------------------------------------
+-- =====================================================
+-- TABLE for Data
+-- Author:		Ricardo Mendoza
+-- Create date: 2026-04-10
+-- Description:	Save data in tdirecteur
 -- 3.- Table `bdLaBanqueNationaleduQuebec`.` tdirecteur`
--- -----------------------------------------------------
+-- =====================================================
+
 USE bdLaBanqueNationaleduQuebec
 GO
 
@@ -106,9 +111,9 @@ ALTER TABLE tdirecteur add nomdeFamille tv100
 ALTER TABLE tdirecteur add nom tv100
 ALTER TABLE tdirecteur add courriel tv100
 ALTER Table tdirecteur add img tv100
-ALTER TABLE tdirecteur add salary tmoney
 ALTER TABLE tdirecteur add sexe tv1
 ALTER Table tdirecteur add active tv1
+ALTER TABLE tdirecteur add salary tmoney
 -- CONSTRAINTS -- --------------------------------------
 ALTER TABLE tdirecteur add
 constraint pk_iddirecteur PRIMARY KEY(iddirecteur)
@@ -118,16 +123,19 @@ constraint pk_iddirecteur PRIMARY KEY(iddirecteur)
 --SELECT * FROM [dbo].[tdirecteur]
 
 
--- -----------------------------------------------------
+-- =====================================================
+-- TABLE for Data
+-- Author:		Ricardo Mendoza
+-- Create date: 2026-04-10
+-- Description:	Create tagences
 -- 4.- Table `bdLaBanqueNationaleduQuebec`.` tagences`
--- -----------------------------------------------------
+-- =====================================================
 USE bdLaBanqueNationaleduQuebec
 GO
 
 CREATE TABLE tagences(
 idagences int IDENTITY (10,10)
 )
-ALTER TABLE tagences add number tv100
 ALTER Table tagences add nom tv100
 ALTER TABLE tagences add adresse tv100
 ALTER TABLE tagences add idbanque int NOT NULL
@@ -146,9 +154,13 @@ REFERENCES tlabanqueduQuebec(idbanque)
 --GO
 --SELECT * FROM tagences
 
--- -----------------------------------------------------
+-- =====================================================
+-- TABLE for Data
+-- Author:		Ricardo Mendoza
+-- Create date: 2026-04-10
+-- Description:	Create tdirecteur_agence
 -- 5.- Table `bdLaBanqueNationaleduQuebec`.` tdirecteur_agences`
--- -----------------------------------------------------
+-- =====================================================
 USE bdLaBanqueNationaleduQuebec
 GO
 
@@ -165,16 +177,20 @@ CONSTRAINT fk_tdirecteur_agence_idagences FOREIGN KEY(idagences)
 REFERENCES tagences(idagences)
 
 
--- -----------------------------------------------------
+-- =====================================================
+-- TABLE for Data
+-- Author:		Ricardo Mendoza
+-- Create date: 2026-04-10
+-- Description:	Create tarea
 -- 6.- Table `bdLaBanqueNationaleduQuebec`.` tarea`
--- -----------------------------------------------------
+-- =====================================================
+
 USE bdLaBanqueNationaleduQuebec
 GO
 
 CREATE TABLE tarea(
 codearea tv3
 )
-
 ALTER TABLE tarea add description tv100
 ALTER TABLE tarea ALTER COLUMN codearea tv3 NOT NULL
 -- CONSTRAINTS -- --------------------------------------
@@ -185,9 +201,14 @@ CONSTRAINT pk_tarea_codearea PRIMARY KEY(codearea)
 --GO
 --SELECT * FROM tarea
 
--- -----------------------------------------------------
+-- =====================================================
+-- TABLE for Data
+-- Author:		Ricardo Mendoza
+-- Create date: 2026-04-10
+-- Description:	Create temploye
 -- 7.- Table `bdLaBanqueNationaleduQuebec`.` temploye`
--- -----------------------------------------------------
+-- =====================================================
+
 USE bdLaBanqueNationaleduQuebec
 GO
 
@@ -214,9 +235,13 @@ REFERENCES tagences(idagences)
 --GO
 --SELECT * FROM temploye
 
--- -----------------------------------------------------
+-- =====================================================
+-- TABLE for Data
+-- Author:		Ricardo Mendoza
+-- Create date: 2026-04-10
+-- Description:	Create temploye_area
 -- 8.- Table `bdLaBanqueNationaleduQuebec`.`temploye_area`
--- -----------------------------------------------------
+-- =====================================================
 USE bdLaBanqueNationaleduQuebec
 GO
 
@@ -236,9 +261,13 @@ REFERENCES tarea(codearea)
 --GO
 --SELECT * FROM temploye_area
 
--- -----------------------------------------------------
+-- =====================================================
+-- TABLE for Data
+-- Author:		Ricardo Mendoza
+-- Create date: 2026-04-10
+-- Description:	Create  tclient
 -- 9.- Table `bdLaBanqueNationaleduQuebec`.`tclient`
--- -----------------------------------------------------
+-- =====================================================
 CREATE TABLE tclient(
 idclient int IDENTITY(10,10)
 )
@@ -247,7 +276,6 @@ ALTER TABLE tclient ADD nom tv100
 ALTER TABLE tclient ADD courriel tv100
 ALTER TABLE tclient ADD img tv100
 ALTER TABLE tclient ADD adresse tv100
--- ALTER TABLE tclient ADD numerodeCarte tv100
 ALTER TABLE tclient ADD numerodeCarte int
 ALTER TABLE tclient ADD nip tv100
 ALTER TABLE tclient ADD sexe tv1
@@ -278,9 +306,13 @@ ON DELETE CASCADE
 --GO
 --SELECT * FROM [dbo].[tclient]
 
--- -----------------------------------------------------
+-- =====================================================
+-- TABLE for Data
+-- Author:		Ricardo Mendoza
+-- Create date: 2026-04-10
+-- Description:	Create  tcompte
 -- 	10.- Table `bdLaBanqueNationaleduQuebec`.`tcompte`
--- -----------------------------------------------------
+-- =====================================================
 USE bdLaBanqueNationaleduQuebec
 GO
 CREATE TABLE tcompte(
@@ -309,9 +341,13 @@ CONSTRAINT pk_idcompte PRIMARY KEY(idcompte)
 --GO
 --SELECT * FROM [dbo].[tcompte]
 
--- -----------------------------------------------------
+-- =====================================================
+-- TABLE for Data
+-- Author:		Ricardo Mendoza
+-- Create date: 2026-04-10
+-- Description:	Create  tcompte
 -- 11.- Table `bdLaBanqueNationaleduQuebec`.`ttypeCompte`
--- -----------------------------------------------------
+-- =====================================================
 USE bdLaBanqueNationaleduQuebec
 GO
 CREATE TABLE ttypeCompte(
@@ -332,10 +368,13 @@ CONSTRAINT pk_idtypeCompte PRIMARY KEY(idtypeCompte)
 --USE bdLaBanqueNationaleduQuebec
 --GO
 --SELECT * FROM [dbo].[ttypeCompte]
-
--- -----------------------------------------------------
+-- =====================================================
+-- TABLE for Data
+-- Author:		Ricardo Mendoza
+-- Create date: 2026-04-10
+-- Description:	Create  tclient_compte
 -- 12.- Table `bdLaBanqueNationaleduQuebec`.`tclient_compte`
--- -----------------------------------------------------
+-- =====================================================
 USE bdLaBanqueNationaleduQuebec
 GO
 
@@ -368,9 +407,44 @@ REFERENCES tcompte(idcompte)
 --GO
 --SELECT * FROM [dbo].[tclient_compte]
 
+
+-- =====================================================
+-- TABLE for Data
+-- Author:		Ricardo Mendoza
+-- Create date: 2026-04-10
+-- Description:	Create  tadmin
+-- 13.- Table `bdLaBanqueNationaleduQuebec`.`tadmin`
 -- -----------------------------------------------------
--- 13.- Table `bdLaBanqueNationaleduQuebec`.`ttransaction`
--- -----------------------------------------------------
+USE bdLaBanqueNationaleduQuebec
+GO
+
+CREATE TABLE tadmin(
+idadmin int IDENTITY(10,10)
+)
+ALTER TABLE tadmin ADD nomdeFamille tv100 NULL DEFAULT NULL
+ALTER TABLE tadmin ADD nom tv100 NULL DEFAULT NULL
+ALTER TABLE tadmin ADD courriel tv100 NULL DEFAULT NULL
+ALTER TABLE tadmin ADD img tv100 NULL DEFAULT NULL
+ALTER TABLE tadmin ADD utilisateur tv100 NULL DEFAULT NULL
+ALTER TABLE tadmin ADD motdePasse tv100 NULL DEFAULT NULL
+ALTER TABLE tadmin ADD sexe tv1 NULL DEFAULT NULL
+ALTER TABLE tadmin ADD active tv1 NULL DEFAULT NULL
+-- CONSTRAINTS -- --------------------------------------
+ALTER TABLE tadmin ADD
+CONSTRAINT pk_idadmin PRIMARY KEY(idadmin)
+
+--USE bdLaBanqueNationaleduQuebec
+--GO
+--SELECT * FROM [dbo].[tadmin]
+
+
+-- =====================================================
+-- TABLE for Data
+-- Author:		Ricardo Mendoza
+-- Create date: 2026-04-10
+-- Description:	Create  ttransaction
+-- 14.- Table `bdLaBanqueNationaleduQuebec`.`ttransaction`
+-- =====================================================
 USE bdLaBanqueNationaleduQuebec
 GO
 CREATE TABLE ttransaction(
@@ -415,28 +489,4 @@ REFERENCES tcompte(idcompte)
 --select * from ttypeCompte
 --select * from tcompte
 
--- -----------------------------------------------------
--- 14.- Table `bdLaBanqueNationaleduQuebec`.`tadmin`
--- -----------------------------------------------------
-USE bdLaBanqueNationaleduQuebec
-GO
 
-CREATE TABLE tadmin(
-idadmin int IDENTITY(10,10)
-)
-ALTER TABLE tadmin ADD number tv100 NULL DEFAULT NULL
-ALTER TABLE tadmin ADD nomdeFamille tv100 NULL DEFAULT NULL
-ALTER TABLE tadmin ADD nom tv100 NULL DEFAULT NULL
-ALTER TABLE tadmin ADD courriel tv100 NULL DEFAULT NULL
-ALTER TABLE tadmin ADD img tv100 NULL DEFAULT NULL
-ALTER TABLE tadmin ADD utilisateur tv100 NULL DEFAULT NULL
-ALTER TABLE tadmin ADD motdePasse tv100 NULL DEFAULT NULL
-ALTER TABLE tadmin ADD sexe tv1 NULL DEFAULT NULL
-ALTER TABLE tadmin ADD active tv1 NULL DEFAULT NULL
--- CONSTRAINTS -- --------------------------------------
-ALTER TABLE tadmin ADD
-CONSTRAINT pk_idadmin PRIMARY KEY(idadmin)
-
---USE bdLaBanqueNationaleduQuebec
---GO
---SELECT * FROM [dbo].[tadmin]

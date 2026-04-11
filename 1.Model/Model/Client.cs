@@ -12,18 +12,20 @@ namespace _1.Model.Model
 
     public class Client : Human
     {
-       // Fields
+        /// Fields
         private string Address;
+        
+        
+        private int NumerodeCarte;
         private string Nip;
         private int Age;
-        private int NumerodeCarte;
-        private Employee Employee;
         private int IdAgences;
         private int IdEmploye;
+        private Employee Employee;
         private int clientIdCounter;
         private static int staticNbcounter;
 
-        // Dictionary
+        /// Dictionary
         private ListPaidAccounts listPaidAccounts = new ListPaidAccounts();
         private ListUnPaidAccounts listUnPaidAccounts = new ListUnPaidAccounts();
 
@@ -36,18 +38,19 @@ namespace _1.Model.Model
             clientIdCounter = ++staticNbcounter;
         }
         public Client(int vId, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, 
-            int vNumerodeCarte,  string vNip, string vSexe, int vAge, string vActive,   ListUnPaidAccounts vListUnPaidAccounts, ListPaidAccounts vListPaidAccounts)
+                      int vNumerodeCarte,  string vNip, string vSexe, int vAge, string vActive,    
+                      ListUnPaidAccounts vListUnPaidAccounts, ListPaidAccounts vListPaidAccounts)
            /// Inherit from Human
            : base(vId, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
         {
-            Client.staticNbcounter++;
-            clientIdCounter = staticNbcounter;
             Address = vAddress;
+            NumerodeCarte = vNumerodeCarte;
             Nip = vNip;
             Age = vAge;
-            NumerodeCarte = vNumerodeCarte;
             listUnPaidAccounts = vListUnPaidAccounts;
             listPaidAccounts = vListPaidAccounts;
+            Client.staticNbcounter++;
+            clientIdCounter = staticNbcounter;
         }
 
         public Client(int vId, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, 
@@ -56,14 +59,14 @@ namespace _1.Model.Model
             : base(vId, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
         {
             Employee = new Employee();
-            Address = vAddress;
+            Address = vAddress; 
+            NumerodeCarte = vNumerodeCarte;
             Nip = vNip;
             Age = vAge;
             IdEmploye = vIdEmploye;
             IdAgences = vIdAgences;
-
-            NumerodeCarte = vNumerodeCarte;
-            clientIdCounter = ++staticNbcounter;
+            Client.staticNbcounter++;
+            clientIdCounter = staticNbcounter;
         }  
         /// Employee Details
         public Client(int vId, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, int vNumerodeCarte, string vNip, string vSexe, int vAge, string vActive,
@@ -73,10 +76,13 @@ namespace _1.Model.Model
         {
             Employee = new Employee(vEmpId, vEmpName, vEmpLastName, vEmpEMail, vEmpPhoto, vEmpHearingDate, vEmpSalary,vEmpSexe, vEmpActive, vDay, vMonth, vYear);
             Address = vAddress;
+            NumerodeCarte = vNumerodeCarte;
             Nip = vNip;
             Age = vAge;
-            NumerodeCarte = vNumerodeCarte;
-            clientIdCounter = ++staticNbcounter;
+            IdEmploye = vIdEmploye;
+            IdAgences = vIdAgences;
+            Client.staticNbcounter++;
+            clientIdCounter = staticNbcounter;
         }
         public Client()
             : base()

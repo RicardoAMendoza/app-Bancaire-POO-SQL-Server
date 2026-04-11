@@ -19,14 +19,13 @@ GO
 
 EXEC sp_save_tlabanqueduQuebec
 @aidbanque =0,
-@anumber = 776655,
 @anom = "La Banque Nationale",
 @acapital = 100000000,
 @aadresse = "1000 rue Masson, Mntreal, Canada, H4N3N1"
 
---USE [bdLaBanqueNationaleduQuebec]
---GO
---SELECT * FROM tlabanqueduQuebec
+USE [bdLaBanqueNationaleduQuebec]
+GO
+SELECT * FROM tlabanqueduQuebec
 
 -- -----------------------------------------------------
 -- 2. EXEC  sp_save_tconseil
@@ -37,7 +36,6 @@ GO
 
 EXEC  sp_save_tconseil
 @aidconseil = 0,
-@anumber ="dir01",
 @anomdeFamille ="Patrick",
 @anom = "Dorre",
 @acourriel = "dorre@gmail.com",
@@ -50,7 +48,6 @@ EXEC  sp_save_tconseil
 -- ---------------------------- Tonye
 EXEC  sp_save_tconseil
 @aidconseil = 0,
-@anumber = "dir02",
 @anomdeFamille = "Fernand",
 @anom = "Bikatal-Bi-Tonye",
 @acourriel = "bikatal@gmail.com",
@@ -78,9 +75,14 @@ EXEC sp_save_tconseil
 --SELECT * FROM tlaBanquenationale
 --SELECT * FROM tconseil
 
--- -----------------------------------------------------
+-- =====================================================
+-- EXEC Stored Procedures for Data
+-- Author:		Ricardo Mendoza
+-- Create date: 2026-04-10
+-- Description:	Save data in tdirecteur
 -- 3. EXEC  sp_save_tdirecteur
--- -----------------------------------------------------
+-- =====================================================
+
 USE [bdLaBanqueNationaleduQuebec]
 GO
 -- ---------------------------- Patrick
@@ -127,17 +129,20 @@ EXEC  sp_save_tdirecteur
 @asexe = 'M',
 @aactive ="A" 
 
---USE [bdLaBanqueNationaleduQuebec]
---GO
---SELECT * FROM tdirecteur
+USE [bdLaBanqueNationaleduQuebec]
+GO
+SELECT * FROM tdirecteur
 
--- -----------------------------------------------------
+-- =====================================================
+-- EXEC Stored Procedures for Data
+-- Author:		Ricardo Mendoza
+-- Create date: 2026-04-10
+-- Description:	Save data in tagences
 -- 4.- EXEC sp_save_tagences
--- -----------------------------------------------------
+-- =====================================================
 
 EXEC sp_save_tagences
 @aidagences=0,
-@anumber ="A1A1",
 @anom ="Rosemont NB",
 @aadresse ="3540 rue Msson, Rosemont, Montrela, 3H1N4L",
 @aidbanque =10
@@ -145,7 +150,6 @@ EXEC sp_save_tagences
 
 EXEC sp_save_tagences
 @aidagences = 0,
-@anumber = 'A2A2',
 @anom = 'MontRoyal NB',
 @aadresse = '3131 Guy, MontRoyal, Montreal, 4J5W3L',
 @aidbanque = 10
@@ -153,7 +157,6 @@ EXEC sp_save_tagences
 
 EXEC sp_save_tagences
 @aidagences = 0,
-@anumber = 'A3A3',
 @anom = 'Beaubien NB',
 @aadresse = '247 Beaubien, Roemont, Montreal, 3H5Y7A',
 @aidbanque = 10
@@ -161,7 +164,6 @@ EXEC sp_save_tagences
 
 EXEC sp_save_tagences
 @aidagences = 0,
-@anumber = 'A4A4',
 @anom = 'Alexander NB',
 @aadresse = '456 Alexander, Montreal Nort, Montreal, 3R78U9',
 @aidbanque = 10
@@ -173,9 +175,13 @@ EXEC sp_save_tagences
 --SELECT * FROM tdirecteur
 --SELECT * FROM tagences
 
--- -----------------------------------------------------
+-- =====================================================
+-- EXEC Stored Procedures for Data
+-- Author:		Ricardo Mendoza
+-- Create date: 2026-04-10
+-- Description:	Save data in tdirecteur_agences
 -- 5. EXEC [dbo].[sp_save_tdirecteur_agences]
--- -----------------------------------------------------
+-- =====================================================
 USE [bdLaBanqueNationaleduQuebec]
 GO
 
@@ -195,9 +201,13 @@ EXEC [dbo].[sp_save_tdirecteur_agences]
 @aiddirecteur = 10,
 @aidagences = 40
 
--- -----------------------------------------------------
+-- =====================================================
+-- EXEC Stored Procedures for Data
+-- Author:		Ricardo Mendoza
+-- Create date: 2026-04-10
+-- Description:	Save data in tarea
 -- 6. EXEC sp_save_tarea
--- -----------------------------------------------------
+-- =====================================================
 
 USE [bdLaBanqueNationaleduQuebec]
 GO
@@ -224,9 +234,13 @@ EXEC sp_save_tarea
 
 --SELECT * FROM tarea
 
--- -----------------------------------------------------
--- 6. EXEC sp_save_temploye 
--- -----------------------------------------------------
+-- =====================================================
+-- EXEC Stored Procedures for Data
+-- Author:		Ricardo Mendoza
+-- Create date: 2026-04-10
+-- Description:	Save data in temploye
+-- 7. EXEC sp_save_temploye 
+-- =====================================================
 
 USE bdLaBanqueNationaleduQuebec
 GO
@@ -367,10 +381,7 @@ EXEC [dbo].[sp_save_temploye ]
 @aidemploye  = 0,
 @anomdeFamille  = 'Benoit',
 @anom = 'Fracoise',
-@acou
-@anomdeFamille  = 'Helena',
-@anom = 'Gonzalez',
-@acourriel  = 'gonzalez@google.com',
+@acourriel  = 'Benoit@gamil.com',
 @aimg  = 'gonzalez.png',
 @ahiringDate  = '2015-08-10',
 @asalary = 450000.99,
@@ -416,8 +427,8 @@ EXEC [dbo].[sp_save_temploye ]
 
 USE bdLaBanqueNationaleduQuebec
 GO
---SELECT * FROM tagences
---SELECT * FROM temploye
+SELECT * FROM tagences
+SELECT * FROM temploye
 
 -- -----------------------------------------------------
 -- 7. EXEC sp_save_temploye_area

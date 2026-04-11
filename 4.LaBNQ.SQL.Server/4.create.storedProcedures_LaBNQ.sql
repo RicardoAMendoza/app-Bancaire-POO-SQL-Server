@@ -38,20 +38,26 @@ USE [bdLaBanqueNationaleduQuebec]
 GO
 
 CREATE PROCEDURE sp_save_tlabanqueduQuebec
-	@aidbanque int= null,
-	@anumber tv100=null,
-	@anom tv100=null,
+	@aidbanque int = null,
+	@anumber int = null,
+	@anom tv100 = null,
 	@acapital tmoney = null,
 	@aadresse tv100 = null
-AS BEGIN 
+AS BEGIN
+    DECLARE @n_aleatorio int;
+	DECLARE @n_mayor int;
+	DECLARE @n_menor int;
+	SET @n_mayor = 7700000;
+	SET @n_menor = 770000;
+	SET @n_aleatorio = round(((@n_mayor-@n_menor-1)*rand()+@n_menor),0);
 	IF @aidbanque=0
 		INSERT INTO [dbo].[tlabanqueduQuebec]
 		(number,nom,capital,adresse)
 		VALUES 
-		(@anumber,@anom,@acapital,@aadresse)
+		(@n_aleatorio,@anom,@acapital,@aadresse)
 	ELSE
 		UPDATE [dbo].[tlabanqueduQuebec]
-		SET number=@anumber,nom=@anom,
+		SET number=@n_aleatorio,nom=@anom,
 		capital=@acapital,adresse=@aadresse
 	WHERE idbanque=@aidbanque
 END
@@ -65,8 +71,7 @@ GO
 
 --EXEC sp_save_tlabanqueduQuebec
 --@aidbanque =0,
---@anumber = "1000LaBanqueNationale",
---@anomdeFamille = "La Banque Nationale",
+--@anom = "La Banque Nationale",
 --@acapital = 100000000,
 --@aadresse = "1000 rue Masson, Mntreal, Canada, H4N3N1" 
 
@@ -86,7 +91,6 @@ GO
 
 CREATE PROCEDURE sp_save_tconseil
 	@aidconseil int = null,
-	@anumber tv100 =null,
 	@anomdeFamille tv100 =null,
 	@anom tv100 = null,
 	@acourriel tv100 = null,
@@ -98,14 +102,12 @@ CREATE PROCEDURE sp_save_tconseil
 AS BEGIN
 	IF @aidconseil=0
 		INSERT INTO tconseil
-		(number,nomdeFamille,nom,courriel, 
-		img, salary,sexe,active,idbanque)
+		(nomdeFamille,nom,courriel,img, salary,sexe,active,idbanque) 
 		VALUES
-		(@anumber,@anomdeFamille,@anom,@acourriel, 
-		@aimg,@asalary,@aactive,@asexe,@aidbanque)
+		(@anomdeFamille,@anom,@acourriel,@aimg,@asalary,@aactive,@asexe,@aidbanque)
 	ELSE
 		UPDATE tconseil
-		SET number=@anumber,nomdeFamille=@anomdeFamille,nom=@anom,courriel=@acourriel, 
+		SET nomdeFamille=@anomdeFamille,nom=@anom,courriel=@acourriel, 
 		img=@aimg,salary=@asalary,active=@aactive,sexe=@asexe,idbanque=@aidbanque
 	WHERE idconseil=@aidconseil
 END
@@ -131,9 +133,14 @@ GO
 
 --SELECT * FROM tconseil
 
--- -----------------------------------------------------
--- 3.- sp_save_tdirecteur
--- -----------------------------------------------------
+-- =====================================================
+-- Stored Procedures for Data
+-- Author:		Ricardo Mendoza
+-- Create date: 2026-04-10
+-- Description:	Save data in tdirecteur
+-- 3.- Procedure sp_save_tdirecteur
+-- =====================================================
+
 CREATE PROCEDURE sp_save_tdirecteur
 	@aiddirecteur int = null,
 	@anomdeFamille tv100= null,
@@ -146,11 +153,9 @@ CREATE PROCEDURE sp_save_tdirecteur
 AS BEGIN
 	IF @aiddirecteur =0
 		INSERT INTO tdirecteur 
-		(nomdeFamille,nom,courriel,
-		img,salary,sexe,active)
+		(nomdeFamille,nom,courriel,img,salary,sexe,active)
 		VALUES 
-		(@anomdeFamille,@anom,@acourriel,
-		@aimg,@asalary,@asexe,@aactive)
+		(@anomdeFamille,@anom,@acourriel,@aimg,@asalary,@asexe,@aactive)
 	ELSE
 		UPDATE tdirecteur
 		SET nomdeFamille=@anomdeFamille,nom=@anom,courriel=@acourriel,
@@ -178,15 +183,19 @@ GO
 
 --SELECT * FROM tdirecteur
 
--- -----------------------------------------------------
+-- =====================================================
+-- Stored Procedures for Data
+-- Author:		Ricardo Mendoza
+-- Create date: 2026-04-10
+-- Description:	Save data in tagences
 -- 4.- sp_save_tagences
--- -----------------------------------------------------
+-- =====================================================
+
 USE [bdLaBanqueNationaleduQuebec]
 GO
 --DROP PROCEDURE sp_save_tagences
 CREATE PROCEDURE sp_save_tagences
 	@aidagences int = null,
-	@anumber tv100 = null,
 	@anom tv100 = null,
 	@aadresse tv100 = null,
 	@aidbanque int = null
@@ -194,12 +203,12 @@ CREATE PROCEDURE sp_save_tagences
 AS BEGIN
 	IF @aidagences = 0
 		INSERT INTO tagences
-		(number,nom,adresse,idbanque)--,iddirecteur)
+		(nom,adresse,idbanque)--,iddirecteur)
 		VALUES 
-		(@anumber,@anom,@aadresse,@aidbanque)--,@aiddirecteur)
+		(@anom,@aadresse,@aidbanque)--,@aiddirecteur)
 	ELSE
 		UPDATE tagences
-		SET number=@anumber,nom=@anom,adresse=@aadresse,
+		SET nom=@anom,adresse=@aadresse,
 		idbanque=@aidbanque--,iddirecteur=@aiddirecteur
 	WHERE idagences=@aidagences
 END
@@ -245,12 +254,11 @@ AS BEGIN
 						FROM tdirecteur_agence
 						WHERE iddirecteur =@aiddirecteur);
 	IF @valid = 0
-		INSERT INTO tdirecteur_agence
-		(iddirecteur,idagences)
-		VALUES(@aiddirecteur, @aidagences)
+		INSERT INTO tdirecteur_agence(iddirecteur,idagences)
+			VALUES(@aiddirecteur, @aidagences)
 	ELSE
 		UPDATE tdirecteur_agence
-		SET iddirecteur=@aiddirecteur, idagences=@aidagences
+			SET iddirecteur=@aiddirecteur, idagences=@aidagences
 	WHERE iddirecteur=@aiddirecteur
 END
 GO
@@ -289,8 +297,7 @@ AS BEGIN
 	 --SELECT COUNT(*) into @valid FROM tarea WHERE codearea=@acodearea
 	 SET @valid=(SELECT COUNT(*) FROM tarea WHERE codearea=@acodearea);
 	IF @valid =0
-		INSERT INTO tarea
-		(codearea,description)
+		INSERT INTO tarea(codearea,description)
 		VALUES
 		(@acodearea,@adescription)
 	ELSE 
@@ -341,16 +348,16 @@ CREATE PROCEDURE sp_save_temploye
 AS BEGIN
 	IF @aidemploye=0
 		INSERT INTO temploye 
-		(nomdeFamille,nom,courriel,
-		img,hiringDate,salary,sexe,active,idagences)
+			(nomdeFamille,nom,courriel,
+			img,hiringDate,salary,sexe,active,idagences)
 		VALUES
 		(@anomdeFamille,@anom,@acourriel,
 		@aimg,@ahiringDate,@asalary,@asexe,@aactive,@aidagences)
 	ELSE  
 		UPDATE temploye
-		SET nomdeFamille=@anomdeFamille,nom=@anom,
-		courriel=@acourriel,img=@aimg,hiringDate=@ahiringDate,
-		salary=@asalary,sexe=@asexe,active=@aactive,idagences=@aidagences
+			SET nomdeFamille=@anomdeFamille,nom=@anom,
+			courriel=@acourriel,img=@aimg,hiringDate=@ahiringDate,
+			salary=@asalary,sexe=@asexe,active=@aactive,idagences=@aidagences
 	WHERE idemploye=@aidemploye
 END
 GO
@@ -397,8 +404,7 @@ AS BEGIN
 						FROM temploye_area
 						WHERE idemploye =@aidemploye);
 	IF @valid = 0
-		INSERT INTO temploye_area 
-		(idemploye,codearea)
+		INSERT INTO temploye_area (idemploye,codearea)
 		VALUES(@aidemploye, @acodearea)
 	ELSE
 		UPDATE temploye_area
@@ -429,45 +435,43 @@ USE [bdLaBanqueNationaleduQuebec]
 GO
 --DROP PROCEDURE sp_save_tclient
 CREATE PROCEDURE sp_save_tclient
-	@aidclient int =null,
-	--@anumber tv100 = null,
-	@anomdeFamille tv100 = null,
-	@anom tv100 =null,
-	@acourriel tv100 = null,
-	@aimg tv100 = null,
-	@aadresse tv100 = null,
-	--@anumerodeCarte tv100 = null,
-	@anip tv100 = null,
-	@asexe tv1 = null,
-	@aage int = null,
-	@aactive tv1 = null,
-	@aidagences int = null,
-	@aidemploye int = null
+		@aidclient int =null,
+		@anomdeFamille tv100 = null,
+		@anom tv100 =null,
+		@acourriel tv100 = null,
+		@aimg tv100 = null,
+		@aadresse tv100 = null,
+		@anip tv100 = null,
+		@asexe tv1 = null,
+		@aage int = null,
+		@aactive tv1 = null,
+		@aidagences int = null,
+		@aidemploye int = null
 AS BEGIN
     DECLARE @n_aleatorio int;
 	DECLARE @n_mayor int;
 	DECLARE @n_menor int;
-	SET @n_mayor = 550000;
-	SET @n_menor = 100000;
+	SET @n_mayor = 5500000;
+	SET @n_menor = 550000;
 	SET @n_aleatorio = round(((@n_mayor-@n_menor-1)*rand()+@n_menor),0);
 	IF @aidclient = 0
 		INSERT INTO tclient
-		(nomdeFamille,nom,courriel,img,
-		adresse,numerodeCarte,nip,sexe,age,active,
-		idagences,idemploye)
+			(nomdeFamille,nom,courriel,img,
+			adresse,numerodeCarte,nip,sexe,age,active,
+			idagences,idemploye)
 		VALUES
-		(@anomdeFamille,@anom,@acourriel,@aimg,
-		@aadresse,@n_aleatorio,@anip,@asexe,@aage,
-		@aactive,@aidagences,@aidemploye)
+			(@anomdeFamille,@anom,@acourriel,@aimg,
+			@aadresse,@n_aleatorio,@anip,@asexe,@aage,
+			@aactive,@aidagences,@aidemploye)
 	ELSE
 		UPDATE tclient
-		SET
-		nomdeFamille=@anomdeFamille,
-		nom=@anom,courriel=@acourriel,img=@aimg,
-		adresse=@aadresse,numerodeCarte=@n_aleatorio,
-		nip=@anip,sexe=@asexe,age=@aage,
-		active=@aactive,idagences=@aidagences,
-		idemploye=@aidemploye
+			SET
+			nomdeFamille=@anomdeFamille,
+			nom=@anom,courriel=@acourriel,img=@aimg,
+			adresse=@aadresse,numerodeCarte=@n_aleatorio,
+			nip=@anip,sexe=@asexe,age=@aage,
+			active=@aactive,idagences=@aidagences,
+			idemploye=@aidemploye
 	WHERE idclient=@aidclient
 END
 GO
@@ -687,7 +691,6 @@ GO
 
 CREATE PROCEDURE sp_save_tadmin
 	@aidadmin  int = null,
-	@anumber tv100 = null,
 	@anomdeFamille tv100 = null,
 	@anom tv100 = null,
 	@acourriel tv100 = null,
@@ -699,15 +702,15 @@ CREATE PROCEDURE sp_save_tadmin
 AS BEGIN
 	IF @aidadmin=0
 		INSERT INTO tadmin 
-		(number,nomdeFamille,nom,courriel,img,
+		(nomdeFamille,nom,courriel,img,
 		utilisateur,motdePasse,sexe,active)
 		VALUES
-		(@anumber,@anomdeFamille,@anom,@acourriel,@aimg,
+		(@anomdeFamille,@anom,@acourriel,@aimg,
 		@autilisateur,@amotdePasse,@asexe,@aactive)
 	ELSE
 		UPDATE tadmin
 		SET 
-		number=@anumber,nomdeFamille=@anomdeFamille,
+		nomdeFamille=@anomdeFamille,
 		nom=@anom,courriel=@acourriel,img=@aimg,
 		utilisateur=@autilisateur,motdePasse=@amotdePasse,
 		sexe=@asexe,active=@aactive

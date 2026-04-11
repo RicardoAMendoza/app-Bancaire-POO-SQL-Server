@@ -11,13 +11,10 @@ namespace _1.Model.Model
     public class Agency
     {
         private int IdAgency;
-
         private string AgencyName;
         private string AgencyAddress;
-        private int agencyIdCounter;
         private int idBanque;
-
-
+        private int agencyIdCounter;
         private static int staticNbcounter;
         private ListEmployees listEmployees = new ListEmployees();
         private ListClients listClients = new ListClients();
@@ -27,9 +24,9 @@ namespace _1.Model.Model
             IdAgency = vIdAgency;
             AgencyName = vName;
             AgencyAddress = vAddress;
-            agencyIdCounter = 0;
-            staticNbcounter++;
             this.idBanque = idBanque;
+            agencyIdCounter = 0;
+            staticNbcounter++;   
         }
         public Agency(ListClients vListClients, ListEmployees vListEmployees)
         {
@@ -85,8 +82,6 @@ namespace _1.Model.Model
         {
             get { return staticNbcounter; }
         }
-
-      
 
         public string ShowAgencies()
         {
