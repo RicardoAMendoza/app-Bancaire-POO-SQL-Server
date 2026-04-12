@@ -23,8 +23,6 @@ namespace _2.View
         // 3 . Read Rows
         private static SqlDataReader Read;
 
-
-
         // static variables employee
         static string stringdbaseemployee;
         static string stringcmboxemployee;

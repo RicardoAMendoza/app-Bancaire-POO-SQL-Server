@@ -15,13 +15,12 @@ namespace _2.View
             InitializeComponent();
             ReadClient();
         }
- 
+
         private void ReadClient()
         {
             // agregar int id.
             DataTable datatable = new DataTable();
             datatable.Columns.Add("ID");
-            datatable.Columns.Add("NUMBER");
             datatable.Columns.Add("NAME");
             datatable.Columns.Add("lastName");
             datatable.Columns.Add("eMAIL");
@@ -38,13 +37,12 @@ namespace _2.View
             // object CD_getData
             var model = new CD_getData();
             /// Get clients from listClients
-            var clients = CD_getLists.fncGetClientsFromDb();
+            var clientList = CD_getLists.fncGetClientsFromList();
 
-            foreach (var client in clients.Elements)
+            foreach (var client in clientList.Elements)
             {
                 DataRow row = datatable.NewRow();
                 row["ID"] = client.vId;
-              
                 row["NAME"] = client.vName;
                 row["lastName"] = client.vLastName;
                 row["eMAIL"] = client.vEMail;
@@ -58,8 +56,6 @@ namespace _2.View
                 // ID
                 row["IDAGENCE"] = client.vIdAgences;
                 row["IDEMPLOYE"] = client.vIdEmploye;
-
-
                 datatable.Rows.Add(row);
             }
             this.gridViewclientsTable.DataSource = datatable;

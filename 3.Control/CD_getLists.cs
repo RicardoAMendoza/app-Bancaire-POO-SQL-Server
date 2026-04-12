@@ -33,7 +33,7 @@ namespace _3.Control
         /// application.</remarks>
         /// <returns>A <see cref="ListClients"/> collection containing all clients found in the database. The collection will be
         /// empty if no clients are present.</returns>
-        public static ListClients fncGetClientsFromDb()
+        public static ListClients fncGetClientsFromList()
         {
             ListClients listClients = new ListClients();
             const string sql = @"
@@ -124,7 +124,6 @@ namespace _3.Control
             const string sql = @"
                 SELECT
                     c.idemploye AS IDEMPLOYEE,
-
                     c.nomdeFamille NAME,
                     c.nom AS lastName,
                     c.courriel AS eMAIL,
@@ -146,9 +145,7 @@ namespace _3.Control
                     while (reader.Read())
                     {
                         // EMPLOYEE fields (null-safe)
-                        int vId = reader["IDEMPLOYEE"] != DBNull.Value ? Convert.ToInt32(reader["IDEMPLOYEE"]) : 0;
-                        
-                        //string vNumber = reader["NUMBER"] as string ?? string.Empty;
+                        int vId = reader["IDEMPLOYEE"] != DBNull.Value ? Convert.ToInt32(reader["IDEMPLOYEE"]) : 0;            
                         string vName = reader["NAME"] as string ?? string.Empty;
                         string vLastName = reader["lastName"] as string ?? string.Empty;
                         string vEmail = reader["eMAIL"] as string ?? string.Empty;
@@ -195,13 +192,12 @@ namespace _3.Control
             return listEmployees;
         }
 
-        public static ListAgencies fncGetAgencesFromDb()
+        public static ListAgencies fncGetAgencesFromList()
         {
             ListAgencies listAgencies = new ListAgencies();
             const string sql = @"
                 SELECT
                     c.idagences AS IDAGENCE,
-              
                     c.nom AS NAME,
                     c.adresse AS ADDRESS,
                     c.idbanque AS IDBANQUE
@@ -217,9 +213,7 @@ namespace _3.Control
                     while (reader.Read())
                     {
                         // Agency fields (null-safe)
-                        int vId = reader["IDAGENCE"] != DBNull.Value ? Convert.ToInt32(reader["IDAGENCE"]) : 0;
-                       // string vNumber = reader["NUMBER"] as string ?? string.Empty;
-                        
+                        int vId = reader["IDAGENCE"] != DBNull.Value ? Convert.ToInt32(reader["IDAGENCE"]) : 0;   
                         string vName = reader["NAME"] as string ?? string.Empty;
                         string vAddress = reader["ADDRESS"] as string ?? string.Empty;
                         // [idbanque]
@@ -234,7 +228,6 @@ namespace _3.Control
                             // Fallback: use default constructor and set public properties
                             agency = new Agency();
                             agency.vIdAgency = vId;
-                        
                             agency.vAgencyName = vName;
                             agency.vAgencyAddress = vAddress;
                             agency.vIdBanque = vIdBanque;

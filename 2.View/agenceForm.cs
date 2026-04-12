@@ -33,7 +33,7 @@ namespace _2.View
             // object CD_getData
             var model = new CD_getData();
             /// Get agencies from listAgences
-            var agencies = CD_getLists.fncGetAgencesFromDb();
+            var agencies = CD_getLists.fncGetAgencesFromList();
 
             foreach (var agency in agencies.Elements)
             {
