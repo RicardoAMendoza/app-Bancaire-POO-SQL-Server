@@ -86,7 +86,7 @@ namespace _2.View
             string numberText = this.textBoxNumber.Text?.Trim() ?? string.Empty;
             if (!string.IsNullOrEmpty(numberText) && !int.TryParse(numberText, out numberValue))
             {
-                MessageBox.Show("Please enter a valid integer for Age.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter a valid integer integr for Age.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.DialogResult = DialogResult.Cancel;
                 return;
             }

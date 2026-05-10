@@ -71,10 +71,10 @@ namespace _1.Model.Model
             : base()
         {
             Salary = 0;
-            HiringDate = new Date();
+         //   HiringDate = new Date();
             employeeIdCounter = ++staticNbcounter;
         }
-        public Employee(int vId, string vName, string vLastName, string vEMail, string vPhoto, Date vHiringDate,Decimal vSalary, string vSexe, string vActive, int vIdAgences)
+        public Employee(int vId, string vName, string vLastName, string vEMail, string vPhoto, Date vHiringDate, Decimal vSalary, string vSexe, string vActive, int vIdAgences)
            : base(vId, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
         {
             Salary = vSalary;

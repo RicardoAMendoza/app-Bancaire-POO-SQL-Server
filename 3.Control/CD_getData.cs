@@ -25,198 +25,13 @@ namespace _3.Control
         /// 1. Obj clsConnection -> object connection with the data base
         /// </summary>
         private CD_getConnection Connection = new CD_getConnection();
-      //  private CD_getData Model = new CD_getData();
+        //  private CD_getData Model = new CD_getData();
         // 2. Execute SQl
         private SqlCommand Command = new SqlCommand();
         // 3 . Read Rows
         private SqlDataReader Read;
 
-    //    static private string stringConnection = "Data Source = .; DataBase = bdLaBanqueNationaleduQuebec; Integrated Security = true";
-
         
-
-        // Fields
-        private int idDirector;
-        private string DirectorNumber;
-        private string DirectorName;
-        private string DirectorLastName;
-        private string DirectorEmail;
-        private string DirectorPhoto;
-        private string DirectorSexe;
-        private string DirectorActive;
-        private decimal Salary;
-
-        // Constructors
-        public CD_getData()
-        {
-            idDirector = 0;
-            DirectorNumber = EmptyConstructor.stringEmptyConstructor();
-            DirectorName = EmptyConstructor.stringEmptyConstructor();
-            DirectorLastName = EmptyConstructor.stringEmptyConstructor();
-            DirectorEmail = EmptyConstructor.stringEmptyConstructor();
-            DirectorPhoto = EmptyConstructor.stringEmptyConstructor();
-            DirectorSexe = EmptyConstructor.stringEmptyConstructor();
-            DirectorActive = EmptyConstructor.stringEmptyConstructor();
-            Salary = EmptyConstructor.decimalEmptyConstructor();
-        }
-        public CD_getData(int vIdDirector, string vDirectorNumber, string vDirectorName, string vDirectorLastName, string vDirectorEmail, string vDirectorPhoto, string vDirectorSexe, string vDirectorActive, decimal vSalary)
-        {
-            idDirector = vIdDirector;
-            DirectorNumber = vDirectorNumber;
-            DirectorName = vDirectorName;
-            DirectorLastName = vDirectorLastName;
-            DirectorEmail = vDirectorEmail;
-            DirectorPhoto = vDirectorPhoto;
-            DirectorSexe = vDirectorSexe;
-            DirectorActive = vDirectorActive;
-            Salary = vSalary;
-        }
-        // propierties
-        public int vIdDirector
-        {
-            get { return idDirector; }
-            set { idDirector = value; }
-        }
-        public string vDirectorNumber
-        {
-            get { return DirectorNumber; }
-            set { DirectorNumber = value; }
-        }
-        public string vDirectorName
-        {
-            get { return DirectorName; }
-            set { DirectorName = value; }
-        }
-        public string vDirectorLastName
-        {
-            get { return DirectorLastName; }
-            set { DirectorLastName = value; }
-        }
-        public string vDirectorEmail
-        {
-            get { return DirectorEmail; }
-            set { DirectorEmail = value; }
-        }
-        public string vDirectorPhoto
-        {
-            get { return DirectorPhoto; }
-            set { DirectorPhoto = value; }
-        }
-        public string vDirectorSexe
-        {
-            get { return DirectorSexe; }
-            set { DirectorSexe = value; }
-        }
-        public string vDirectorActive
-        {
-            get { return DirectorActive; }
-            set { DirectorActive = value; }
-        }
-        public decimal vSalary
-        {
-            get { return Salary; }
-            set { Salary = value; }
-        }
-
-
-        public class EmployeeInterna 
-        {
-            // Fields
-            private int id;
-            private string EmployeeNumber;
-            private string EmployeeName;
-            private string EmployeeLastName;
-            private string EmployeeEmail;
-            private string EmployeePhoto;
-            private DateTime Hiringdate;
-            private decimal Salary;
-            private string EmployeeSexe;
-            private string EmployeeActive;
-
-            // empty constructor
-            public EmployeeInterna()
-            {
-                id = EmptyConstructor.intEmptyConstructor();
-                EmployeeNumber = EmptyConstructor.stringEmptyConstructor();
-                EmployeeName = EmptyConstructor.stringEmptyConstructor();
-                EmployeeLastName = EmptyConstructor.stringEmptyConstructor();
-                EmployeeEmail = EmptyConstructor.stringEmptyConstructor();
-                EmployeePhoto = EmptyConstructor.stringEmptyConstructor();
-                Hiringdate = EmptyConstructor.dateEmptyConstructor();
-                Salary = EmptyConstructor.decimalEmptyConstructor();
-                EmployeeSexe = EmptyConstructor.stringEmptyConstructor(); 
-                EmployeeActive = EmptyConstructor.stringEmptyConstructor();
-            }
-
-            // Constructors
-            public EmployeeInterna(int idv, string vEmployeeNumber, string vEmployeeName, string vEmployeeLastName, 
-                string vEmployeeEmail, string vEmployeePhoto, DateTime vHiringdate, decimal vSalary, string vEmployeeSexe, string vEmployeeActive)
-            {
-                id = idv;
-                EmployeeNumber = vEmployeeNumber;
-                EmployeeName = vEmployeeName;
-                EmployeeLastName = vEmployeeLastName;
-                EmployeeEmail = vEmployeeEmail;
-                EmployeePhoto = vEmployeePhoto;
-                Hiringdate = vHiringdate;
-                Salary = vSalary;
-                EmployeeSexe = vEmployeeSexe;
-                EmployeeActive = vEmployeeActive;
-            }
-            // propierties
-            public int idv
-            {
-                get { return id; }
-                set { id = value; }
-            }
-            public string vEmployeeNumber
-            {
-                get { return EmployeeNumber; }
-                set { EmployeeNumber = value; }
-            }
-            public string vEmployeeName
-            {
-                get { return EmployeeName; }
-                set { EmployeeName = value; }
-            }
-            public string vEmployeeLastName
-            {
-                get { return EmployeeLastName; }
-                set { EmployeeLastName = value; }
-            }
-            public string vEmployeeEmail
-            {
-                get { return EmployeeEmail; }
-                set { EmployeeEmail = value; }
-            }
-            public string vEmployeePhoto
-            {
-                get { return EmployeePhoto; }
-                set { EmployeePhoto = value; }
-            }
-            public DateTime vHiringdate
-            {
-                get { return Hiringdate; }
-                set { Hiringdate = value; }
-            }
-            public string vEmployeeSexe
-            {
-                get { return EmployeeSexe; }
-                set { EmployeeSexe = value; }
-            }
-            public string vEmployeeActive
-            {
-                get { return EmployeeActive; }
-                set { EmployeeActive = value; }
-            }
-
-            internal string ReaderEmployee()
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        // Methods
         public DataTable DirectorList()
         {
             try
@@ -407,7 +222,7 @@ namespace _3.Control
                         cmd.Parameters.AddWithValue("@Active", client.vActive);
                         //IDAGENCES and IDEMPLOYE
                         cmd.Parameters.AddWithValue("@IdAgences", client.vIdAgences);
-                        cmd.Parameters.AddWithValue("@IdAgences", client.vIdAgences);
+                        cmd.Parameters.AddWithValue("@IdEmploye", client.vIdEmploye);
                     cmd.ExecuteNonQuery();
                     }
             }

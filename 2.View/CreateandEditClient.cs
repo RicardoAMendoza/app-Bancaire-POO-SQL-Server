@@ -3,6 +3,7 @@ using _3.Control;
 using System;
 using System.Data.SqlClient;
 using System.Dynamic;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace _2.View
@@ -78,7 +79,7 @@ namespace _2.View
             // new Controller cleans the object everytime it is called
             // new Controllercleans the view with every click
             // clsInfo Controller = new clsInfo();
-            cmbEmployees.DataSource = Controller.EmployeeList();
+           // cmbEmployees.DataSource = Controller.EmployeeList();
             cmbEmployees.DisplayMember = "";
             cmbEmployees.ValueMember = "";
             //cmbEmployees.DisplayMember = "Employee";
@@ -118,7 +119,6 @@ namespace _2.View
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            
             /* Pseudocode / Plan:
                1. Read and trim input values from textboxes safely (null-check).
                2. Validate required fields (client number) and numeric field (age) using TryParse.
@@ -130,42 +130,36 @@ namespace _2.View
             */
 
             // Safe reads
-         //   string number = this.textBoxNumber.Text?.Trim() ?? string.Empty;
             string name = this.textBoxName.Text?.Trim() ?? string.Empty;
             string lastName = this.textBoxLastName.Text?.Trim() ?? string.Empty;
 
-            // Parse age safely
-            int numberValue = 0;
-            string numberText = this.textBoxAge.Text?.Trim() ?? string.Empty;
-            if (!string.IsNullOrEmpty(numberText) && !int.TryParse(numberText, out numberValue))
-            {
-                MessageBox.Show("Please enter a valid integer for Age.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                this.DialogResult = DialogResult.Cancel;
-                return;
-            }
-
-            // Basic validation
-            //if (int.IsNullOrEmpty(number))
+         
+           // int numberValue = 0;
+            //string numberText = this.labelClientID.Text?.Trim() ?? string.Empty;
+            //if (!string.IsNullOrEmpty(numberText) && !int.TryParse(numberText, out numberValue))
             //{
-            //    MessageBox.Show("Please enter a client number.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    MessageBox.Show("Please enter a valid integer integer for Age.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             //    this.DialogResult = DialogResult.Cancel;
             //    return;
             //}
 
-            // Duplicate check
-            if (agency.vListClients != null && agency.vListClients.Exist(numberValue))
-            {
-                MessageBox.Show($"A client with number '{numberValue}' already exists.", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.DialogResult = DialogResult.Cancel;
-                return;
-            }
+
+
+            //// Duplicate check
+            //if (agency.vListClients != null && agency.vListClients.Exist(numberValue))
+            //{
+               
+            //    MessageBox.Show($"A client with number '{numberValue}' already exists.", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    this.DialogResult = DialogResult.Cancel;
+            //    return;
+            //}
 
             // Parse age safely
             int ageValue = 0;
             string ageText = this.textBoxAge.Text?.Trim() ?? string.Empty;
             if (!string.IsNullOrEmpty(ageText) && !int.TryParse(ageText, out ageValue))
             {
-                MessageBox.Show("Please enter a valid integer for Age.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter a valid integer integer for Age.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.DialogResult = DialogResult.Cancel;
                 return;
             }
@@ -175,7 +169,7 @@ namespace _2.View
             string IdAgenceText = this.textBoxIdAgence.Text?.Trim() ?? string.Empty;
             if (!string.IsNullOrEmpty(IdAgenceText) && !int.TryParse(IdAgenceText, out IdAgenceValue))
             {
-                MessageBox.Show("Please enter a valid integer for Age.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter a valid integer for IdAgence.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.DialogResult = DialogResult.Cancel;
                 return;
             }
@@ -184,7 +178,7 @@ namespace _2.View
             string IdEmployeText = this.textBoxIdAgence.Text?.Trim() ?? string.Empty;
             if (!string.IsNullOrEmpty(IdEmployeText) && !int.TryParse(IdEmployeText, out IdEmployeValue))
             {
-                MessageBox.Show("Please enter a valid integer for Age.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter a valid integer for IdEmploye.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.DialogResult = DialogResult.Cancel;
                 return;
             }
@@ -193,7 +187,7 @@ namespace _2.View
             string NumerodeCarteText = this.textBoxIdAgence.Text?.Trim() ?? string.Empty;
             if (!string.IsNullOrEmpty(NumerodeCarteText) && !int.TryParse(NumerodeCarteText, out NumerodeCarteValue))
             {
-                MessageBox.Show("Please enter a valid integer for Age.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter a valid integer for Numero de Carte.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.DialogResult = DialogResult.Cancel;
                 return;
             }
