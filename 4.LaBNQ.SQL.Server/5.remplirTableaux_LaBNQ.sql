@@ -692,7 +692,7 @@ EXEC sp_save_tclient
 
 EXEC sp_save_tclient
 @aidclient = 0,
--@anumber  = 'C12C12',
+--@anumber  = 'C12C12',
 @anomdeFamille = 'Pedro',
 @anom  = 'Espana',
 @acourriel  = 'espana@facebook.com',

@@ -523,6 +523,26 @@ namespace _3.Control
                 MessageBox.Show("Error in the Model executing the function ReaderEmployee : " + " " + ex.Message);
                 return null;
             }
+
+
+        }
+
+        public void DeleteEmploye(int employeId)
+        {
+            try
+            {
+                Command.Connection = Connection.OpenConnection();
+                string sql = "DELETE FROM temploye WHERE idemploye = @Idemploye";
+                using (SqlCommand cmd = new SqlCommand(sql, Command.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@Idemploye", employeId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting employe: " + ex.Message);
+            }
         }
     }
 }

@@ -253,6 +253,11 @@ ALTER TABLE temploye_area ADD codearea tv3 NOT NULL
 ALTER TABLE temploye_area ADD
 CONSTRAINT fk_temploye_idemploye FOREIGN KEY(idemploye)
 REFERENCES temploye(idemploye)
+-- CASCADE -- ------------------------------------------
+-- idemploye
+ON UPDATE CASCADE
+ON DELETE CASCADE
+
 ALTER TABLE temploye_area ADD
 CONSTRAINT fk_tarea_codearea FOREIGN KEY(codearea)
 REFERENCES tarea(codearea)

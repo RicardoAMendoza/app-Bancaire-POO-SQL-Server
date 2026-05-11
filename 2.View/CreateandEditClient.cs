@@ -49,24 +49,9 @@ namespace _2.View
                 }
                  dr.Close();
                  cn.Close();
-                
-
-
-                //SqlDataReader dr = cm.ExecuteReader();
-                // while (dr.Read())
-                //{
-                //    cmbEmployees.Items.Add(dr["number"].ToString());
-                //}
-                // dr.Close();
-                // Connection.CloseConnection();
-                // Load combo employees
                 //ListEmployees();
                 stringdbaseemployee = null;
                 stringcmboxemployee = null;
-
-                //cmbEmployees.DataSource = Controller.EmployeeList();
-                //cmbEmployees.DisplayMember = "vName";
-                //cmbEmployees.ValueMember = "vEmployeeNumber";
             }
             catch (Exception ex)
             {
@@ -76,14 +61,8 @@ namespace _2.View
 
         public void ListEmployees()
         {
-            // new Controller cleans the object everytime it is called
-            // new Controllercleans the view with every click
-            // clsInfo Controller = new clsInfo();
-           // cmbEmployees.DataSource = Controller.EmployeeList();
             cmbEmployees.DisplayMember = "";
             cmbEmployees.ValueMember = "";
-            //cmbEmployees.DisplayMember = "Employee";
-            //cmbEmployees.ValueMember = "idEmployee";
         }
 
 
@@ -132,27 +111,6 @@ namespace _2.View
             // Safe reads
             string name = this.textBoxName.Text?.Trim() ?? string.Empty;
             string lastName = this.textBoxLastName.Text?.Trim() ?? string.Empty;
-
-         
-           // int numberValue = 0;
-            //string numberText = this.labelClientID.Text?.Trim() ?? string.Empty;
-            //if (!string.IsNullOrEmpty(numberText) && !int.TryParse(numberText, out numberValue))
-            //{
-            //    MessageBox.Show("Please enter a valid integer integer for Age.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    this.DialogResult = DialogResult.Cancel;
-            //    return;
-            //}
-
-
-
-            //// Duplicate check
-            //if (agency.vListClients != null && agency.vListClients.Exist(numberValue))
-            //{
-               
-            //    MessageBox.Show($"A client with number '{numberValue}' already exists.", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    this.DialogResult = DialogResult.Cancel;
-            //    return;
-            //}
 
             // Parse age safely
             int ageValue = 0;
@@ -260,10 +218,6 @@ namespace _2.View
             {
                 CD_getInfo Controller = new CD_getInfo();
                 stringcmboxemployee = cmbEmployees.Text;
-              //  stringdbaseemployee = Controller.ReaderEmployee(stringcmboxemployee);
-              //  gvClient.DataSource = Controller.selectqclientByemployeeNumber(stringdbaseemployee);
-              //  CleanTextboxes();
-                //btnRefresh.Text = "Refresh >>>";
             }
             catch (Exception ex)
             {

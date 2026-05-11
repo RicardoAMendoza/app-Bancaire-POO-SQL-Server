@@ -98,7 +98,29 @@ namespace _2.View
 
         private void butDeleteEmployee_Click(object sender, EventArgs e)
         {
+            // Fix: Remove extra dot and brackets, use correct property names
+            if (gridViewemployeesTable.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select an employee to delete.");
+                return;
+            }
+            var val = this.gridViewemployeesTable.SelectedRows[0].Cells[0].Value?.ToString();
+            if (string.IsNullOrEmpty(val))
+                return;
+            int employeId = int.Parse(val);
 
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this employe?",
+                "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+            else
+            {
+                var obj = new CD_getData();
+                obj.DeleteEmploye(employeId);
+                ReadEmployee();
+            }
         }
     }
 }
