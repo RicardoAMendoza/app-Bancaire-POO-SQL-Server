@@ -14,6 +14,10 @@ namespace _1.Model.Model
 
         // Fields
         private Date HiringDate;
+        //private int Day;
+        //private int Month;
+        //private int Year;
+
         private Decimal Salary;
         private int IdAgences;
         /// <summary>
@@ -54,12 +58,14 @@ namespace _1.Model.Model
         /// <param name="vLastName">The last name of the employee.</param>
         /// <param name="vPhoto">The file path or URL of the employee's photo.</param>
         /// <param name="vHiringDate">The date the employee was hired.</param>
-        public Employee(int vId, string vName, string vLastName, string vEMail,string vPhoto, Date vHiringDate,Decimal vSalary,
-                        string vSexe,string vActive, int vDay, int vMonth, int vYear)
+        public Employee(int vId, string vName, string vLastName, string vEMail,string vPhoto, Decimal vSalary, string vSexe,string vActive, int vIdAgences, int vDay, int vMonth, int vYear)
                         : base(vId, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
         {
             Salary = vSalary;
             HiringDate = new Date(vDay, vMonth, vYear);
+            //Day = vDay;
+            //Month = vMonth;
+            //Year = vYear;
             employeeIdCounter = ++staticNbcounter;
         }
         /// <summary>
@@ -71,7 +77,7 @@ namespace _1.Model.Model
             : base()
         {
             Salary = 0;
-         //   HiringDate = new Date();
+            HiringDate = new Date();
             employeeIdCounter = ++staticNbcounter;
         }
         public Employee(int vId, string vName, string vLastName, string vEMail, string vPhoto, Date vHiringDate, Decimal vSalary, string vSexe, string vActive, int vIdAgences)
@@ -93,6 +99,21 @@ namespace _1.Model.Model
             get { return HiringDate; }
             set { HiringDate = value; }
         }
+        //public int vDay
+        //{
+        //    get { return Day; }
+        //    set { Day = value; }
+        //}
+        //public int vMonth
+        //{
+        //    get { return Month; }
+        //    set { Month = value; }
+        //}
+        //public int vYear
+        //{
+        //    get { return Year; }
+        //    set { Year = value; }
+        //}
         public Decimal vSalary
         {
             get { return Salary; }

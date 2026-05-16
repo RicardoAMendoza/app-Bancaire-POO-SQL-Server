@@ -28,7 +28,7 @@ namespace _2.View
             datatable.Columns.Add("lastName");
             datatable.Columns.Add("eMAIL");
             datatable.Columns.Add("PHOTO");
-            datatable.Columns.Add("HIRINGDATA");
+            datatable.Columns.Add("HIRINGDATA", typeof(DateTime)); // Specify DateTime type
             datatable.Columns.Add("SALARY");
             datatable.Columns.Add("SEXE");
             datatable.Columns.Add("ACTIVE");
@@ -45,13 +45,18 @@ namespace _2.View
                 row["lastName"] = employee.vLastName;
                 row["eMAIL"] = employee.vEMail;
                 row["PHOTO"] = employee.vPhoto;
-                row["HIRINGDATA"] = employee.vHiringDate;
+                // null values for HIRINGDATA will be set to DBNull.Value, otherwise convert to DateTime
+                row["HIRINGDATA"] = employee.vHiringDate != null
+                ? new DateTime(employee.vHiringDate.vYear, employee.vHiringDate.vMonth, employee.vHiringDate.vDay)
+                : (object)DBNull.Value;
                 row["SALARY"] = employee.vSalary;
                 row["SEXE"] = employee.vSexe;
                 row["ACTIVE"] = employee.vActive;
                 row["IDAGENCE"] = employee.vIdAgences;
+                
                 datatable.Rows.Add(row);
             }
+            
             this.gridViewemployeesTable.DataSource = datatable;
         }
 
@@ -109,7 +114,7 @@ namespace _2.View
                 return;
             int employeId = int.Parse(val);
 
-            DialogResult result = MessageBox.Show("Are you sure you want to delete this employe?",
+            DialogResult result = MessageBox.Show("Are you sure you want to delete the ID : " + employeId + " employe?",
                 "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.No)
             {

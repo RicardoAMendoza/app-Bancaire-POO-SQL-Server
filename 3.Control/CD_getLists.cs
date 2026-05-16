@@ -150,14 +150,18 @@ namespace _3.Control
                         string vLastName = reader["lastName"] as string ?? string.Empty;
                         string vEmail = reader["eMAIL"] as string ?? string.Empty;
                         string vPhoto = reader["PHOTO"] as string ?? string.Empty;
-                        Date vHiringDate = null;
+                        /// Initializes the Date Value to NULL
+                        //int vDay = 0;
+                        //int vMonth = 0;
+                        //int vYear = 0;
+                       Date vHiringDate = null;
                         if (reader["HIRINGDATA"] != DBNull.Value)
                         {
                             DateTime dt = Convert.ToDateTime(reader["HIRINGDATA"]);
-                            vHiringDate = new Date();
-                            vHiringDate.vDay = dt.Day;
-                            vHiringDate.vMonth = dt.Month;
-                            vHiringDate.vYear = dt.Year;
+                            //vDay = dt.Day;
+                            //vMonth = dt.Month;
+                            //vYear = dt.Year;
+                            vHiringDate = new Date(dt.Day, dt.Month, dt.Year);
                         } // Date type
                         decimal vSalary = reader["SALARY"] != DBNull.Value ? Convert.ToDecimal(reader["SALARY"]) : 0;  // Money type
                         string vSexe = reader["SEXE"] as string ?? string.Empty;
@@ -167,7 +171,8 @@ namespace _3.Control
                         Employee employee;
                         try
                         {
-                            employee = new Employee(vId, vName, vLastName, vEmail, vPhoto, vHiringDate, vSalary, vSexe, vActive, vIdAgences);
+                            // employee = new Employee(vId, vName, vLastName, vEmail, vPhoto, vHiringDate, vSalary, vSexe, vActive, vIdAgences);
+                            employee = new Employee(vId, vName, vLastName, vEmail, vPhoto, vHiringDate,vSalary, vSexe, vActive, vIdAgences );
                         }
                         catch
                         {

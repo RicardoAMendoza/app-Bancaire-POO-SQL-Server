@@ -70,11 +70,11 @@ namespace _1.Model.Model
         }  
         /// Employee Details
         public Client(int vId, string vName, string vLastName, string vEMail, string vPhoto, string vAddress, int vNumerodeCarte, string vNip, string vSexe, int vAge, string vActive,
-            int vEmpId, int vEmpNumber, string vEmpName, string vEmpLastName, string vEmpEMail, string vEmpPhoto, Date vEmpHearingDate, Decimal vEmpSalary, string vEmpSexe, string vEmpActive, int vDay, int vMonth, int vYear)
+            int vEmpId, int vEmpNumber, string vEmpName, string vEmpLastName, string vEmpEMail, string vEmpPhoto, Decimal vEmpSalary, string vEmpSexe, string vEmpActive, int vIdAgences, int vDay, int vMonth, int vYear)
            // Inherit from Human
            : base(vId, vName, vLastName, vEMail, vPhoto, vSexe, vActive)
         {
-            Employee = new Employee(vEmpId, vEmpName, vEmpLastName, vEmpEMail, vEmpPhoto, vEmpHearingDate, vEmpSalary,vEmpSexe, vEmpActive, vDay, vMonth, vYear);
+            Employee = new Employee(vEmpId, vEmpName, vEmpLastName, vEmpEMail, vEmpPhoto, vEmpSalary,vEmpSexe, vEmpActive, vIdAgences, vDay, vMonth, vYear);
             Address = vAddress;
             NumerodeCarte = vNumerodeCarte;
             Nip = vNip;
