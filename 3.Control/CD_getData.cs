@@ -358,7 +358,7 @@ namespace _3.Control
                             int ordLast = reader.GetOrdinal("lastName");
                             int ordEmail = reader.GetOrdinal("eMAIL");
                             int ordPhoto = reader.GetOrdinal("PHOTO");
-                            int ordHiring = reader.GetOrdinal("HIRINGDATE"); // matches alias
+                            int ordHiring = reader.GetOrdinal("HIRINGDATA"); // matches alias
                             int ordSalary = reader.GetOrdinal("SALARY");
                             int ordSexe = reader.GetOrdinal("SEXE");
                             int ordActive = reader.GetOrdinal("ACTIVE");
@@ -436,7 +436,11 @@ namespace _3.Control
                     cmd.Parameters.AddWithValue("@LastName", employee.vLastName);
                     cmd.Parameters.AddWithValue("@Email", employee.vEMail);
                     cmd.Parameters.AddWithValue("@Photo", employee.vPhoto);
-                    cmd.Parameters.AddWithValue("@HiringDate", employee.vHiringDate);
+                    
+                    // Convert Date to DateTime - use public properties vYear, vMonth, vDay
+                    DateTime hiringDateTime = new DateTime(employee.vHiringDate.vYear, employee.vHiringDate.vMonth, employee.vHiringDate.vDay);
+                    cmd.Parameters.AddWithValue("@HiringDate", hiringDateTime);
+                    
                     cmd.Parameters.AddWithValue("@Salary", employee.vSalary);
                     cmd.Parameters.AddWithValue("@Sexe", employee.vSexe);
                     cmd.Parameters.AddWithValue("@Active", employee.vActive);
@@ -445,7 +449,7 @@ namespace _3.Control
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error creating client: " + ex.Message);
+                MessageBox.Show("Error creating employee: " + ex.Message);
             }
         }
         public void UpdateEmployee(Employee employee)
@@ -454,25 +458,29 @@ namespace _3.Control
             {
                 Command.Connection = Connection.OpenConnection();
                 string sql = @"
-                        UPDATE temploye
-                        SET 
-                            nomdeFamille = @Name,
-                            nom = @LastName,
-                            courriel = @Email,
-                            img = @Photo,
-                             hiringdate= @hiringDate,
-                            salry= @Salary,
-                            sexe = @Sexe,
-                            active = @Active
-                        WHERE idemploye = @IdEmploye";
+                UPDATE temploye
+                SET 
+                    nomdeFamille = @Name,
+                    nom = @LastName,
+                    courriel = @Email,
+                    img = @Photo,
+                    hiringdate = @HiringDate,
+                    salary = @Salary,
+                    sexe = @Sexe,
+                    active = @Active
+                WHERE idemploye = @IdEmploye";
                 using (SqlCommand cmd = new SqlCommand(sql, Command.Connection))
                 {
-                    cmd.Parameters.AddWithValue("@IdClient", employee.vId);
+                    cmd.Parameters.AddWithValue("@IdEmploye", employee.vId); // Fixed: was @IdClient
                     cmd.Parameters.AddWithValue("@Name", employee.vName);
                     cmd.Parameters.AddWithValue("@LastName", employee.vLastName);
                     cmd.Parameters.AddWithValue("@Email", employee.vEMail);
                     cmd.Parameters.AddWithValue("@Photo", employee.vPhoto);
-                    cmd.Parameters.AddWithValue("@hiringDate", employee.vHiringDate);
+                    
+                    // Convert Date to DateTime - use public properties vYear, vMonth, vDay
+                    DateTime hiringDateTime = new DateTime(employee.vHiringDate.vYear, employee.vHiringDate.vMonth, employee.vHiringDate.vDay);
+                    cmd.Parameters.AddWithValue("@HiringDate", hiringDateTime);
+                    
                     cmd.Parameters.AddWithValue("@Salary", employee.vSalary);
                     cmd.Parameters.AddWithValue("@Sexe", employee.vSexe);
                     cmd.Parameters.AddWithValue("@Active", employee.vActive);
@@ -481,7 +489,7 @@ namespace _3.Control
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error updating client: " + ex.Message);
+                MessageBox.Show("Error updating employee: " + ex.Message);
             }
         }
 

@@ -54,13 +54,14 @@
             // butUpdateEmployee
             // 
             this.butUpdateEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.butUpdateEmployee.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.butUpdateEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butUpdateEmployee.Location = new System.Drawing.Point(610, 21);
             this.butUpdateEmployee.Name = "butUpdateEmployee";
             this.butUpdateEmployee.Size = new System.Drawing.Size(109, 28);
             this.butUpdateEmployee.TabIndex = 8;
             this.butUpdateEmployee.Text = "Edit Employee";
-            this.butUpdateEmployee.UseVisualStyleBackColor = true;
+            this.butUpdateEmployee.UseVisualStyleBackColor = false;
             this.butUpdateEmployee.Click += new System.EventHandler(this.butUpdateEmployee_Click);
             // 
             // butDeleteEmployee

@@ -50,6 +50,8 @@
             this.labelName = new System.Windows.Forms.Label();
             this.textBoxNumber = new System.Windows.Forms.TextBox();
             this.labelNumber = new System.Windows.Forms.Label();
+            this.textBoxIDAgenceEmoyee = new System.Windows.Forms.TextBox();
+            this.labelIDAgence = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labeID
@@ -91,7 +93,7 @@
             // 
             // textBoxActive
             // 
-            this.textBoxActive.Location = new System.Drawing.Point(264, 456);
+            this.textBoxActive.Location = new System.Drawing.Point(264, 448);
             this.textBoxActive.Name = "textBoxActive";
             this.textBoxActive.Size = new System.Drawing.Size(272, 20);
             this.textBoxActive.TabIndex = 49;
@@ -99,7 +101,7 @@
             // labelActive
             // 
             this.labelActive.AutoSize = true;
-            this.labelActive.Location = new System.Drawing.Point(111, 462);
+            this.labelActive.Location = new System.Drawing.Point(111, 454);
             this.labelActive.Name = "labelActive";
             this.labelActive.Size = new System.Drawing.Size(37, 13);
             this.labelActive.TabIndex = 48;
@@ -107,7 +109,7 @@
             // 
             // textBoxSexe
             // 
-            this.textBoxSexe.Location = new System.Drawing.Point(264, 405);
+            this.textBoxSexe.Location = new System.Drawing.Point(264, 397);
             this.textBoxSexe.Name = "textBoxSexe";
             this.textBoxSexe.Size = new System.Drawing.Size(272, 20);
             this.textBoxSexe.TabIndex = 45;
@@ -115,7 +117,7 @@
             // labelSexe
             // 
             this.labelSexe.AutoSize = true;
-            this.labelSexe.Location = new System.Drawing.Point(111, 411);
+            this.labelSexe.Location = new System.Drawing.Point(111, 403);
             this.labelSexe.Name = "labelSexe";
             this.labelSexe.Size = new System.Drawing.Size(31, 13);
             this.labelSexe.TabIndex = 44;
@@ -233,11 +235,29 @@
             this.labelNumber.TabIndex = 28;
             this.labelNumber.Text = "Number";
             // 
+            // textBoxIDAgenceEmoyee
+            // 
+            this.textBoxIDAgenceEmoyee.Location = new System.Drawing.Point(263, 488);
+            this.textBoxIDAgenceEmoyee.Name = "textBoxIDAgenceEmoyee";
+            this.textBoxIDAgenceEmoyee.Size = new System.Drawing.Size(272, 20);
+            this.textBoxIDAgenceEmoyee.TabIndex = 55;
+            // 
+            // labelIDAgence
+            // 
+            this.labelIDAgence.AutoSize = true;
+            this.labelIDAgence.Location = new System.Drawing.Point(107, 495);
+            this.labelIDAgence.Name = "labelIDAgence";
+            this.labelIDAgence.Size = new System.Drawing.Size(62, 13);
+            this.labelIDAgence.TabIndex = 56;
+            this.labelIDAgence.Text = "IDAGENCE";
+            // 
             // CreateandEditEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(646, 658);
+            this.Controls.Add(this.labelIDAgence);
+            this.Controls.Add(this.textBoxIDAgenceEmoyee);
             this.Controls.Add(this.labeID);
             this.Controls.Add(this.labelEmployeeID);
             this.Controls.Add(this.buttonCancel);
@@ -291,5 +311,7 @@
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.TextBox textBoxNumber;
         private System.Windows.Forms.Label labelNumber;
+        private System.Windows.Forms.TextBox textBoxIDAgenceEmoyee;
+        private System.Windows.Forms.Label labelIDAgence;
     }
 }

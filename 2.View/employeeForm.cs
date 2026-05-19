@@ -47,8 +47,8 @@ namespace _2.View
                 row["PHOTO"] = employee.vPhoto;
                 // null values for HIRINGDATA will be set to DBNull.Value, otherwise convert to DateTime
                 row["HIRINGDATA"] = employee.vHiringDate != null
-                ? new DateTime(employee.vHiringDate.vYear, employee.vHiringDate.vMonth, employee.vHiringDate.vDay)
-                : (object)DBNull.Value;
+                    ? new DateTime(employee.vHiringDate.vYear, employee.vHiringDate.vMonth, employee.vHiringDate.vDay)
+                    : (object)DBNull.Value;
                 row["SALARY"] = employee.vSalary;
                 row["SEXE"] = employee.vSexe;
                 row["ACTIVE"] = employee.vActive;
@@ -56,7 +56,6 @@ namespace _2.View
                 
                 datatable.Rows.Add(row);
             }
-            
             this.gridViewemployeesTable.DataSource = datatable;
         }
 

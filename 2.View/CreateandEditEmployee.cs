@@ -44,19 +44,16 @@ namespace _2.View
             this.textBoxLastName.Text = employee.vLastName;
             this.textBoxEMail.Text = employee.vEMail;
             this.textBoxImagen.Text = employee.vPhoto;
-
             // Convert Date -> string using ShowDate(), handle null
             this.textBoxHiringDate.Text = employee.vHiringDate != null
                 ? employee.vHiringDate.ShowDate()
                 : string.Empty;
-
             // Convert Decimal -> string using current culture
             this.textBoxSalary.Text = employee.vSalary.ToString(System.Globalization.CultureInfo.CurrentCulture);
-
             this.textBoxSexe.Text = employee.vSexe;
             this.textBoxActive.Text = employee.vActive;
-
             this.employeeId = employee.vId;
+            this.textBoxIDAgenceEmoyee.Text = employee.vIdAgences.ToString();
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
@@ -90,18 +87,15 @@ namespace _2.View
                 this.DialogResult = DialogResult.Cancel;
                 return;
             }
-
-
-
-
-            // Basic validation
-            //if (string.IsNullOrEmpty(number))
-            //{
-            //    MessageBox.Show("Please enter a employee number.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    this.DialogResult = DialogResult.Cancel;
-            //    return;
-            //}
-
+            // Parse age safely
+            int idAgenceValue = 0;
+            string idAgencText = this.textBoxIDAgenceEmoyee.Text?.Trim() ?? string.Empty;
+            if (!string.IsNullOrEmpty(idAgencText) && !int.TryParse(idAgencText, out idAgenceValue))
+            {
+                MessageBox.Show("Please enter a valid IDAGENCE.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.DialogResult = DialogResult.Cancel;
+                return;
+            }
             // Duplicate check
             if (agency.vListEmployees != null && agency.vListEmployees.Exist(numberValue))
             {
@@ -244,7 +238,8 @@ namespace _2.View
                 vHiringDate = hiringDateObj,
                 vSalary = salaryValue, // monetary type (decimal)
                 vSexe = this.textBoxSexe.Text?.Trim() ?? string.Empty,
-                vActive = this.textBoxActive.Text?.Trim() ?? string.Empty
+                vActive = this.textBoxActive.Text?.Trim() ?? string.Empty,
+                vIdAgences = idAgenceValue
             };
 
             // Add to list and set DialogResult based on outcome

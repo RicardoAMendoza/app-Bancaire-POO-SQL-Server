@@ -179,14 +179,9 @@ namespace _2.View
                     added = agency.vListClients.Add(client);
 
                     if (client.vId == 0)
-                    {
-                        // Additionally, call CreateClient if needed, saved in database
-                        obj.CreateClient(client);
-                    }
+                        obj.CreateClient(client);  // New client → INSERT
                     else
-                    {                         // If editing existing client, update in database
-                        obj.UpdateClient(client);
-                    }
+                        obj.UpdateClient(client);  // Existing → UPDATE
 
                 }
                 catch (Exception ex)
