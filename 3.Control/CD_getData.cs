@@ -428,29 +428,31 @@ namespace _3.Control
             {
                 Command.Connection = Connection.OpenConnection();
                 string sql = @"
-                        INSERT INTO temploye (nomdeFamille, nom, courriel, img, hiringDate, salary, sexe, active)
-                        VALUES (@Name, @LastName, @Email, @Photo, @HiringDate, @Salary, @Sexe, @Active)";
-                using (SqlCommand cmd = new SqlCommand(sql, Command.Connection))
-                {
-                    cmd.Parameters.AddWithValue("@Name", employee.vName);
-                    cmd.Parameters.AddWithValue("@LastName", employee.vLastName);
-                    cmd.Parameters.AddWithValue("@Email", employee.vEMail);
-                    cmd.Parameters.AddWithValue("@Photo", employee.vPhoto);
-                    
-                    // Convert Date to DateTime - use public properties vYear, vMonth, vDay
-                    DateTime hiringDateTime = new DateTime(employee.vHiringDate.vYear, employee.vHiringDate.vMonth, employee.vHiringDate.vDay);
-                    cmd.Parameters.AddWithValue("@HiringDate", hiringDateTime);
-                    
-                    cmd.Parameters.AddWithValue("@Salary", employee.vSalary);
-                    cmd.Parameters.AddWithValue("@Sexe", employee.vSexe);
-                    cmd.Parameters.AddWithValue("@Active", employee.vActive);
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error creating employee: " + ex.Message);
-            }
+                INSERT INTO temploye (nomdeFamille, nom, courriel, img, hiringDate, salary, sexe, active, idagences)
+                VALUES (@Name, @LastName, @Email, @Photo, @HiringDate, @Salary, @Sexe, @Active, @Idagences)";
+        using (SqlCommand cmd = new SqlCommand(sql, Command.Connection))
+        {
+            cmd.Parameters.AddWithValue("@Name", employee.vName);
+            cmd.Parameters.AddWithValue("@LastName", employee.vLastName);
+            cmd.Parameters.AddWithValue("@Email", employee.vEMail);
+            cmd.Parameters.AddWithValue("@Photo", employee.vPhoto);
+            
+            DateTime hiringDateTime = new DateTime(employee.vHiringDate.vYear, employee.vHiringDate.vMonth, employee.vHiringDate.vDay);
+            cmd.Parameters.AddWithValue("@HiringDate", hiringDateTime);
+            
+            cmd.Parameters.AddWithValue("@Salary", employee.vSalary);
+            cmd.Parameters.AddWithValue("@Sexe", employee.vSexe);
+            cmd.Parameters.AddWithValue("@Active", employee.vActive);
+            cmd.Parameters.AddWithValue("@Idagences", employee.vIdAgences);
+            cmd.ExecuteNonQuery();
+        }
+        Connection.CloseConnection();
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show("Error creating employee: " + ex.Message);
+        Connection.CloseConnection();
+    }
         }
         public void UpdateEmployee(Employee employee)
         {
@@ -467,29 +469,40 @@ namespace _3.Control
                     hiringdate = @HiringDate,
                     salary = @Salary,
                     sexe = @Sexe,
-                    active = @Active
+                    active = @Active,
+                    idagences = @IdAgences
                 WHERE idemploye = @IdEmploye";
                 using (SqlCommand cmd = new SqlCommand(sql, Command.Connection))
                 {
-                    cmd.Parameters.AddWithValue("@IdEmploye", employee.vId); // Fixed: was @IdClient
+                    cmd.Parameters.AddWithValue("@IdEmploye", employee.vId);
                     cmd.Parameters.AddWithValue("@Name", employee.vName);
                     cmd.Parameters.AddWithValue("@LastName", employee.vLastName);
                     cmd.Parameters.AddWithValue("@Email", employee.vEMail);
                     cmd.Parameters.AddWithValue("@Photo", employee.vPhoto);
                     
-                    // Convert Date to DateTime - use public properties vYear, vMonth, vDay
-                    DateTime hiringDateTime = new DateTime(employee.vHiringDate.vYear, employee.vHiringDate.vMonth, employee.vHiringDate.vDay);
-                    cmd.Parameters.AddWithValue("@HiringDate", hiringDateTime);
+                    // Null check for vHiringDate
+                    if (employee.vHiringDate != null)
+                    {
+                        DateTime hiringDateTime = new DateTime(employee.vHiringDate.vYear, employee.vHiringDate.vMonth, employee.vHiringDate.vDay);
+                        cmd.Parameters.AddWithValue("@HiringDate", hiringDateTime);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@HiringDate", DBNull.Value);
+                    }
                     
                     cmd.Parameters.AddWithValue("@Salary", employee.vSalary);
                     cmd.Parameters.AddWithValue("@Sexe", employee.vSexe);
                     cmd.Parameters.AddWithValue("@Active", employee.vActive);
+                    cmd.Parameters.AddWithValue("@IdAgences", employee.vIdAgences);
                     cmd.ExecuteNonQuery();
                 }
+                Connection.CloseConnection(); // ADD THIS
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error updating employee: " + ex.Message);
+                Connection.CloseConnection(); // ADD THIS in catch block too
             }
         }
 
