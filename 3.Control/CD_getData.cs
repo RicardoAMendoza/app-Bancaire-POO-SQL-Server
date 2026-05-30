@@ -31,7 +31,6 @@ namespace _3.Control
         // 3 . Read Rows
         private SqlDataReader Read;
 
-        
         public DataTable DirectorList()
         {
             try
@@ -87,7 +86,138 @@ namespace _3.Control
                 return null;
             }
         }
+        // GetAgenceById, CreateAgence, UpdateAgence, DeleteAgence
 
+        public Agency GetAgenceById(int IdAgency)
+        {
+            try
+            {
+                Command.Connection = Connection.OpenConnection();
+                string sql = @"
+                                   SELECT
+                                        a.idagences AS IDAGENCES,
+                                        a.nom AS NAME,                          
+                                        a.adresse AS ADDRESS,                          
+                                        a.idbanque AS IDBANQUE
+                                    FROM tagences a
+                                WHERE idagences = @idagences";
+                using (SqlCommand cmd = new SqlCommand(sql, Command.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@idagences", IdAgency);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Client fields (null-safe)
+                            int vId = reader["IDAGENCES"] != DBNull.Value ? Convert.ToInt32(reader["IDAGENCES"]) : 0;
+                            string vName = reader["NAME"] as string ?? string.Empty;
+                            string vAddress = reader["ADDRESS"] as string ?? string.Empty;
+                            // idbanque
+                            int vIdBanque = reader["IDBANQUE"] != DBNull.Value ? Convert.ToInt32(reader["IDBANQUE"]) : 0;
+                            Agency agency;
+                            try
+                            {
+                                agency = new Agency(vId, vName, vAddress, vIdBanque );
+                            }
+                            catch
+                            {
+                                // Fallback: use default constructor and set public properties
+                                agency = new Agency();
+                                agency.vAgencyName = vName;
+                                agency.vAgencyAddress = vAddress;
+                            }
+                            return agency;
+                        }
+                        else
+                        {
+                            return null; // Agency not found
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error retrieving agency: " + ex.Message);
+                return null;
+            }
+        }
+
+        public void CreateAgence(Agency agence)
+        {
+            try
+            {
+                Command.Connection = Connection.OpenConnection();
+                string sql = @"
+                         INSERT INTO tagences
+                         (nom, adresse, idbanque)
+                         VALUES
+                         (@Name, @Adresse, @iDBanque)";
+                using (SqlCommand cmd = new SqlCommand(sql, Command.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@Name", agence.vAgencyName);
+                    cmd.Parameters.AddWithValue("@Adresse", agence.vAgencyAddress);
+                    //IDBANQUE
+                    cmd.Parameters.AddWithValue("@iDBanque", agence.vIdBanque);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error creating agency : " + ex.Message);
+            }
+        }
+
+        public void UpdateAgence(Agency agency)
+        {
+            try
+            {
+                Command.Connection = Connection.OpenConnection();
+                string sql = @"
+                        UPDATE tagences
+                        SET 
+                            nom = @LastName,
+                            adresse = @Address,
+                            idbanque = @CardNumber,
+                        WHERE idagences = @IdClient";
+                using (SqlCommand cmd = new SqlCommand(sql, Command.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@IdClient", client.vId);
+                    cmd.Parameters.AddWithValue("@Name", client.vName);
+                    cmd.Parameters.AddWithValue("@LastName", client.vLastName);
+                    cmd.Parameters.AddWithValue("@Email", client.vEMail);
+                    cmd.Parameters.AddWithValue("@Photo", client.vPhoto);
+                    cmd.Parameters.AddWithValue("@Address", client.vAddress);
+                    cmd.Parameters.AddWithValue("@CardNumber", client.vNumerodeCarte);
+                    cmd.Parameters.AddWithValue("@Nip", client.vNip);
+                    cmd.Parameters.AddWithValue("@Sexe", client.vSexe);
+                    cmd.Parameters.AddWithValue("@Age", client.vAge);
+                    cmd.Parameters.AddWithValue("@Active", client.vActive);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating client: " + ex.Message);
+            }
+        }
+        public void DeleteAgence(int agenceId)
+        {
+            try
+            {
+                Command.Connection = Connection.OpenConnection();
+                string sql = "DELETE FROM tagences WHERE idagences = @IdAgence";
+                using (SqlCommand cmd = new SqlCommand(sql, Command.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@IdAgence", agenceId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting agence: " + ex.Message);
+            }
+        }
         public DataTable ClientList()
         {
             try
@@ -188,7 +318,6 @@ namespace _3.Control
                             {
                                 return null; // Client not found
                             }
-
                         }
                     }
             }
@@ -197,7 +326,6 @@ namespace _3.Control
                 MessageBox.Show("Error retrieving client: " + ex.Message);
                 return null;
             }
-
         }
 
         public void CreateClient(Client client)
@@ -353,7 +481,6 @@ namespace _3.Control
                         if (reader.Read())
                         {
                             int ordId = reader.GetOrdinal("IDEMPLOYEE");
-                          //  int ordNumber = reader.GetOrdinal("NUMBER");
                             int ordName = reader.GetOrdinal("NAME");
                             int ordLast = reader.GetOrdinal("lastName");
                             int ordEmail = reader.GetOrdinal("eMAIL");
@@ -362,21 +489,17 @@ namespace _3.Control
                             int ordSalary = reader.GetOrdinal("SALARY");
                             int ordSexe = reader.GetOrdinal("SEXE");
                             int ordActive = reader.GetOrdinal("ACTIVE");
-
                             int vIdEmployee = !reader.IsDBNull(ordId) ? reader.GetInt32(ordId) : 0;
-                          //  int vNumber = !reader.IsDBNull(ordNumber) ? reader.GetInt32(ordNumber) : 0;
                             string vName = !reader.IsDBNull(ordName) ? reader.GetString(ordName) : string.Empty;
                             string vLastName = !reader.IsDBNull(ordLast) ? reader.GetString(ordLast) : string.Empty;
                             string vEmail = !reader.IsDBNull(ordEmail) ? reader.GetString(ordEmail) : string.Empty;
                             string vPhoto = !reader.IsDBNull(ordPhoto) ? reader.GetString(ordPhoto) : string.Empty;
-
                             Date vHiringDate = null;
                             if (!reader.IsDBNull(ordHiring))
                             {
                                 DateTime dt = reader.GetDateTime(ordHiring);
                                 vHiringDate = new Date(dt.Day, dt.Month, dt.Year);
                             }
-
                             decimal vSalary = !reader.IsDBNull(ordSalary) ? reader.GetDecimal(ordSalary) : 0m;
                             string vSexe = !reader.IsDBNull(ordSexe) ? reader.GetString(ordSexe) : string.Empty;
                             string vActive = !reader.IsDBNull(ordActive) ? reader.GetString(ordActive) : string.Empty;
@@ -390,15 +513,13 @@ namespace _3.Control
                             {
                                 // Fallback: use default constructor and set public properties
                                 employee = new Employee();
-                               // employee.vNumber = vNumber;
+                                // employee.vNumber = vNumber;
                                 employee.vName = vName;
                                 employee.vLastName = vLastName;
                                 employee.vEMail = vEmail;
                                 employee.vPhoto = vPhoto;
                                 employee.vHiringDate = vHiringDate;
                                 employee.vSalary = vSalary;
-
-
                                 employee.vSexe = vSexe;
                                 employee.vActive = vActive;
                                 
@@ -419,7 +540,6 @@ namespace _3.Control
                 MessageBox.Show("Error retrieving client: " + ex.Message);
                 return null;
             }
-
         }
 
         public void CreateEmployee(Employee employee)
@@ -544,8 +664,6 @@ namespace _3.Control
                 MessageBox.Show("Error in the Model executing the function ReaderEmployee : " + " " + ex.Message);
                 return null;
             }
-
-
         }
 
         public void DeleteEmploye(int employeId)

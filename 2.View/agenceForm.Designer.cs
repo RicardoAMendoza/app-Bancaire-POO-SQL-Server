@@ -61,6 +61,7 @@
             this.butUpdateAgence.TabIndex = 8;
             this.butUpdateAgence.Text = "Edit Agence";
             this.butUpdateAgence.UseVisualStyleBackColor = true;
+            this.butUpdateAgence.Click += new System.EventHandler(this.butUpdateAgence_Click);
             // 
             // butDeleteAgence
             // 
@@ -84,6 +85,7 @@
             this.butAddAgence.TabIndex = 6;
             this.butAddAgence.Text = "AddAgence";
             this.butAddAgence.UseVisualStyleBackColor = true;
+            this.butAddAgence.Click += new System.EventHandler(this.butAddAgence_Click);
             // 
             // agenceForm
             // 

@@ -151,7 +151,7 @@ namespace _2.View
             // Fix: Remove extra dot and brackets, use correct property names
             if (gridViewclientsTable.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Please select a client to edit.");
+                MessageBox.Show("Please select a agence to Delete.");
                 return;
             }
             var val = this.gridViewclientsTable.SelectedRows[0].Cells[0].Value?.ToString();

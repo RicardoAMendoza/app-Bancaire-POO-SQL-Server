@@ -76,8 +76,6 @@ namespace _2.View
             this.Text = "Edit Client";
             this.labelClientID.Text = "Edit Client";
             this.labeID.Text = " ID: " + client.vId.ToString();
-
-        
             this.textBoxName.Text = client.vName;
             this.textBoxLastName.Text = client.vLastName;
             this.textBoxEMail.Text = client.vEMail;
@@ -152,8 +150,7 @@ namespace _2.View
             // Create and populate client
             var client = new Client()
             {
-                vId = this.clientId,
-               
+                vId = this.clientId, 
                 vName = name,
                 vLastName = lastName,
                 vEMail = this.textBoxEMail.Text?.Trim() ?? string.Empty,

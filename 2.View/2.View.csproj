@@ -52,6 +52,12 @@
     <Compile Include="agenceForm.Designer.cs">
       <DependentUpon>agenceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateandEditAgences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateandEditAgences.Designer.cs">
+      <DependentUpon>CreateandEditAgences.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateandEditClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="agenceForm.resx">
       <DependentUpon>agenceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateandEditAgences.resx">
+      <DependentUpon>CreateandEditAgences.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateandEditClient.resx">
       <DependentUpon>CreateandEditClient.cs</DependentUpon>

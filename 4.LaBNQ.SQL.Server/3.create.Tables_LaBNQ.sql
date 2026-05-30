@@ -175,6 +175,10 @@ REFERENCES tdirecteur(iddirecteur)
 ALTER TABLE tdirecteur_agence ADD
 CONSTRAINT fk_tdirecteur_agence_idagences FOREIGN KEY(idagences)
 REFERENCES tagences(idagences)
+-- CASCADE -- ------------------------------------------
+-- idagences
+ON UPDATE CASCADE
+ON DELETE CASCADE
 
 
 -- =====================================================
@@ -230,10 +234,14 @@ CONSTRAINT pk_idemploye PRIMARY KEY(idemploye)
 ALTER TABLE temploye ADD 
 CONSTRAINT fk_temploye_idagences FOREIGN KEY (idagences) 
 REFERENCES tagences(idagences)
+-- CASCADE -- ------------------------------------------
+-- idagences
+--ON UPDATE CASCADE
+--ON DELETE CASCADE
 
 --USE bdLaBanqueNationaleduQuebec
 --GO
---SELECT * FROM temploye
+SELECT * FROM temploye
 
 -- =====================================================
 -- TABLE for Data

@@ -23,9 +23,9 @@ EXEC sp_save_tlabanqueduQuebec
 @acapital = 100000000,
 @aadresse = "1000 rue Masson, Mntreal, Canada, H4N3N1"
 
-USE [bdLaBanqueNationaleduQuebec]
-GO
-SELECT * FROM tlabanqueduQuebec
+--USE [bdLaBanqueNationaleduQuebec]
+--GO
+--SELECT * FROM tlabanqueduQuebec
 
 -- -----------------------------------------------------
 -- 2. EXEC  sp_save_tconseil
