@@ -10,39 +10,48 @@ namespace _1.Model.Model
 {
     public class Agency
     {
+        // Attributes
         private int IdAgency;
         private string AgencyName;
         private string AgencyAddress;
         private int idBanque;
-        private int agencyIdCounter;
-        private static int staticNbcounter;
+        // Colections
         private ListEmployees listEmployees = new ListEmployees();
         private ListClients listClients = new ListClients();
-
+        // Counter
+        private int agencyIdCounter;
+        private static int staticNbcounter;
+        // Constructor
         public Agency(int vIdAgency, string vName, string vAddress, int idBanque)
         {
             IdAgency = vIdAgency;
             AgencyName = vName;
             AgencyAddress = vAddress;
             this.idBanque = idBanque;
+
             agencyIdCounter = 0;
             staticNbcounter++;   
         }
+        // Colections
         public Agency(ListClients vListClients, ListEmployees vListEmployees)
         {
             listClients = vListClients;
             listEmployees = vListEmployees;
+
             agencyIdCounter = 0;
             staticNbcounter++;
         }
+        // Empty constructor
         public Agency()
         {
             
             AgencyName = EmptyConstructor.stringEmptyConstructor();
             AgencyAddress = EmptyConstructor.stringEmptyConstructor();
+
             agencyIdCounter = 0;
             staticNbcounter++;
         }
+        // Properties - Colections
         public ListClients vListClients
         {
             get { return listClients; }

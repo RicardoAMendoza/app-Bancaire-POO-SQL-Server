@@ -92,6 +92,7 @@ namespace _2.View
                     try
                     {
                         // ListClients.Add returns bool according to signature
+                      //  added = BanqueNationaleduQuebec.vListAgencies.Add(agency);
                         added = BanqueNationaleduQuebec.vListAgencies.Add(agency);
 
                         if (agency.vIdAgency == 0)
@@ -113,10 +114,10 @@ namespace _2.View
                 }
                 else
                 {
-                    MessageBox.Show("The client could not be added.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Set to Cancel here
                     this.DialogResult = DialogResult.Cancel;
                 }
-                this.DialogResult = DialogResult.OK;
+                this.DialogResult = DialogResult.OK;  // ❌ This always runs, defeating the logic above!
                 this.Close();
             }
             catch (Exception ex)

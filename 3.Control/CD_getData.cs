@@ -168,7 +168,7 @@ namespace _3.Control
             }
         }
 
-        public void UpdateAgence(Agency agency)
+        public bool UpdateAgence(Agency agency)
         {
             try
             {
@@ -176,29 +176,29 @@ namespace _3.Control
                 string sql = @"
                         UPDATE tagences
                         SET 
-                            nom = @LastName,
+                            nom = @Name,
                             adresse = @Address,
-                            idbanque = @CardNumber,
-                        WHERE idagences = @IdClient";
+                            idbanque = @IdBanque
+                        WHERE idagences = @IdAgence";
+        
                 using (SqlCommand cmd = new SqlCommand(sql, Command.Connection))
                 {
-                    cmd.Parameters.AddWithValue("@IdClient", client.vId);
-                    cmd.Parameters.AddWithValue("@Name", client.vName);
-                    cmd.Parameters.AddWithValue("@LastName", client.vLastName);
-                    cmd.Parameters.AddWithValue("@Email", client.vEMail);
-                    cmd.Parameters.AddWithValue("@Photo", client.vPhoto);
-                    cmd.Parameters.AddWithValue("@Address", client.vAddress);
-                    cmd.Parameters.AddWithValue("@CardNumber", client.vNumerodeCarte);
-                    cmd.Parameters.AddWithValue("@Nip", client.vNip);
-                    cmd.Parameters.AddWithValue("@Sexe", client.vSexe);
-                    cmd.Parameters.AddWithValue("@Age", client.vAge);
-                    cmd.Parameters.AddWithValue("@Active", client.vActive);
-                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.AddWithValue("@IdAgence", agency.vIdAgency);
+                    cmd.Parameters.AddWithValue("@Name", agency.vAgencyName);
+                    cmd.Parameters.AddWithValue("@Address", agency.vAgencyAddress);
+                    cmd.Parameters.AddWithValue("@IdBanque", agency.vIdBanque);
+            
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    Connection.CloseConnection();
+            
+                    return rowsAffected > 0;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error updating client: " + ex.Message);
+                MessageBox.Show("Error updating agency: " + ex.Message);
+                Connection.CloseConnection();
+                return false;
             }
         }
         public void DeleteAgence(int agenceId)

@@ -19,26 +19,31 @@ namespace _1.Model.Model
         // Colections
         private ListAgencies listAgencies = new ListAgencies();
         private ListDirectors listDirectors = new ListDirectors();
-
-        private static int staticNbcounter;
+        // Counter
         public int bancIdCounter;
-
+        private static int staticNbcounter;
         // Constructors
-        public BanqueNationaleduQuebec(ListAgencies vListAgencies, ListDirectors vListDirectors)
-        {
-            listAgencies = vListAgencies;
-            listDirectors = vListDirectors;
-            bancIdCounter = ++staticNbcounter;
-        }
-        public BanqueNationaleduQuebec(int vIdbanque, int vBankNumber, string vBankName, decimal vCapital,string vBankAddress)
+        public BanqueNationaleduQuebec(int vIdbanque, int vBankNumber, string vBankName, decimal vCapital, string vBankAddress)
         {
             Idbanque = vIdbanque;
             bankNumber = vBankNumber;
             bankName = vBankName;
             Capital = vCapital;
             bankAddress = vBankAddress;
-            bancIdCounter = ++staticNbcounter;
+
+            bancIdCounter = 0;
+            staticNbcounter++;
         }
+        // Colections
+        public BanqueNationaleduQuebec(ListAgencies vListAgencies, ListDirectors vListDirectors)
+        {
+            listAgencies = vListAgencies;
+            listDirectors = vListDirectors;
+
+            bancIdCounter = 0;
+            staticNbcounter++;
+        }
+        // Empty constructor
         public BanqueNationaleduQuebec()
         {
             Idbanque = EmptyConstructor.intEmptyConstructor();
@@ -46,11 +51,21 @@ namespace _1.Model.Model
             bankName = EmptyConstructor.stringEmptyConstructor();
             bankAddress = EmptyConstructor.stringEmptyConstructor();
             Capital = EmptyConstructor.decimalEmptyConstructor();
-            listAgencies = null;
-            listDirectors = null;
-            bancIdCounter = ++staticNbcounter;
+
+            bancIdCounter = 0;
+            staticNbcounter++;
         }
-        // propierties
+        // Propierties
+        public ListAgencies vListAgencies
+        {
+            get { return listAgencies; }
+            set { listAgencies = value; }
+        }
+        public ListDirectors vListDirectors
+        {
+            get { return listDirectors; }
+            set { listDirectors = value; }
+        }
         public int vIdbanque
         {
             get { return Idbanque; }
@@ -82,16 +97,7 @@ namespace _1.Model.Model
             set { bankAddress = value; }
         }
         
-        public ListAgencies vListAgencies
-        {
-            get { return listAgencies; }
-            set { listAgencies = value; }
-        }
-        public ListDirectors vListDirectors
-        {
-            get { return listDirectors; }
-            set { listDirectors = value; }
-        }
+       
 
         // Functions
         public void OpenaBank(int vBankNumber, string vBankName, decimal vCapital, string vBankAddress,  ListAgencies vListAgencies, ListDirectors vListDirectors)
